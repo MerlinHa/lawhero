@@ -28,8 +28,9 @@
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
-  align-items: center;
+  // align-items: center;
   justify-content: center;
+  align-conter: center;
 }
 
 .banner-customers-background {
@@ -45,5 +46,10 @@
   background: linear-gradient(45deg, rgba(0,178,166,1) 0%, rgba(31,72,126,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b2a6', endColorstr='#1f487e', GradientType=1 );
   width: 100%;
-  height: 500px;
+  // height: 500px;
+}
+
+.banner-customers-content {
+  display:flex;
+  flex-direction: column;
 }
