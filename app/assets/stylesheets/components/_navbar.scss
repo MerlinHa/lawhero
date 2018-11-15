@@ -21,6 +21,11 @@
   font-family: Open sans !important;
 }
 
+.navbar-logo-container:hover {
+  .navbar-logo-lawhero {opacity: 0.9;};
+  .navbar-name {opacity: 0.6}
+}
+
 .navbar-logo-container {
   display: flex;
   align-items: center;
@@ -67,8 +72,14 @@
   border-width: 2px !important;
 }
 
+.navbar-lawhero .btn:hover {
+  opacity: 0.6;
+  border-color: $blue !important;
+  text-decoration: none;
+}
+
 .navbar-link:hover {
-  color: $blue;
+  opacity: 0.6;
   text-decoration: none;
 }
 
