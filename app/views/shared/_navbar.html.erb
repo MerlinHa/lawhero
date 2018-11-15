@@ -1,23 +1,18 @@
 <div class="navbar-lawhero">
   <!-- Logo -->
-
-<div class="flex-container">
-    <a href="/" class="navbar-lawhero-brand">
-    <img src="images/legalhero.svg" alt="logo">
-    <a href="" class="navbar-lawhero-logo-name">Lawhero</a>
-    </a>
-</div>
-
-  <!-- Right Navigation -->
-  <div class="navbar-lawhero-right hidden-xs hidden-sm">
-
-    <a href="" class="navbar-lawhero-item navbar-lawhero-link">How it works</a>
-    <a href="" class="navbar-lawhero-item navbar-lawhero-link">About</a>
-    <a href="" class="navbar-lawhero-item navbar-lawhero-link">Lawyers</a>
-    <a href="#" class="btn-treehouse">Login in</a>
-
-
+  <div class="navbar-logo-container">
+    <%= link_to image_tag("lawhero", width: 50, height: 50, class: "navbar-logo-items"), root_path %>
+    <a href="/" class="navbar-name navbar-logo-items">Lawhero</a>
   </div>
+
+    <!-- Right Navigation -->
+    <div class="navbar-right">
+      <a href="" class="navbar-link">How it works</a>
+      <a href="" class="navbar-link">About</a>
+      <a href="" class="navbar-link">Lawyers</a>
+      <a href="#" class="btn btn-primary">Login in</a>
+
+    </div>
 </div>
 
 
