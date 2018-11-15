@@ -1,0 +1,24 @@
+.card-pros-all {
+  padding: 0 60px;
+  }
+
+.card-pros {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 10px 40px 10px;
+}
+
+.card-pros-icon {
+  font-size: 50px;
+  color: $green;
+}
+
+.card-pros-title {
+  color: $green;
+  p {font-size: 16px; font-weight: bold};
+}
+
+.card-pros-content {
+  color: $blue;
+}
