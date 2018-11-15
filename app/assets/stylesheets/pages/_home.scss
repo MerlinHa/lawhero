@@ -1,7 +1,8 @@
 // Specific CSS for your home-page
 .lawyer-search-form {
   display:flex;
-  input {margin: 0px 10px; border-radius: 5px}
+  input {margin: 0px 10px; border-radius: 5px; color: $blue}
+  .btn-primary {font-weight: bold; color: white}
 }
 
 
