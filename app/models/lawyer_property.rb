@@ -1,4 +1,4 @@
-class LawyerAttribute < ApplicationRecord
+class LawyerProperty < ApplicationRecord
   belongs_to :property, polymorphic: true
   belongs_to :lawyer
 end

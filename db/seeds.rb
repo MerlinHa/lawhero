@@ -8,7 +8,7 @@
 
 Lawyer.destroy_all
 User.destroy_all
-LawyerAttribute.destroy_all
+LawyerProperty.destroy_all
 Language.destroy_all
 Communication.destroy_all
 PaymentType.destroy_all
@@ -83,33 +83,36 @@ lawyer_a = Lawyer.create!(
 # lawyer_a.save
 
 # lang = Language.all.sample
-LawyerAttribute.create!({lawyer_id: Lawyer.all.sample.id, property: Language.all.sample})
+LawyerProperty.create!({lawyer_id: Lawyer.all.sample.id, property: Language.all.sample})
+LawyerProperty.create!({lawyer_id: Lawyer.all.sample.id, property: Communication.all.sample})
+LawyerProperty.create!({lawyer_id: Lawyer.all.sample.id, property: PaymentType.all.sample})
+LawyerProperty.create!({lawyer_id: Lawyer.all.sample.id, property: LawField.all.sample})
 
 # # attr_id: lang.primary_key (:id)
 # # attr_type: lang.class.to_s
-LawyerAttribute.create!([
-  {lawyer_id: Lawyer.all.sample.id,
-    attr_type: "Languages",
-    attr_id: Language.all.sample.id},
-  {lawyer_id: Lawyer.all.sample.id,
-  attr_type: "Languages",
-  attr_id: Language.all.sample.id},
-  {lawyer_id: Lawyer.all.sample.id,
-    attr_type: "Communications",
-    attr_id: Communication.all.sample.id},
-  {lawyer_id: Lawyer.all.sample.id,
-  attr_type: "Communications",
-  attr_id: Communication.all.sample.id},
-  {lawyer_id: Lawyer.all.sample.id,
-  attr_type: "Communications",
-  attr_id: Communication.all.sample.id},
-   {lawyer_id: Lawyer.all.sample.id,
-  attr_type: "PaymentTypes",
-  attr_id: PaymentType.all.sample.id},
-   {lawyer_id: Lawyer.all.sample.id,
-  attr_type: "LawFields",
-  attr_id: LawField.all.sample.id}
-])
+# LawyerAttribute.create!([
+#   {lawyer_id: Lawyer.all.sample.id,
+#     attr_type: "Languages",
+#     attr_id: Language.all.sample.id},
+#   {lawyer_id: Lawyer.all.sample.id,
+#   attr_type: "Languages",
+#   attr_id: Language.all.sample.id},
+#   {lawyer_id: Lawyer.all.sample.id,
+#     attr_type: "Communications",
+#     attr_id: Communication.all.sample.id},
+#   {lawyer_id: Lawyer.all.sample.id,
+#   attr_type: "Communications",
+#   attr_id: Communication.all.sample.id},
+#   {lawyer_id: Lawyer.all.sample.id,
+#   attr_type: "Communications",
+#   attr_id: Communication.all.sample.id},
+#    {lawyer_id: Lawyer.all.sample.id,
+#   attr_type: "PaymentTypes",
+#   attr_id: PaymentType.all.sample.id},
+#    {lawyer_id: Lawyer.all.sample.id,
+#   attr_type: "LawFields",
+#   attr_id: LawField.all.sample.id}
+# ])
 
 
 
