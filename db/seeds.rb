@@ -53,18 +53,19 @@ LawField.create([
   {content: "Transport Law"},
 ])
 
-user_a = User.create(
+user_a = User.create!(
   first_name: "Dereck",
   last_name: "Jones",
   lawyer: true,
   email: "dereck.jones@llp.com",
-  phone: "01235455693"
+  password: "helloworld",
+  phone: "01235455693",
+  remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542251451/law%20seeds/user_a.jpg"
 )
-user_a.remote_photo_url = "https://res.cloudinary.com/merlinha/image/upload/v1542251451/law%20seeds/user_a.jpg"
-user_a.save
 
-lawyer_a = Lawyer.create(
-  user_id: 1,
+
+lawyer_a = Lawyer.create!(
+  user: User.all.sample,
   short_desc: "Dereck is a senior family law lawyer, having practiced exclusively in this area since being called to the Alberta Bar in 1995. Dereck holds a B.A. (Hons.) from McGill University followed by his L..L.B. from the University of Alberta.
     As a skilled litigator, he has appeared successfully at all levels of court in Alberta as well as in numerous arbitrations. Dereck also has extensive experience in negotiating settlements...",
   long_desc: "Dereck is a senior family law lawyer, having practiced exclusively in this area since being called to the Alberta Bar in 1995. Dereck holds a B.A. (Hons.) from McGill University followed by his L..L.B. from the University of Alberta.
@@ -74,34 +75,40 @@ lawyer_a = Lawyer.create(
     Finally, Dereck is proud to contribute his time as a volunteer with several noteworthy organizations, including the Honens International Piano Competition.",
     email: "dereck@jonesdivorcelaw.com",
     phone: "0343543235325",
-    address: "210, 333 24th Avenue SW, Calgary, AB T2S 3E6"
+    address: "210, 333 24th Avenue SW, Calgary, AB T2S 3E6",
+    remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542251451/law%20seeds/user_a.jpg"
   )
 
-lawyer_a.remote_photo_url = "https://res.cloudinary.com/merlinha/image/upload/v1542251451/law%20seeds/user_a.jpg"
-lawyer_a.save
+# lawyer_a.remote_photo_url = "https://res.cloudinary.com/merlinha/image/upload/v1542251451/law%20seeds/user_a.jpg"
+# lawyer_a.save
 
-LawyerAttribute.create([
-  {lawyer_id: 1,
-    attr_type: "Language",
-    attr_id: 1},
-  {lawyer_id: 1,
-  attr_type: "Language",
-  attr_id: 2},
-  {lawyer_id: 1,
-    attr_type: "Communication",
-    attr_id: 1},
-  {lawyer_id: 1,
-  attr_type: "Communication",
-  attr_id: 2},
-  {lawyer_id: 1,
-  attr_type: "Communication",
-  attr_id: 3},
-   {lawyer_id: 1,
-  attr_type: "PaymentType",
-  attr_id: 1},
-   {lawyer_id: 1,
-  attr_type: "LawField",
-  attr_id: 5}
+# lang = Language.all.sample
+LawyerAttribute.create!({lawyer_id: Lawyer.all.sample.id, property: Language.all.sample})
+
+# # attr_id: lang.primary_key (:id)
+# # attr_type: lang.class.to_s
+LawyerAttribute.create!([
+  {lawyer_id: Lawyer.all.sample.id,
+    attr_type: "Languages",
+    attr_id: Language.all.sample.id},
+  {lawyer_id: Lawyer.all.sample.id,
+  attr_type: "Languages",
+  attr_id: Language.all.sample.id},
+  {lawyer_id: Lawyer.all.sample.id,
+    attr_type: "Communications",
+    attr_id: Communication.all.sample.id},
+  {lawyer_id: Lawyer.all.sample.id,
+  attr_type: "Communications",
+  attr_id: Communication.all.sample.id},
+  {lawyer_id: Lawyer.all.sample.id,
+  attr_type: "Communications",
+  attr_id: Communication.all.sample.id},
+   {lawyer_id: Lawyer.all.sample.id,
+  attr_type: "PaymentTypes",
+  attr_id: PaymentType.all.sample.id},
+   {lawyer_id: Lawyer.all.sample.id,
+  attr_type: "LawFields",
+  attr_id: LawField.all.sample.id}
 ])
 
 

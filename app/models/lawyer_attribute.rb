@@ -1,4 +1,8 @@
 class LawyerAttribute < ApplicationRecord
-  belongs_to :attr_id, polymorphic: true
+  belongs_to :property, polymorphic: true
   belongs_to :lawyer
 end
+
+# attr
+# attr_id
+# attr_type

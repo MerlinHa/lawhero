@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_15_032709) do
+ActiveRecord::Schema.define(version: 2018_11_15_041623) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,13 +59,13 @@ ActiveRecord::Schema.define(version: 2018_11_15_032709) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "lawyer_attributes", force: :cascade do |t|
+  create_table "lawyer_properties", force: :cascade do |t|
     t.string "attr_type"
     t.integer "attr_id"
     t.bigint "lawyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["lawyer_id"], name: "index_lawyer_attributes_on_lawyer_id"
+    t.index ["lawyer_id"], name: "index_lawyer_properties_on_lawyer_id"
   end
 
   create_table "lawyers", force: :cascade do |t|
@@ -136,7 +136,7 @@ ActiveRecord::Schema.define(version: 2018_11_15_032709) do
   add_foreign_key "bookings", "users"
   add_foreign_key "cases", "lawyers"
   add_foreign_key "cases", "users"
-  add_foreign_key "lawyer_attributes", "lawyers"
+  add_foreign_key "lawyer_properties", "lawyers"
   add_foreign_key "lawyers", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"

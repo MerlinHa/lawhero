@@ -1,3 +1,3 @@
 class Language < ApplicationRecord
-  has_many :lawyer_attributes, as: :attr_id
+  has_many :lawyer_attributes, as: :properties
 end
