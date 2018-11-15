@@ -20,3 +20,28 @@
   opacity: 0.6;
   margin-bottom: 30px;
 }
+
+.banner-customers {
+  color: white;
+  text-align: center;
+  height: 100vh;
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-customers-background {
+  // background-color: rgba(0,178,166,1);
+  // background: @include filter-gradient(#00b2a6, #1f487e, horizontal);
+  // background: @include background-image(linear-gradient(left bottom, rgba(0,178,166,1) 0%, rgba(31,72,126,1) 100%));
+  background: rgba(0,178,166,1);
+  background: -moz-linear-gradient(45deg, rgba(0,178,166,1) 0%, rgba(31,72,126,1) 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(0,178,166,1)), color-stop(100%, rgba(31,72,126,1)));
+  background: -webkit-linear-gradient(45deg, rgba(0,178,166,1) 0%, rgba(31,72,126,1) 100%);
+  background: -o-linear-gradient(45deg, rgba(0,178,166,1) 0%, rgba(31,72,126,1) 100%);
+  background: -ms-linear-gradient(45deg, rgba(0,178,166,1) 0%, rgba(31,72,126,1) 100%);
+  background: linear-gradient(45deg, rgba(0,178,166,1) 0%, rgba(31,72,126,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00b2a6', endColorstr='#1f487e', GradientType=1 );
+}
