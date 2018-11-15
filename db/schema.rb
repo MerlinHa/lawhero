@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_15_041623) do
+ActiveRecord::Schema.define(version: 2018_11_15_041947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,8 +60,8 @@ ActiveRecord::Schema.define(version: 2018_11_15_041623) do
   end
 
   create_table "lawyer_properties", force: :cascade do |t|
-    t.string "attr_type"
-    t.integer "attr_id"
+    t.string "property_type"
+    t.integer "property_id"
     t.bigint "lawyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
