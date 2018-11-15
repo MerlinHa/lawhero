@@ -1,7 +1,7 @@
 /* Main navbar */
 .navbar-lawhero {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: #C4C4C4;
+  background: $green;
   transition: all 0.3s ease;
   height: 70px;
   padding: 0px 30px;
@@ -14,10 +14,11 @@
 
 .navbar-name {
   align-items: left;
-  color: $green;
+  color: white;
   text-decoration: none !important;
   font-size: 30px;
   font-weight: bold;
+  font-family: Open sans !important;
 }
 
 .navbar-logo-container {
@@ -47,7 +48,7 @@
 /* Basic navbar item */
 .navbar-link {
   padding: 0 20px;
-  color: $blue;
+  color: white;
   font-size: 16px;
   font-weight: bold;
   font-family: Open sans;
@@ -59,25 +60,11 @@
   font-weight: bold !important;
   font-family: Open sans !important;
   text-decoration: none !important;
+  border-color: white !important;
+  border-width: 2px !important;
 }
-
-.btn-treehouse {
-  color: white;
-  padding: 10px 15px;
-  border-radius: 4px;
-  font-weight: bold;
-  background: #00B2A6;
-  transition: background 0.3s ease;
-}
-.btn-treehouse:hover {
-  opacity: 1;
-  background: #00B2A6;
-  text-decoration: none;
-  color: white;
-}
-
 
 .navbar-link:hover {
-  color: $green;
+  color: $blue;
   text-decoration: none;
 }
