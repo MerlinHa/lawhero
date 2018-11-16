@@ -4,4 +4,8 @@ class PagesController < ApplicationController
   def home
     @home = "home"
   end
+
+  def onboarding
+
+  end
 end
