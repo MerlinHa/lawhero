@@ -5,6 +5,9 @@ Language.destroy_all
 Communication.destroy_all
 PaymentType.destroy_all
 LawField.destroy_all
+Booking.destroy_all
+Case.destroy_all
+Review.destroy_all
 
 Language.create([
   {content: "English"},
@@ -144,11 +147,30 @@ user_f = User.create!(
   remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542262194/law%20seeds/user_f.jpg"
 )
 
+10.times do
+  Booking.create!({
+    user: User.all.sample,
+    lawyer: Lawyer.all.sample,
+    price: 30,
+    status: "pending",
+    case_id: 1
+   })
+end
+
+10.times do
+Review.create!({
+  booking: Booking.all.sample,
+  title: "Location, atmosphere, facilities, speed, service, security Everything is over five stars.",
+  content: "The location of Connections at Trafalgar Square is right next to the National Gallery. And it is located in the West End, home of the musical. Connections at Trafalgar Square was perfectly systematic. Club membership includes a desk and meeting room in the hotel's lounge, where all facilities are available and drinks and food are available. In addition to working in the luxurious hotel lounge, the hotel restaurant and bar are available at a reduced cost. Everything was perfect and the most important Internet speed was over 200MB download. Location, atmosphere, facilities, speed, service, security Everything is over five stars.",
+  stars: rand(1..5)
+})
+end
+
+10.times do
 LawyerProperty.create!({lawyer_id: Lawyer.all.sample.id, property: Language.all.sample})
 LawyerProperty.create!({lawyer_id: Lawyer.all.sample.id, property: Communication.all.sample})
 LawyerProperty.create!({lawyer_id: Lawyer.all.sample.id, property: PaymentType.all.sample})
 LawyerProperty.create!({lawyer_id: Lawyer.all.sample.id, property: LawField.all.sample})
-
-
+end
 
 
