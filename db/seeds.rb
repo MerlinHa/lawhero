@@ -5,6 +5,9 @@ Language.destroy_all
 Communication.destroy_all
 PaymentType.destroy_all
 LawField.destroy_all
+Booking.destroy_all
+Case.destroy_all
+Review.destroy_all
 
 Language.create([
   {content: "English"},
@@ -146,7 +149,7 @@ user_f = User.create!(
 
 10.times do
   Booking.create!({
-    user: User.al.sample,
+    user: User.all.sample,
     lawyer: Lawyer.all.sample,
     price: 30,
     status: "pending",
@@ -159,7 +162,7 @@ Review.create!({
   booking: Booking.all.sample,
   title: "Location, atmosphere, facilities, speed, service, security Everything is over five stars.",
   content: "The location of Connections at Trafalgar Square is right next to the National Gallery. And it is located in the West End, home of the musical. Connections at Trafalgar Square was perfectly systematic. Club membership includes a desk and meeting room in the hotel's lounge, where all facilities are available and drinks and food are available. In addition to working in the luxurious hotel lounge, the hotel restaurant and bar are available at a reduced cost. Everything was perfect and the most important Internet speed was over 200MB download. Location, atmosphere, facilities, speed, service, security Everything is over five stars.",
-  star: rand(1..5)
+  stars: rand(1..5)
 })
 end
 
