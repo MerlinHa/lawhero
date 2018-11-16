@@ -10,8 +10,11 @@ Rails.application.routes.draw do
   end
   resources :cases, only: [:index, :show, :edit, :update] do
     resources :reviews, only: [:new, :create]
-    end
+  end
+resources :orders, only: [:show, :create]
 end
+
+
 
 # lawhero.fr/user/id/lawyer/id/requests/new
 # lawhero.fr/user/id/requests = index
