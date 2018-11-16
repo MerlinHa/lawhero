@@ -5,6 +5,8 @@
 .lawyer-info{
   display: flex;
   justify-content: space-around;
+  background-color: rgb(200,200,200);
+  border-radius: 10px;
 }
 .lawyer-strengths{
   display: flex;
@@ -34,18 +36,18 @@
   padding: 2px;
 }
 
-.card {
+.lawyer-card {
   height: 175px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-color: #CECDCA;
   color: #000000;
-  position: relative;
+  // position: relative;
   border-radius: 10px;
   margin: 20px;
   padding: 20px;
   opacity: 0.85;
-  position: align-center;
+  // position: align-center;
 }
 
 .card-user {
