@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2018_11_16_053309) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -98,6 +99,16 @@ ActiveRecord::Schema.define(version: 2018_11_16_053309) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "requests", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "lawyer_id"
+    t.boolean "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lawyer_id"], name: "index_requests_on_lawyer_id"
+    t.index ["user_id"], name: "index_requests_on_user_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.string "content"
     t.integer "stars"
@@ -123,11 +134,6 @@ ActiveRecord::Schema.define(version: 2018_11_16_053309) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.inet "current_sign_in_ip"
-    t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "first_name"
@@ -147,6 +153,8 @@ ActiveRecord::Schema.define(version: 2018_11_16_053309) do
   add_foreign_key "lawyers", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
+  add_foreign_key "requests", "lawyers"
+  add_foreign_key "requests", "users"
   add_foreign_key "reviews", "bookings"
   add_foreign_key "subscriptions", "conversations"
   add_foreign_key "subscriptions", "users"
