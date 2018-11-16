@@ -14,14 +14,30 @@
     <a href="/" class="navbar-name navbar-logo-items">Lawhero</a>
   </div>
 
-    <!-- Right Navigation -->
-    <div class="navbar-right-lawhero">
-      <a href="" class="navbar-link">How it works</a>
-      <a href="" class="navbar-link">About</a>
-      <a href="" class="navbar-link">Lawyers</a>
-      <a href="#" class="btn btn-primary">Login in</a>
-
-    </div>
+  <% if user_signed_in? %>
+      <div class="navbar-right-lawhero">
+        <a href="" class="navbar-link">How it works</a>
+        <a href="" class="navbar-link">About</a>
+        <a href="" class="navbar-link">Lawyers</a>
+        <%= button_to "Login", new_user_session_path, class: "btn btn-primary", method: :get %>
+      </div>
+  <% else %>
+      <div class="navbar-right-lawhero-signed-in">
+        <a href="" class="navbar-link">How it works</a>
+        <a href="" class="navbar-link">About</a>
+        <a href="" class="navbar-link">Lawyers</a>
+        <div class="navbar-wagon-item">
+          <div class="dropdown">
+            <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+            <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+              <li><a href="#">Profile</a></li>
+              <li><a href="#">Dashboard</a></li>
+              <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+            </ul>
+          </div>
+        </div>
+      </div>
+  <% end %>
 </div>
 
 
