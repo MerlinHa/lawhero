@@ -1,69 +1,66 @@
 <div class="container">
-  <div class="col-md-10 offset-md-1">
-  <div class="lawyer-details">
-    <div class="col-xs-12 col-sm-3">
-      <%= cl_image_tag @lawyer.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo" %>
-    </div>
-    <div class="lawyer-details-text">
+  <div class="row">
+    <div class="lawyer-details">
+      <div class="col-xs-12 col-sm-3">
+        <%= cl_image_tag @lawyer.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo" %>
+      </div>
       <div class="col-xs-12 col-sm-9">
         <h1><%= @lawyer.user.first_name + ' ' + @lawyer.user.last_name %></h1>
-      </div>
-      <div class="col-xs-12 col-sm-9">
         <p><%= @lawyer.short_desc %></p>
       </div>
+
+    </div>
+      <div class="lawyer-tabs">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="specialties-tab" data-toggle="tab" href="#specialties" role="tab" aria-controls="specialties" aria-selected="false">Specialties</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="fees-tab" data-toggle="tab" href="#fees" role="tab" aria-controls="fees" aria-selected="false">Fees</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="ratings-tab" data-toggle="tab" href="#ratings" role="tab" aria-controls="ratings" aria-selected="false">Ratings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="references-tab" data-toggle="tab" href="#references" role="tab" aria-controls="references" aria-selected="false">References</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="communication-tab" data-toggle="tab" href="#communication" role="tab" aria-controls="communication" aria-selected="false">Communication</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <!-- <div class="tab-pane fade show active tab-content-text" id="overview" role="tabpanel" aria-labelledby="overview-tab"><%= @lawyer.long_desc %></div> -->
+          <div class="tab-pane fade tab-content-text" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+            <%= @lawyer.long_desc %>
+          </div>
+          <div class="tab-pane fade tab-content-text" id="specialties" role="tabpanel" aria-labelledby="specialties-tab">
+            <ul>
+              <% @lawyer.law_fields.each do |field| %>
+              <li><%= field.content %></li>
+              <% end %>
+            </ul>
+          </div>
+          <div class="tab-pane fade tab-content-text" id="fees" role="tabpanel" aria-labelledby="fees-tab">...</div>
+          <div class="tab-pane fade tab-content-text" id="ratings" role="tabpanel" aria-labelledby="ratings-tab">...</div>
+          <div class="tab-pane fade tab-content-text" id="references" role="tabpanel" aria-labelledby="references-tab">...</div>
+          <div class="tab-pane fade tab-content-text" id="communication" role="tabpanel" aria-labelledby="communication-tab">
+            <ul>
+              <% @lawyer.languages.each do |language| %>
+              <li><%= language.content %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="lawyer-reviews">
+        <h2>Reviews</h2>
+        <% @lawyer.reviews.each do |review| %>
+        <p><%= review.title %></p>
+        <% end %>
+      </div>
     </div>
   </div>
-  <div class="lawyer-tabs">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="specialties-tab" data-toggle="tab" href="#specialties" role="tab" aria-controls="specialties" aria-selected="false">Specialties</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="fees-tab" data-toggle="tab" href="#fees" role="tab" aria-controls="fees" aria-selected="false">Fees</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="ratings-tab" data-toggle="tab" href="#ratings" role="tab" aria-controls="ratings" aria-selected="false">Ratings</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="references-tab" data-toggle="tab" href="#references" role="tab" aria-controls="references" aria-selected="false">References</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="communication-tab" data-toggle="tab" href="#communication" role="tab" aria-controls="communication" aria-selected="false">Communication</a>
-      </li>
-    </ul>
-    <div class="tab-content" id="myTabContent">
-      <!-- <div class="tab-pane fade show active tab-content-text" id="overview" role="tabpanel" aria-labelledby="overview-tab"><%= @lawyer.long_desc %></div> -->
-      <div class="tab-pane fade tab-content-text" id="overview" role="tabpanel" aria-labelledby="overview-tab">
-        <%= @lawyer.long_desc %>
-      </div>
-      <div class="tab-pane fade tab-content-text" id="specialties" role="tabpanel" aria-labelledby="specialties-tab">
-        <ul>
-          <% @lawyer.law_fields.each do |field| %>
-          <li><%= field.content %></li>
-          <% end %>
-        </ul>
-      </div>
-      <div class="tab-pane fade tab-content-text" id="fees" role="tabpanel" aria-labelledby="fees-tab">...</div>
-      <div class="tab-pane fade tab-content-text" id="ratings" role="tabpanel" aria-labelledby="ratings-tab">...</div>
-      <div class="tab-pane fade tab-content-text" id="references" role="tabpanel" aria-labelledby="references-tab">...</div>
-      <div class="tab-pane fade tab-content-text" id="communication" role="tabpanel" aria-labelledby="communication-tab">
-        <ul>
-          <% @lawyer.languages.each do |language| %>
-          <li><%= language.content %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="lawyer-reviews">
-    <h2>Reviews</h2>
-    <% @lawyer.reviews.each do |review| %>
-    <p><%= review.title %></p>
-    <% end %>
-  </div>
-  </div>
-</div>
 

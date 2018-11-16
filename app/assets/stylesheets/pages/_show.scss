@@ -1,21 +1,12 @@
 .lawyer-details {
   margin-top: 40px;
-  display: flex;
-  align-items: flex-start;
   margin-bottom: 40px;
-}
-
-.lawyer-details-text {
-  display: flex;
-  flex-direction: column;
-
 }
 
 .show-photo {
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  object-fit: cover;
 }
 
 .tab-content {
