@@ -34,22 +34,33 @@
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab"><%= @lawyer.long_desc %></div>
-      <div class="tab-pane fade" id="specialties" role="tabpanel" aria-labelledby="specialties-tab">...</div>
-      <div class="tab-pane fade" id="fees" role="tabpanel" aria-labelledby="fees-tab">...</div>
-      <div class="tab-pane fade" id="ratings" role="tabpanel" aria-labelledby="ratings-tab">...</div>
-      <div class="tab-pane fade" id="references" role="tabpanel" aria-labelledby="references-tab">...</div>
-      <div class="tab-pane fade" id="communication" role="tabpanel" aria-labelledby="communication-tab">
-        <% @lawyer.languages.each do |language| %>
-          <%= language.content %>
-        <% end %>
+      <!-- <div class="tab-pane fade show active tab-content-text" id="overview" role="tabpanel" aria-labelledby="overview-tab"><%= @lawyer.long_desc %></div> -->
+      <div class="tab-pane fade tab-content-text" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+        <%= @lawyer.long_desc %>
+      </div>
+      <div class="tab-pane fade tab-content-text" id="specialties" role="tabpanel" aria-labelledby="specialties-tab">
+        <ul>
+          <% @lawyer.law_fields.each do |field| %>
+          <li><%= field.content %></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="tab-pane fade tab-content-text" id="fees" role="tabpanel" aria-labelledby="fees-tab">...</div>
+      <div class="tab-pane fade tab-content-text" id="ratings" role="tabpanel" aria-labelledby="ratings-tab">...</div>
+      <div class="tab-pane fade tab-content-text" id="references" role="tabpanel" aria-labelledby="references-tab">...</div>
+      <div class="tab-pane fade tab-content-text" id="communication" role="tabpanel" aria-labelledby="communication-tab">
+        <ul>
+          <% @lawyer.languages.each do |language| %>
+          <li><%= language.content %></li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>
   <div class="lawyer-reviews">
     <h2>Reviews</h2>
     <% @lawyer.reviews.each do |review| %>
-      <p><%= review.title %></p>
+    <p><%= review.title %></p>
     <% end %>
   </div>
 </div>
