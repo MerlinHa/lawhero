@@ -1,3 +1,4 @@
+Booking.destroy_all
 Lawyer.destroy_all
 User.destroy_all
 LawyerProperty.destroy_all
@@ -5,6 +6,10 @@ Language.destroy_all
 Communication.destroy_all
 PaymentType.destroy_all
 LawField.destroy_all
+Case.destroy_all
+Review.destroy_all
+
+puts "Creating languages"
 
 Language.create([
   {content: "English"},
@@ -15,6 +20,7 @@ Language.create([
   {content: "Russian"},
 ])
 
+puts "Creating Communcations"
 Communication.create([
   {content: "Skype"},
   {content: "Whatsapp"},
@@ -24,12 +30,14 @@ Communication.create([
   {content: "Chat"},
 ])
 
+puts "Creating payment types"
 PaymentType.create([
   {content: "Fixed"},
   {content: "Hourly"},
   {content: "Success-based"},
 ])
 
+puts "Creating Lawfields"
 LawField.create([
   {content: "Banking & Finance Law"},
   {content: "Competition Law"},
@@ -45,6 +53,7 @@ LawField.create([
   {content: "Transport Law"},
 ])
 
+puts "Creating users"
 user_a = User.create!(
   first_name: "Dereck",
   last_name: "Jones",
@@ -54,6 +63,8 @@ user_a = User.create!(
   phone: "01235455693",
   remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542251451/law%20seeds/user_a.jpg"
 )
+
+puts "Creating lawyers"
 
 lawyer_a = Lawyer.create!(
   user: User.all.sample,
@@ -144,11 +155,35 @@ user_f = User.create!(
   remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542262194/law%20seeds/user_f.jpg"
 )
 
-LawyerProperty.create!({lawyer_id: Lawyer.all.sample.id, property: Language.all.sample})
-LawyerProperty.create!({lawyer_id: Lawyer.all.sample.id, property: Communication.all.sample})
-LawyerProperty.create!({lawyer_id: Lawyer.all.sample.id, property: PaymentType.all.sample})
-LawyerProperty.create!({lawyer_id: Lawyer.all.sample.id, property: LawField.all.sample})
 
+puts "Creating 10 bookings.."
+10.times do
+  Booking.create!({
+    user: User.all.sample,
+    lawyer: Lawyer.all.sample,
+    price: 30,
+    status: "pending",
+    case_id: 1
+   })
+end
 
+puts "Creating 10 reviews.."
+
+10.times do
+Review.create!({
+  booking: Booking.all.sample,
+  title: "Location, atmosphere, facilities, speed, service, security Everything is over five stars.",
+  content: "The location of Connections at Trafalgar Square is right next to the National Gallery. And it is located in the West End, home of the musical. Connections at Trafalgar Square was perfectly systematic. Club membership includes a desk and meeting room in the hotel's lounge, where all facilities are available and drinks and food are available. In addition to working in the luxurious hotel lounge, the hotel restaurant and bar are available at a reduced cost. Everything was perfect and the most important Internet speed was over 200MB download. Location, atmosphere, facilities, speed, service, security Everything is over five stars.",
+  stars: rand(1..5)
+})
+end
+
+puts "Creating lawyer properties"
+10.times do
+LawyerProperty.create!({lawyer: Lawyer.all.sample, property: Language.all.sample})
+LawyerProperty.create!({lawyer: Lawyer.all.sample, property: Communication.all.sample})
+LawyerProperty.create!({lawyer: Lawyer.all.sample, property: PaymentType.all.sample})
+LawyerProperty.create!({lawyer: Lawyer.all.sample, property: LawField.all.sample})
+end
 
 
