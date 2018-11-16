@@ -70,7 +70,11 @@
 }
 
 .book-lawyer-button{
-  // position: fixed;
-  // top: 100px;
-  // right: 100px;
+  font-weight: bold;
+}
+
+.first-row-show {
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
 }

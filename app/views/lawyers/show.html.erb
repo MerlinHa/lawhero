@@ -6,11 +6,11 @@
         <%= cl_image_tag @lawyer.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo" %>
       </div>
       <div class="col-xs-12 col-sm-9">
-        <h1><%= @lawyer.user.first_name + ' ' + @lawyer.user.last_name %></h1>
+        <div class="first-row-show">
+          <h1><%= @lawyer.user.first_name + ' ' + @lawyer.user.last_name %></h1>
+          <%= button_to "Start your request now", new_lawyer_request_path(params[:id]), class: "btn btn-primary book-lawyer-button", method: :get %>
+        </div>
         <p><%= @lawyer.short_desc %></p>
-      </div>
-      <div class="col-xs-12">
-        <%= button_to "Start your request now", new_lawyer_request_path(params[:id]), class: "btn btn-primary book-lawyer-button", method: :get %>
       </div>
     </div>
   </div>
