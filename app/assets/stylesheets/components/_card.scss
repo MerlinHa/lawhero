@@ -23,13 +23,11 @@
 
 .card-pros-title {
   color: $green;
-  p {font-size: 16px; font-weight: bold};
+  p {font-weight: bold};
 }
 
 .card-pros-content {
   color: $blue;
-  font-size: 16px;
-  font-family: Open Sans;
 }
 
 .card-banner-customers {
@@ -37,3 +35,10 @@
   margin: 30px 80px;
 }
 
+.card-banner-customers-photo-a {
+  margin-right: 20px;
+}
+
+.card-banner-customers-photo-b {
+  margin-left: 20px;
+}

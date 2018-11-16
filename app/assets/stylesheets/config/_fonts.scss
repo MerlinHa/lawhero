@@ -5,6 +5,27 @@
 $body-font: "Open Sans", "Helvetica", "sans-serif";
 $headers-font: "Montserrat", "Helvetica", "sans-serif";
 
+h1, h2, h3 {
+  font-family: "Montserrat", "sans-serif";
+}
+
+p {
+  font-family: "Open Sans", "sans-serif";
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";
