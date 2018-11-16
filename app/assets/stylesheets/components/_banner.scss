@@ -1,5 +1,5 @@
 .banner-home {
-  color: white;
+  color: white !important;
   text-align: center;
   height: 100vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
@@ -52,4 +52,5 @@
 .banner-customers-content {
   display:flex;
   flex-direction: column;
+  p {color: white !important}
 }
