@@ -1,3 +1,4 @@
+Booking.destroy_all
 Lawyer.destroy_all
 User.destroy_all
 LawyerProperty.destroy_all
@@ -5,9 +6,10 @@ Language.destroy_all
 Communication.destroy_all
 PaymentType.destroy_all
 LawField.destroy_all
-Booking.destroy_all
 Case.destroy_all
 Review.destroy_all
+
+puts "Creating languages"
 
 Language.create([
   {content: "English"},
@@ -18,6 +20,7 @@ Language.create([
   {content: "Russian"},
 ])
 
+puts "Creating Communcations"
 Communication.create([
   {content: "Skype"},
   {content: "Whatsapp"},
@@ -27,12 +30,14 @@ Communication.create([
   {content: "Chat"},
 ])
 
+puts "Creating payment types"
 PaymentType.create([
   {content: "Fixed"},
   {content: "Hourly"},
   {content: "Success-based"},
 ])
 
+puts "Creating Lawfields"
 LawField.create([
   {content: "Banking & Finance Law"},
   {content: "Competition Law"},
@@ -48,6 +53,7 @@ LawField.create([
   {content: "Transport Law"},
 ])
 
+puts "Creating users"
 user_a = User.create!(
   first_name: "Dereck",
   last_name: "Jones",
@@ -57,6 +63,8 @@ user_a = User.create!(
   phone: "01235455693",
   remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542251451/law%20seeds/user_a.jpg"
 )
+
+puts "Creating lawyers"
 
 lawyer_a = Lawyer.create!(
   user: User.all.sample,
@@ -147,6 +155,8 @@ user_f = User.create!(
   remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542262194/law%20seeds/user_f.jpg"
 )
 
+
+puts "Creating 10 bookings.."
 10.times do
   Booking.create!({
     user: User.all.sample,
@@ -157,6 +167,8 @@ user_f = User.create!(
    })
 end
 
+puts "Creating 10 reviews.."
+
 10.times do
 Review.create!({
   booking: Booking.all.sample,
@@ -166,11 +178,12 @@ Review.create!({
 })
 end
 
+puts "Creating lawyer properties"
 10.times do
-LawyerProperty.create!({lawyer_id: Lawyer.all.sample.id, property: Language.all.sample})
-LawyerProperty.create!({lawyer_id: Lawyer.all.sample.id, property: Communication.all.sample})
-LawyerProperty.create!({lawyer_id: Lawyer.all.sample.id, property: PaymentType.all.sample})
-LawyerProperty.create!({lawyer_id: Lawyer.all.sample.id, property: LawField.all.sample})
+LawyerProperty.create!({lawyer: Lawyer.all.sample, property: Language.all.sample})
+LawyerProperty.create!({lawyer: Lawyer.all.sample, property: Communication.all.sample})
+LawyerProperty.create!({lawyer: Lawyer.all.sample, property: PaymentType.all.sample})
+LawyerProperty.create!({lawyer: Lawyer.all.sample, property: LawField.all.sample})
 end
 
 
