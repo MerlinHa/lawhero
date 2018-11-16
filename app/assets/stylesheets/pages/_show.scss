@@ -1,6 +1,6 @@
 .lawyer-details {
   margin-top: 40px;
-  margin-bottom: 40px;
+  color: $blue !important;
 }
 
 .show-photo {
@@ -12,10 +12,23 @@
 .tab-content {
   font-family: "Open Sans", "sans-serif";
   font-size: 16px;
-  color: $blue;
 }
 
 .tab-content-text {
   margin: 30px;
   display:flex;
+}
+
+.lawyer-reviews {
+  color: $blue !important
+}
+
+.lawyer-tabs {
+  color: $blue;
+  height: 500px;
+  margin-top: 40px;
+}
+
+.container-lawhero-padding {
+  padding: 0 80px;
 }
