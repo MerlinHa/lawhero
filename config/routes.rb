@@ -8,10 +8,14 @@ Rails.application.routes.draw do
     resources :requests, only: [:new, :create]
     resources :reviews, only: [:index]
   end
+
   resources :cases, only: [:index, :show, :edit, :update] do
     resources :reviews, only: [:new, :create]
   end
-resources :orders, only: [:show, :create]
+
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: [:new, :create]
+  end
 end
 
 
