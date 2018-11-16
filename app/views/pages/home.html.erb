@@ -1,2 +1,107 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner-home" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://res.cloudinary.com/merlinha/image/upload/v1542264452/law%20seeds/home-banner-background.jpg');">
+  <div class="banner-content">
+    <h1>Find & book the right lawyer online</h1>
+    <%= form_tag lawyers_path, method: :get, class: "lawyer-search-form" do |f| %>
+      <%= text_field_tag :field, params[:field], class: "form-control", placeholder: "Law Field" %>
+      <%= text_field_tag :location, params[:location], class: "form-control", placeholder: "City" %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="container card-pros-all">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3">
+      <div class="card-pros">
+        <div class="card-pros-icon">
+          <i class="far fa-clock card-pros-icon"></i>
+        </div>
+        <div class="card-pros-title text-center">
+          <p>Quick start</p>
+        </div>
+        <div class="card-pros-content text-center">
+          <p>At vero eos et accusamus et iusto odio At vero eos et accusamus et iusto odio</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+      <div class="card-pros">
+        <div class="card-pros-icon">
+          <i class="far fa-thumbs-up card-pros-icon"></i>
+        </div>
+        <div class="card-pros-title text-center">
+          <p>Easy Management</p>
+        </div>
+        <div class="card-pros-content text-center">
+          <p>At vero eos et accusamus et iusto odio At vero eos et accusamus et iusto odio</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+      <div class="card-pros">
+        <div class="card-pros-icon">
+          <i class="far fa-credit-card card-pros-icon"></i>
+        </div>
+        <div class="card-pros-title text-center">
+          <p>Payment online</p>
+        </div>
+        <div class="card-pros-content text-center">
+          <p>At vero eos et accusamus et iusto odio At vero eos et accusamus et iusto odio</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+      <div class="card-pros">
+        <div class="card-pros-icon">
+          <i class="far fa-file-alt card-pros-icon"></i>
+        </div>
+        <div class="card-pros-title text-center">
+          <p>Document manager</p>
+        </div>
+        <div class="card-pros-content text-center">
+          <p>At vero eos et accusamus et iusto odio At vero eos et accusamus et iusto odio</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="banner-customers">
+  <div class="banner-customers-background">
+  <h2>What our customers say</h2>
+    <div class="banner-customers-content">
+      <div class="card-banner-customers">
+        <div class="card-banner-customers-photo-a">
+          <%=  cl_image_tag("customer_a.jpg", class: "avatar-large", crop: "fit") %>
+        </div>
+        <div class="card-banner-customers-quote">
+          <p>“My lawyer did everything for me. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet”</p>
+        </div>
+      </div>
+      <div class="card-banner-customers">
+        <div class="card-banner-customers-quote">
+          <p>“Lawhero was the best experience. I've found a good lawyer quick and easily. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet”</p>
+        </div>
+        <div class="card-banner-customers-photo-b">
+          <%=  cl_image_tag("customer_b.jpg", class: "avatar-large") %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="space">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>

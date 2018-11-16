@@ -1,23 +1,43 @@
-<div class="navbar-lawhero">
+
+<% if @home %>
+  <% color_navbar = 'navbar-lawhero-transparent' %>
+  <% logo_color = 'lawhero-logo-green' %>
+<% else %>
+  <% color_navbar = 'navbar-lawhero-green' %>
+  <% logo_color = 'lawhero-logo-white' %>
+<% end %>
+
+<div class="navbar-lawhero <%= color_navbar %>">
   <!-- Logo -->
-
-<div class="flex-container">
-    <a href="/" class="navbar-lawhero-brand">
-    <img src="images/legalhero.svg" alt="logo">
-    <a href="" class="navbar-lawhero-logo-name">Lawhero</a>
-    </a>
-</div>
-
-  <!-- Right Navigation -->
-  <div class="navbar-lawhero-right hidden-xs hidden-sm">
-
-    <a href="" class="navbar-lawhero-item navbar-lawhero-link">How it works</a>
-    <a href="" class="navbar-lawhero-item navbar-lawhero-link">About</a>
-    <a href="" class="navbar-lawhero-item navbar-lawhero-link">Lawyers</a>
-    <a href="#" class="btn-treehouse">Login in</a>
-
-
+  <div class="navbar-logo-container">
+    <%= link_to image_tag(logo_color, width: 75, height: 75, class: "navbar-logo-items navbar-logo-lawhero"), root_path %>
+    <a href="/" class="navbar-name navbar-logo-items">Lawhero</a>
   </div>
+
+  <% if user_signed_in? %>
+    <div class="navbar-right-lawhero-signed-in">
+        <a href="" class="navbar-link">How it works</a>
+        <a href="" class="navbar-link">About</a>
+        <a href="" class="navbar-link">Lawyers</a>
+        <div class="navbar-link">
+          <div class="dropdown">
+            <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" data-toggle="dropdown">
+            <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+              <li><a href="#">Profile</a></li>
+              <li><a href="#">Dashboard</a></li>
+              <li><%= link_to('Logout', destroy_user_session_path, method: :delete, class: "navbar-dropdown-link") %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+  <% else %>
+      <div class="navbar-right-lawhero">
+        <a href="" class="navbar-link">How it works</a>
+        <a href="" class="navbar-link">About</a>
+        <a href="" class="navbar-link">Lawyers</a>
+        <%= button_to "Sign in", new_user_session_path, class: "btn btn-primary", method: :get %>
+      </div>
+  <% end %>
 </div>
 
 

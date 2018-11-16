@@ -1,0 +1,44 @@
+.card-pros-all {
+  padding: 0 60px;
+  }
+
+.card-pros {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 10px 60px 10px;
+}
+
+.card-pros:hover {
+  opacity: 0.5;
+  .card-pros-icon {font-size: 55px};
+  .card-pros-title {font-size: 17px};
+  .card-pros-content {font-size: 17px;}
+}
+
+.card-pros-icon {
+  font-size: 50px;
+  color: $green;
+}
+
+.card-pros-title {
+  color: $green;
+  p {font-weight: bold};
+}
+
+.card-pros-content {
+  color: $blue;
+}
+
+.card-banner-customers {
+  display: flex;
+  margin: 30px 80px;
+}
+
+.card-banner-customers-photo-a {
+  margin-right: 20px;
+}
+
+.card-banner-customers-photo-b {
+  margin-left: 20px;
+}
