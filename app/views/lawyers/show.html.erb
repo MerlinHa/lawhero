@@ -40,14 +40,17 @@
       <div class="tab-pane fade" id="ratings" role="tabpanel" aria-labelledby="ratings-tab">...</div>
       <div class="tab-pane fade" id="references" role="tabpanel" aria-labelledby="references-tab">...</div>
       <div class="tab-pane fade" id="communication" role="tabpanel" aria-labelledby="communication-tab">
-        <%# @languages.each do |language| %>
-          <%#= language.content %>
-        <%# end %>
+        <% @lawyer.languages.each do |language| %>
+          <%= language.content %>
+        <% end %>
       </div>
     </div>
   </div>
   <div class="lawyer-reviews">
-    <%= @lawyer.reviews %>
+    <h2>Reviews</h2>
+    <% @lawyer.reviews.each do |review| %>
+      <p><%= review.title %></p>
+    <% end %>
   </div>
 </div>
 

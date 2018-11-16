@@ -5,6 +5,5 @@ class LawyersController < ApplicationController
 
   def show
     @lawyer = Lawyer.find(params[:id])
-    @languages = @lawyer.languages
   end
 end
