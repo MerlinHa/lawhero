@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2018_11_16_055222) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "case_id"
     t.index ["lawyer_id"], name: "index_bookings_on_lawyer_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -113,6 +114,7 @@ ActiveRecord::Schema.define(version: 2018_11_16_055222) do
     t.bigint "booking_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
     t.index ["booking_id"], name: "index_reviews_on_booking_id"
   end
 

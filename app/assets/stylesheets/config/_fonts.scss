@@ -1,21 +1,24 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Montserrat:500,700|Open+Sans:400,700');
-
+@import "colors";
 // Define fonts for body and headers
 $body-font: "Open Sans", "Helvetica", "sans-serif";
 $headers-font: "Montserrat", "Helvetica", "sans-serif";
 
 h1, h2, h3 {
   font-family: "Montserrat", "sans-serif";
+  color: $blue !important;
 }
 
 p {
   font-family: "Open Sans", "sans-serif";
   font-size: 16px;
+  color: $blue;
 }
 
 h1 {
   font-size: 40px;
+  color: $blue;
 }
 
 h2 {
@@ -24,6 +27,12 @@ h2 {
 
 h3 {
   font-size: 24px;
+}
+
+li {
+  font-family: "Open Sans", "sans-serif";
+  font-size: 16px;
+  color: $blue;
 }
 
 // To use a font file (.woff) uncomment following lines

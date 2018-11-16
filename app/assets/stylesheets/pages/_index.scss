@@ -1,6 +1,7 @@
 // Import page-specific CSS files here.
 @import "home";
 
+
 .lawyer-info{
   display: flex;
   justify-content: space-around;
@@ -128,3 +129,6 @@
 .fancy-checkbox input[type="checkbox"]:checked ~ span:before {
     content: '\f05d';
 }
+
+@import "show";
+
