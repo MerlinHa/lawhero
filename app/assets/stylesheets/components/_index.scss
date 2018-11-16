@@ -1,3 +1,147 @@
-// Import your components CSS files here.
-@import "alert";
-@import "navbar";
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+.lawyer-info{
+  display: flex;
+  justify-content: space-around;
+}
+.lawyer-strengths{
+  display: flex;
+  justify-content: space-around;
+}
+
+.lawyer-rating{
+  display: flex;
+  justify-content: space-around;
+}
+
+.avatar-box{
+  padding-left: 80px;
+  padding-top: 10px;
+  margin-right: 10px;
+}
+
+.lawyer-info-box{
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.spec-box{
+  display: flex;
+  align-items: center;
+  padding: 2px;
+}
+
+.card {
+  height: 175px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-color: #CECDCA;
+  color: #000000;
+  position: relative;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px;
+  opacity: 0.85;
+  position: align-center;
+}
+
+.card-user {
+  left: 40px;
+  top: 40px;
+  width: 85px;
+  border-radius: 50%;
+}
+
+.card-description {
+  position: absolute;
+  bottom: 45px;
+  left: 140px;
+}
+.card-description h2 {
+  font-size: 15px;
+}
+.card-description p {
+  font-size: 14px;
+  opacity: 0.8;
+  font-weight: lighter;
+  bottom: 25px;
+}
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}
+.card-link:hover {
+  opacity: 0.1;
+}
+.card-speciality {
+  opacity: 0.75;
+  font-size: 12px;
+  space-between: 5px;
+  position: absolute;
+  left: 400px;
+  bottom: 17px;
+}
+
+.card-strengths-col-1 {
+  opacity: 0.75;
+  font-size: 12px;
+  space-between: 5px;
+  position: absolute;
+  left: 1200px;
+  bottom:   17px;
+}
+
+.card-strengths-col-2 {
+  opacity: 0.75;
+  font-size: 12px;
+  space-between: 5px;
+  position: absolute;
+  left: 800px;
+  bottom: 17px;
+}
+
+.checked {
+    color: orange;
+}
+
+.fancy-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.fancy-checkbox span:before {
+    font-family: "FontAwesome";
+    font-style: normal;
+    width: 1em;
+    height: 1em;
+    content: '\f10c';
+    margin-right: .3em;
+}
+
+.fancy-checkbox input[type="checkbox"]:checked ~ span:before {
+    content: '\f05d';
+}
