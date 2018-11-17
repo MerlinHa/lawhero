@@ -18,6 +18,7 @@ class RequestsController < ApplicationController
 
   def show
     @request = Request.find(params[:id])
+    # @order = Order.find_by(request_id: @request.id)
   end
 
   def index

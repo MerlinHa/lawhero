@@ -2,20 +2,21 @@
   <div class="row">
     <h1 class="text-center h1-headline-blue">Your Request</h1>
     <div class="card-request-show">
-      <div class="col-xs-12 col-sm-3">
+      <div class="col-xs-12 col-sm-2">
         <div class="card-request-details text-center">
-          <%= cl_image_tag @request.lawyer.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo" %>
+          <%= cl_image_tag @request.lawyer.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo-medium" %>
           <p class="text-center"><strong><%= @request.lawyer.user.last_name + ' ' + @request.lawyer.user.first_name%></strong></p>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-7">
+      <div class="col-xs-12 col-sm-9">
         <div class="request-content">
-          <h2><%= @request.title %></h2>
+          <h3><%= @request.title %></h3>
           <p><%= @request.description %><p>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-2">
-        <div class="request-status">
+      <div class="col-xs-12 col-sm-1">
+        <div class="request-status text-center">
+          <p>Payment: </p>
           <p><strong><%= @request.order.state %></strong><p>
         </div>
       </div>
