@@ -1,0 +1,32 @@
+<%= render "shared/onboarding_banner" %>
+
+
+
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-xs-4 ">
+      <div class="card-join-us">
+        <h2 class="text-right"> Are you </h2>
+        <h1 class="text-right">a lawyer ? </h1>
+        <p class="text-right"> LawHero is the best solution for you to ease your day to day management, manage your booking, prioritize your tasks, provide a safe and efficient solution to store documents </p>
+        <div class="button-container">
+          <%=  link_to new_lawyer_path do %>
+          <button type="button" class="btn btn-warning "> Join us! </button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="col-xs-8 ">
+
+<%= render "shared/onboarding_cards_grid" %>
+
+  </div>
+</div>
