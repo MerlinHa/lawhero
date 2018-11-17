@@ -1,4 +1,5 @@
 
+
 <div class="lawyers">
   <% @lawyers.each do |lawyer| %>
   <div class="lawyer-card">
@@ -10,7 +11,8 @@
           </div>
           <div>
            <h5>Lawyer.name</h5>
-           <h5>Lawyer.location</h5>
+           <!-- <h5>Lawyer.location</h5> -->
+           <h5><%= lawyer.address %></h5>
           </div>
        </div>
        <div class="spec-box">
