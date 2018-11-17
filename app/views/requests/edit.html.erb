@@ -1,2 +1,13 @@
 <h1>Requests#edit</h1>
 <p>Find me in app/views/requests/edit.html.erb</p>
+
+<div class="container">
+  <div class="row">
+    <%= simple_form_for(@request) do |request| %>
+    <%= request.input :title %>
+    <%= request.input :description %>
+    <%= request.button :submit %>
+    <% end %>
+  </div>
+</div>
+
