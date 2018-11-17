@@ -78,6 +78,7 @@ lawyer_a = Lawyer.create!(
     email: "dereck@jonesdivorcelaw.com",
     phone: "0343543235325",
     address: "210, 333 24th Avenue SW, Calgary, AB T2S 3E6",
+    price_cents: 10000,
     remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542251451/law%20seeds/user_a.jpg"
   )
 
@@ -103,6 +104,7 @@ lawyer_b = Lawyer.create!(
     email: "lindsay@jonesdivorcelaw.com",
     phone: "0343543235325",
     address: "210, 333 24th Avenue SW, Calgary, AB T2S 3E6",
+    price_cents: 30000,
     remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542261759/law%20seeds/user_b.jpg"
   )
 
@@ -120,11 +122,12 @@ lawyer_c = Lawyer.create!(
   user: User.all.sample,
   short_desc: "Edward D. Barnes is Founder & President of Barnes & Diehl, P.C., the largest Firm in Virginia devoted to Family Law. In 2008, he received the Virginia State Bar Family Law Section, Lifetime Achievement Award. He is a Fellow of the American Academy of Matrimonial Lawyers (Chicago). He is listed in Best Lawyers in America, and has been Virginia Legal Elite list published by Virginia Business Magazine. Richmond Business Magazine named him Top Family Lawyer in the...",
   long_desc: "Edward D. Barnes is Founder & President of Barnes & Diehl, P.C., the largest Firm in Virginia devoted to Family Law. In 2008, he received the Virginia State Bar Family Law Section, Lifetime Achievement Award. He is a Fellow of the American Academy of Matrimonial Lawyers (Chicago). He is listed in Best Lawyers in America, and has been Virginia Legal Elite list published by Virginia Business Magazine. Richmond Business Magazine named him Top Family Lawyer in the City of Richmond and the Region in 2001.",
-    email: "ebarnes@barnesfamilylaw.com",
-    phone: "0343543235325",
-    address: "7401 Beaufont Springs Drive, Suite 200, Richmond, VA 23225",
-    remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542261885/law%20seeds/user_c.jpg"
-  )
+  email: "ebarnes@barnesfamilylaw.com",
+  phone: "0343543235325",
+  address: "7401 Beaufont Springs Drive, Suite 200, Richmond, VA 23225",
+  price_cents: 25000,
+  remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542261885/law%20seeds/user_c.jpg"
+)
 
 user_d = User.create!(
   first_name: "Jules",

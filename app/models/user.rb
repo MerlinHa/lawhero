@@ -6,5 +6,5 @@ class User < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   has_many :lawyers
   has_many :requests
-
+  has_many :orders
 end
