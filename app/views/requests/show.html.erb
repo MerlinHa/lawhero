@@ -1,13 +1,23 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-3">
-      <%= cl_image_tag @request.lawyer.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo" %>
-    </div>
-    <div class="col-xs-12 col-sm-9">
-      <div class="request-content">
-        <%= @request.title %>
-        <%= @request.description %>
-        <%= @request.lawyer.user.last_name %>
+    <h1 class="text-center h1-headline-blue">Your Request</h1>
+    <div class="card-request-show">
+      <div class="col-xs-12 col-sm-3">
+        <div class="card-request-details text-center">
+          <%= cl_image_tag @request.lawyer.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo" %>
+          <p class="text-center"><strong><%= @request.lawyer.user.last_name + ' ' + @request.lawyer.user.first_name%></strong></p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-7">
+        <div class="request-content">
+          <h2><%= @request.title %></h2>
+          <p><%= @request.description %><p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-2">
+        <div class="request-status">
+          <p><strong><%= @request.order.state %></strong><p>
+        </div>
       </div>
     </div>
   </div>

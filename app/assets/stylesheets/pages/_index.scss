@@ -1,6 +1,9 @@
 // Import page-specific CSS files here.
 @import "home";
 
+// to be deleted and change to lawyer/show
+
+
 
 .lawyer-info{
   display: flex;
@@ -131,6 +134,3 @@
 .fancy-checkbox input[type="checkbox"]:checked ~ span:before {
     content: '\f05d';
 }
-
-@import "show";
-
