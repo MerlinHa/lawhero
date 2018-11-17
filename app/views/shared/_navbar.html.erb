@@ -1,16 +1,19 @@
 
 <% if @home %>
   <% color_navbar = 'navbar-lawhero-transparent' %>
-  <% logo_color = 'lawhero-logo-green' %>
+  <% logo_color = 'lawhero-logo-green.svg' %>
 <% else %>
   <% color_navbar = 'navbar-lawhero-green' %>
-  <% logo_color = 'lawhero-logo-white' %>
+  <% logo_color = 'lawhero-logo-white.svg' %>
 <% end %>
 
 <div class="navbar-lawhero <%= color_navbar %>">
   <!-- Logo -->
   <div class="navbar-logo-container">
     <%= link_to image_tag(logo_color, width: 75, height: 75, class: "navbar-logo-items navbar-logo-lawhero"), root_path %>
+   <%# link_to root_path do %>
+    <%#= image_tag(logo_color, width: 75, height: 75, class: "navbar-logo-items navbar-logo-lawhero") %>
+    <%# end %>
     <a href="/" class="navbar-name navbar-logo-items">Lawhero</a>
   </div>
 
