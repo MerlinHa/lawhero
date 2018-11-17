@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :lawyers
   has_many :requests
   has_many :orders
+  has_many :cases
 end
