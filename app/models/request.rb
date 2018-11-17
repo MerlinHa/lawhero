@@ -4,6 +4,6 @@ class Request < ApplicationRecord
   after_create :add_order
 
   def add_order
-    Order.create(request: self, lawyer_sku: self.lawyer.sku, amount: self.lawyer.price, user: self.user)
+    Order.create(request_id: self.id, lawyer_sku: self.lawyer.sku, amount: self.lawyer.price, user: self.user, state: 'pending')
   end
 end

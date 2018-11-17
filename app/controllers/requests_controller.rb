@@ -10,7 +10,7 @@ class RequestsController < ApplicationController
     @request.lawyer = @lawyer
     @request.user = current_user
     if @request.save
-      redirect_to order_path(@request.order)
+      redirect_to new_order_payment_path(@request.add_order)
     else
       render :new
     end
