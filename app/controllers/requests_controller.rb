@@ -9,8 +9,11 @@ class RequestsController < ApplicationController
     @lawyer = Lawyer.find(params[:lawyer_id])
     @request.lawyer = @lawyer
     @request.user = current_user
-    @request.save
-    redirect_to requests_path
+    if @request.save
+      redirect_to new_order_payment_path(@request.add_order)
+    else
+      render :new
+    end
   end
 
   def show
