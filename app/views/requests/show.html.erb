@@ -1,14 +1,14 @@
-<h1>Requests#show</h1>
-<p>Find me in app/views/requests/show.html.erb</p>
 <div class="container">
   <div class="row">
-    <ul>
-      <li>
-<%= @request.title %>
-      </li>
-      <li>
-<%= @request.description %>
-      </li>
-    </ul>
-</div>
+    <div class="col-xs-12 col-sm-3">
+      <%= cl_image_tag @request.lawyer.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo" %>
+    </div>
+    <div class="col-xs-12 col-sm-9">
+      <div class="request-content">
+        <%= @request.title %>
+        <%= @request.description %>
+        <%= @request.lawyer.user.last_name %>
+      </div>
+    </div>
+  </div>
 </div>
