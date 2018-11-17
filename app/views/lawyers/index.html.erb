@@ -1,12 +1,14 @@
 
-<h1>filter form</h1>
+<h1>Find your lawyer:</h1>
 <%= form_tag lawyers_path, method: :get do %>
+
+  <%= label_tag :language %>
+  <%= text_field_tag :language, params[:language] %>
 
   <%= label_tag :law_field %>
   <%= text_field_tag :law_field, params[:law_field] %>
 
-  <%= label_tag :language %>
-  <%= text_field_tag :language, params[:language] %>
+
 
   <%= submit_tag "filter", class: "btn btn-large btn-primary" %>
 <% end %>
@@ -25,7 +27,6 @@
           <%= lawyer.address %>
         </div>
       </div>
-
       <div class="info">
         <div class="languages">
           <div class="bold">Languages: </div>
@@ -45,10 +46,25 @@
             </div>
           <% end %>
         </div>
-
-      <div class="index-avatar">
+         <div class="index-avatar">
           <%= cl_image_tag lawyer.photo, class: 'index-avatar-photo' %>
       </div>
+      <div class="col-md-4 lawyer-rating">
+           <div class="">
+            <h5>Lawyer.rating</h5>
+            <h5>4.0/5.0 </h5>
+            <p>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+            </p>
+            <p>
+              no. of cases <i class="fa fa-thumbs-up"></i>
+            </p>
+          </div>
+        </div>
       </div>
 
     </div>
