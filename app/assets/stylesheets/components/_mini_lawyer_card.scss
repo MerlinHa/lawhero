@@ -1,0 +1,28 @@
+.mini-lawyer-card {
+  background: orange;
+  margin: 10px 0px;
+  .bold {
+    font-weight: bold;
+  }
+  .header {
+    display: flex;
+    .address {
+      margin-left: 10px;
+    }
+  }
+  .info {
+    display: flex;
+
+    .languages, .law-fields {
+      width: 33%;
+      padding: 0px 20px;
+    }
+
+    .languages {
+      background-color: yellow;
+    }
+    .law-fields {
+      background-color: green;
+    }
+  }
+}
