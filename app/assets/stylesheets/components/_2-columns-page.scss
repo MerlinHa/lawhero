@@ -1,8 +1,32 @@
-.2-columns-page-container {
+.two-columns-dash {
   display: flex;
+  // height: 80vh;
+  justify-content: space-between;
+  align-items: flex-start;
 
 }
 
-.left-small-column {
+.left-column-dash {
+  flex-grow: 0;
+  height: auto;
+  max-width: 500px;
+  min-width: 200px;
+  border: 1px solid $gray;
+  border-radius: 10px;
+  min-height: 50vh;
+  padding: 10px;
+  margin: 10px;
+
+}
+.right-column-dash {
+  // display: flex;
+  // flex-direction: column;
+  flex-grow: 1;
+  min-height: 50vh;
+  min-width: 500px;
+  border: 1px solid $gray;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
 
 }
