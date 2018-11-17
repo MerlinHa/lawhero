@@ -6,4 +6,7 @@ class PagesController < ApplicationController
   end
 
 
+  def onboarding
+
+  end
 end
