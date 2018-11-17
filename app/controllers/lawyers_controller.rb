@@ -11,7 +11,6 @@ class LawyersController < ApplicationController
     @lawyer = Lawyer.new
   end
 
-
   def create
     @lawyer = Lawyer.new(params[:lawyer])
     @lawyer.save
