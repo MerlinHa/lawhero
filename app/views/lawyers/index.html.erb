@@ -1,50 +1,55 @@
 
+<h1>Find your lawyer:</h1>
+<%= form_tag lawyers_path, method: :get do %>
+
+  <%= label_tag :language %>
+  <%= text_field_tag :language, params[:language] %>
+
+  <%= label_tag :law_field %>
+  <%= text_field_tag :law_field, params[:law_field] %>
+
+
+
+  <%= submit_tag "filter", class: "btn btn-large btn-primary" %>
+<% end %>
+
+
 <div class="lawyers">
   <% @lawyers.each do |lawyer| %>
-  <div class="lawyer-card">
 
-      <div class="col-md-4 lawyer-info">
-        <div class="lawyer-info-box">
-          <div class="avatar-box">
-            <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-          </div>
-          <div>
-           <h5>Lawyer.name</h5>
-           <h5>Lawyer.location</h5>
-          </div>
-       </div>
-       <div class="spec-box">
+    <div class="mini-lawyer-card">
 
-         <ol>
-           <ul> <h4>Specialities</h4> </ul>
-           <ul> speciality 1</ul>
-           <ul> speciality 2</ul>
-           <ul> speciality 3</ul>
-           <ul>
-           </ol>
-         </div>
-       </div>
-       <div class="col-md-4 lawyer-strengths ">
-        <div class="strength-box">
-         <ol>
-           <ul> <h4>Strengths </h4> </ul>
-           <ul> <i style="font-size:14px" class="fa">&#xf046;</i>strength 1</ul>
-           <ul> <i style="font-size:14px" class="fa">&#xf046;</i>strength 2</ul>
-           <ul> <i style="font-size:14px" class="fa">&#xf046;</i>strength 3</ul>
-           <ul>
-           </ol>
-         </div>
-         <div class="strength-box">
-           <ol>
-             <ul> <h4>Strengths </h4> </ul>
-             <ul> <i style="font-size:14px" class="fa">&#xf046;</i>strength 1</ul>
-             <ul> <i style="font-size:14px" class="fa">&#xf046;</i>strength 2</ul>
-             <ul> <i style="font-size:14px" class="fa">&#xf046;</i>strength 3</ul>
-             <ul>
-             </ol>
-           </div>
-         </div>
-         <div class="col-md-4 lawyer-rating">
+      <div class="header">
+        <div class="bold">
+          <%= "#{lawyer.user.first_name} #{lawyer.user.last_name}" %>
+        </div>
+        <div class="address">
+          <%= lawyer.address %>
+        </div>
+      </div>
+      <div class="info">
+        <div class="languages">
+          <div class="bold">Languages: </div>
+          <% lawyer.languages.each do |language| %>
+            <div class="language">
+              <%= language.content %>
+            </div>
+          <% end %>
+        </div>
+        <div class="law-fields">
+          <div class="bold">
+            Law fields:
+          </div>
+          <% lawyer.law_fields.each do |law_field| %>
+            <div class="law-field">
+              <%= law_field.content %>
+            </div>
+          <% end %>
+        </div>
+         <div class="index-avatar">
+          <%= cl_image_tag lawyer.photo, class: 'index-avatar-photo' %>
+      </div>
+      <div class="col-md-4 lawyer-rating">
            <div class="">
             <h5>Lawyer.rating</h5>
             <h5>4.0/5.0 </h5>
@@ -62,7 +67,11 @@
         </div>
       </div>
 
-  </div>
+    </div>
+    </div>
+
+    </div>
+
   <% end %>
 </div>
 
