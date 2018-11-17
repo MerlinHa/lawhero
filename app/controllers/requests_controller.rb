@@ -10,7 +10,7 @@ class RequestsController < ApplicationController
     @request.lawyer = @lawyer
     @request.user = current_user
     if @request.save
-      redirect_to new_order_payment_path(@request.add_order)
+      redirect_to new_order_payment_path(@request)
     else
       render :new
     end
@@ -18,7 +18,6 @@ class RequestsController < ApplicationController
 
   def show
     @request = Request.find(params[:id])
-    # @order = Order.find_by(request_id: @request.id)
   end
 
   def index
