@@ -11,4 +11,6 @@ class Lawyer < ApplicationRecord
   has_many :communications, through: :lawyer_properties, source: :property, source_type: 'Communication'
   has_many :requests
   monetize :price_cents
+
+accepts_nested_attributes_for :languages, :communications, :law_fields
 end

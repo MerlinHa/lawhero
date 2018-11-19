@@ -12,8 +12,21 @@ class LawyersController < ApplicationController
   end
 
   def create
-    @lawyer = Lawyer.new(params[:lawyer])
-    @lawyer.save
+    @lawyer = Lawyer.new(lawyer_params)
+
+    @lawyer.user = current_user
+    if @lawyer.save
+      redirect_to lawyer_path(@lawyer)
+    else
+      render :new
+    end
   end
+
+  private
+
+  def lawyer_params
+    params.require(:lawyer).permit(:address, :phone, :short_desc, :long_desc, :language_ids => [], :communication_ids => [], :law_field_ids => [], :payment_type_ids => [],)
+  end
+
 
 end
