@@ -1,6 +1,5 @@
-
 .mini-lawyer-card {
-  background-color: #F5F5F5;
+  background: #CECDCA;
   margin: 10px 0px;
   .bold {
     font-weight: bold;
@@ -14,17 +13,20 @@
   .info {
     display: flex;
 
-    .languages, .law-fields, .index-avatar {
-      width: 33%;
-      padding: 0px 20px;
+    .languages, .law-fields, .index-avatar, .lawyer-rating{
+      width: 25%;
+      padding: 0px 15px;
     }
 
     .languages {
+      background-color: #CECDCA;
     }
     .law-fields {
+      background-color: #CECDCA;
     }
 
     .index-avatar {
+      background-color: #CECDCA;
       display: flex;
       justify-content: center;
       align-item: center;
@@ -36,15 +38,8 @@
       box-shadow: 0 1px 2px rgba(0,0,0,0.2);
       border: white 1px solid;
     }
-  }
-}
+    .lawyer-rating{
 
-.mini-lawyer-card a:hover  {
-  text-decoration: none;
-  background-color: orange;
+    }
 }
-
-.mini-lawyer-card:hover  {
-  text-decoration: none;
-  background-color: #CECDCA;
 }

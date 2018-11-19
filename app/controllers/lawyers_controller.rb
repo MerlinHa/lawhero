@@ -1,6 +1,11 @@
 class LawyersController < ApplicationController
   def index
     @lawyers = Lawyer.all
+      if params.key?("law_field")
+        law_field = params[:law_field]
+        language = params[:language]
+        @lawyers = Lawyer.joins(:lawyer_properties).joins(:law_fields).joins(:languages).where("law_fields.content = ? AND languages.content = ?", law_field, language).uniq
+      end
   end
 
   def show
@@ -25,8 +30,6 @@ class LawyersController < ApplicationController
   private
 
   def lawyer_params
-    params.require(:lawyer).permit(:address, :phone, :short_desc, :long_desc, :language_ids => [], :communication_ids => [], :law_field_ids => [], :payment_type_ids => [],)
+    params.require(:lawyer).permit(:address, :phone, :short_desc, :long_desc, :language_ids => [], :communication_ids => [], :law_field_ids => [], :payment_type_ids => [],:photo :email, :price_cents, :sku)
   end
-
-
 end
