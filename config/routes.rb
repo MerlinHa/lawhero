@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'pages/onboarding', to: 'pages#onboarding', as: :onboarding
 
-  resources :requests, only: [:index, :show, :edit, :update]
+  resources :requests, only: [:index, :show, :edit, :update]  do
+    resources :cases, only: [:new, :create]
+  end
+
   resources :lawyers do
     resources :requests, only: [:new, :create]
     resources :reviews, only: [:index]
@@ -14,7 +17,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
 
-  resources :orders, only: [:show, :create] do
+  resources :orders, only: [:show] do
     resources :payments, only: [:new, :create]
   end
 end

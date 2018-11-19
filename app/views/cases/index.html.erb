@@ -1,0 +1,43 @@
+<h1>This is the cases index page</h1>
+
+<div class="container">
+  <div class="four-columns-dash">
+    <div class="info-column-dash">
+      <div class="text-center">
+        <%= cl_image_tag @user.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo", style:"margin-bottom: 10px;" %> <br>
+        <p>
+          <%= @user.first_name %> <%= @user.last_name %>
+        </p>
+      </div>
+      <p>Cases</p>
+      <% @cases.each do |c| %>
+      <ul>
+        <li><a><%= c.title  %></a> <br></li>
+      </ul>
+      <% end %>
+      <a>
+        <p>Documents</p>
+      </a>
+    </div>
+    <!-- </div> -->
+    <div class="main-column-dash">
+      <p><strong>Story-line:</strong></p>
+      <div class="story-line">
+        <p><strong>The case is open</strong></p>
+      </div>
+    </div>
+    <div class="steps-financial-column-dash">
+      <div class="steps-box-dash">
+          <p><strong>Next steps:</strong></p>
+        <div class="step">
+          <i class="fa fa-check-circle" style="margin: 5px;"></i>
+          <p>Provide work contract</p>
+        </div>
+      </div>
+      <div class="financial-box-dash">
+        <p><strong>Financial Overview:</strong></p>
+      </div>
+    </div>
+
+  </div>
+</div>
