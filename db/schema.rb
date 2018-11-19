@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_19_020547) do
+ActiveRecord::Schema.define(version: 2018_11_19_024409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,18 +115,6 @@ ActiveRecord::Schema.define(version: 2018_11_19_020547) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "requests", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "lawyer_id"
-    t.boolean "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "title"
-    t.string "description"
-    t.index ["lawyer_id"], name: "index_requests_on_lawyer_id"
-    t.index ["user_id"], name: "index_requests_on_user_id"
-  end
-
   create_table "reviews", force: :cascade do |t|
     t.string "content"
     t.integer "stars"
@@ -177,8 +165,6 @@ ActiveRecord::Schema.define(version: 2018_11_19_020547) do
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "orders", "users"
-  add_foreign_key "requests", "lawyers"
-  add_foreign_key "requests", "users"
   add_foreign_key "reviews", "bookings"
   add_foreign_key "subscriptions", "conversations"
   add_foreign_key "subscriptions", "users"
