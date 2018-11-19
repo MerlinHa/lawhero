@@ -27,9 +27,28 @@ class LawyersController < ApplicationController
     end
   end
 
+  def edit
+    @lawyer = Lawyer.find(params[:id])
+  end
+
+  def update
+    @user = current_user
+    @lawyer = Lawyer.find(params[:id])
+    @lawyer.update(lawyer_params)
+    if @lawyer.save
+      redirect_to lawyer_path(@lawyer)
+    else
+      render
+    end
+  end
+
+
   private
 
   def lawyer_params
-    params.require(:lawyer).permit(:address, :phone, :short_desc, :long_desc, :language_ids => [], :communication_ids => [], :law_field_ids => [], :payment_type_ids => [],:photo :email, :price_cents, :sku)
+    # Merlin, I have removed email as email is linked to user
+    params.require(:lawyer).permit(:address, :phone, :short_desc, :long_desc, :sku, :photo, :price_cents, :language_ids => [], :communication_ids => [], :law_field_ids => [], :payment_type_ids => [])
+
+    # , :photo,  :sku)
   end
 end

@@ -1,4 +1,4 @@
-<title> Onboard!</title>
+<title> Update your profile! </title>
 
 
 
@@ -6,27 +6,33 @@
 <div class="bloc-flex">
 
 
+
+
   <div class="item-flex">
+
     <ul>
+      <li>
+          <h1> Update properly your profile to obtain more client</h1>
+      </li>
       <li>
 
         <div class="line-class">
           <i class="fas fa-check-circle" style="font-size:30px;" ></i>
-          <h1> 2 300 </h1>
+          <h1> + 13%  </h1>
         </div>
-        <h3> lawyers </h3>
+        <h3> if you authorised Whatsapp communications </h3>
       </li>
 
       <li>
         <i class="fas fa-check-circle" style="font-size:30px;"></i>
-        <h1> 56 000 </h1>
-        <h3> cases </h3>
+        <h1> +22% </h1>
+        <h3> if you add English </h3>
       </li>
 
       <li>
         <i class="fas fa-check-circle" style="font-size:30px;"></i>
-        <h1> 12 000 000 </h1>
-        <h3> views </h3>
+        <h1> + 18% </h1>
+        <h3> if you accept to accept success fees </h3>
       </li>
     </ul>
 
@@ -37,7 +43,7 @@
 
   <div class="item-flex">
 
-    <%= simple_form_for(@lawyer) do |f| %>
+  <%= simple_form_for(@lawyer) do |f| %>
     <%= f.input :short_desc, label: 'Make a short description of yourself', error: 'At least 20 ' %>
     raise
     <%= f.input :long_desc, label: 'Your specialities, your experience, etc' %>
@@ -60,4 +66,5 @@
   </div>
 
 </div>
+
 
