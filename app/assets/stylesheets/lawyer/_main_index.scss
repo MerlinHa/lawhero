@@ -1,6 +1,6 @@
 
 .mini-lawyer-card {
-  background: #CECDCA;
+  background-color: #F5F5F5;
   margin: 10px 0px;
   .bold {
     font-weight: bold;
@@ -20,14 +20,11 @@
     }
 
     .languages {
-      background-color: #CECDCA;
     }
     .law-fields {
-      background-color: #CECDCA;
     }
 
     .index-avatar {
-      background-color: #CECDCA;
       display: flex;
       justify-content: center;
       align-item: center;
@@ -40,4 +37,14 @@
       border: white 1px solid;
     }
   }
+}
+
+.mini-lawyer-card a:hover  {
+  text-decoration: none;
+  background-color: orange;
+}
+
+.mini-lawyer-card:hover  {
+  text-decoration: none;
+  background-color: #CECDCA;
 }
