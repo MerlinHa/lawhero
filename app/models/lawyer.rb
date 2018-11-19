@@ -9,7 +9,6 @@ class Lawyer < ApplicationRecord
   has_many :law_fields, through: :lawyer_properties, source: :property, source_type: 'LawField'
   has_many :payment_types, through: :lawyer_properties, source: :property, source_type: 'PaymentType'
   has_many :communications, through: :lawyer_properties, source: :property, source_type: 'Communication'
-  has_many :requests
   monetize :price_cents
 
 accepts_nested_attributes_for :languages, :communications, :law_fields
