@@ -7,12 +7,10 @@ class CasesController < ApplicationController
 
   def new
     @case = Case.new
-    @request = Request.find(params[:request_id])
   end
 
   def create
     @case = Case.new(params_cases)
-    @request = Request.find(params[:request_id])
     # @case.request = @request
     @case.save
     redirect_to cases_path
@@ -21,7 +19,7 @@ class CasesController < ApplicationController
   private
 
   def params_cases
-    params.require(:case).permit(:title, :description)
+    params.require(:case).permit(:title, :description, :status, user_id, :lawyer_id, {documents: []})
   end
 end
 
