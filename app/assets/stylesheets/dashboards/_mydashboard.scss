@@ -1,6 +1,6 @@
 .dashboard-tabs {
   color: $blue;
-  height: 350px;
+  // height: 350px;
 }
 
 .separation-bar-nav {
@@ -14,4 +14,8 @@
 
 .nav-tabs-dashboard .active {
   border-bottom: solid 3px $green;
+}
+
+.nav-item {
+  margin-top: 0px;
 }
