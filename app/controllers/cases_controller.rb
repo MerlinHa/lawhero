@@ -6,7 +6,7 @@ class CasesController < ApplicationController
   end
 
   def show
-    # @case = Case.find(params[:id])
+    @case = Case.find(params[:id])
     @user = current_user
   end
 
@@ -14,15 +14,6 @@ class CasesController < ApplicationController
     @case = Case.new
     @lawyer = Lawyer.find(params[:lawyer_id])
 
-  end
-
-  def show
-    @case = Case.find(params[:id])
-  end
-
-  def index
-    @cases = current_user.cases
-    @user = current_user
   end
 
   def create
