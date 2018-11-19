@@ -35,6 +35,6 @@ class CasesController < ApplicationController
   private
 
   def case_params
-    params.require(:case).permit(:user_id, :lawyer_id, :status, :title, :description, {documents: []})
+    params.require(:case).permit(:user_id, :lawyer_id, :status, :title, :description, documents: [])
   end
 end
