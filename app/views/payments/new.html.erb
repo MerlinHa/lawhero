@@ -1,17 +1,27 @@
-<h1>Purchase of lawyer <%= @order.lawyer_sku %></h1>
-<%= form_tag order_payments_path(@order) do %>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= humanized_money_with_symbol(@order.amount) %></span>
-    </label>
-  </article>
+<h1 class="text-center">Purchase of lawyer <%= @order.lawyer_sku %></h1>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="My Lawyer"
-    data-email="<%= current_user.email %>"
-    data-description="Lawyer <%= @order.lawyer_sku %>"
-    data-amount="<%= @order.amount_cents %>"
-    data-currency="<%= @order.amount.currency %>">
-    </script>
-<% end %>
+<script src="https://js.stripe.com/v3/"></script>
+<div class="container container-new-payment">
+  <div class="row">
+    <p class="text-center">You pay now for your first consultation. The lawyer will only get his money after the case is solved.</p>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+      <form action="/orders/<%= @order.id %>/payments" method="post" id="payment-form">
+        <div class="form-row">
+          <label for="card-element">
+            Credit or debit card
+          </label>
+          <div id="card-element">
+            <!-- A Stripe Element will be inserted here. -->
+          </div>
+
+          <!-- Used to display form errors. -->
+          <div id="card-errors" role="alert"></div>
+        </div>
+
+        <button class="btn btn-primary btn-payment">Submit Payment</button>
+      </form>
+    </div>
+  </div>
+</div>
