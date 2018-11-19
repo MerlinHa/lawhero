@@ -1,24 +1,32 @@
 <div class="container">
-  <div class="row">
-    <h1 class="text-center h1-headline-blue">Your Request</h1>
-    <div class="card-request-show">
-      <div class="col-xs-12 col-sm-2">
-        <div class="card-request-details text-center">
-          <%= cl_image_tag @case.lawyer.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo-medium" %>
-          <p class="text-center"><strong><%= @case.lawyer.user.last_name + ' ' + @case.lawyer.user.first_name%></strong></p>
+  <div class="four-columns-dash">
+    <div class="info-column-dash">
+      <div class="text-center">
+        <%= cl_image_tag @user.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo", style:"margin-bottom: 10px;" %> <br>
+        <p>
+          <%= @user.first_name %> <%= @user.last_name %>
+        </p>
+      </div>
+        <p>Documents</p>
+      </a>
+    </div>
+    <!-- </div> -->
+    <div class="main-column-dash">
+      <p><strong>Story-line:</strong></p>
+      <div class="story-line">
+        <p><strong>The case is open</strong></p>
+      </div>
+    </div>
+    <div class="steps-financial-column-dash">
+      <div class="steps-box-dash">
+          <p><strong>Next steps:</strong></p>
+        <div class="step">
+          <i class="fa fa-check-circle" style="margin: 5px;"></i>
+          <p>Provide work contract</p>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-9">
-        <div class="request-content">
-          <h3><%= @case.title %></h3>
-          <p><%= @case.description %><p>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-1">
-        <div class="request-status text-center">
-          <p>Payment: </p>
-          <p><strong><%= @case.order.state %></strong><p>
-        </div>
+      <div class="financial-box-dash">
+        <p><strong>Financial Overview:</strong></p>
       </div>
     </div>
   </div>

@@ -5,6 +5,11 @@ class CasesController < ApplicationController
     @user = current_user
   end
 
+  def show
+    # @case = Case.find(params[:id])
+    @user = current_user
+  end
+
   def new
     @case = Case.new
     @lawyer = Lawyer.find(params[:lawyer_id])
