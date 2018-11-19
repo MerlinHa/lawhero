@@ -19,10 +19,10 @@ class PaymentsController < ApplicationController
 
     @order.update(payment: charge.to_json, state: 'paid')
     redirect_to case_path(@order.case_id)
-    rescue Stripe::CardError => e
+  rescue Stripe::CardError => e
       flash[:alert] = e.message
       redirect_to new_order_payment_path(@order)
-    end
+  end
 
   def show
     @order = current_user.orders.where(state: 'paid').find(params[:id])
