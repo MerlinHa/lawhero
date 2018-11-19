@@ -5,7 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable
   mount_uploader :photo, PhotoUploader
   has_many :lawyers
-  has_many :requests
   has_many :orders
   has_many :cases
 end

@@ -46,9 +46,6 @@ class LawyersController < ApplicationController
   private
 
   def lawyer_params
-    # Merlin, I have removed email as email is linked to user
     params.require(:lawyer).permit(:address, :phone, :short_desc, :long_desc, :sku, :photo, :price_cents, :language_ids => [], :communication_ids => [], :law_field_ids => [], :payment_type_ids => [])
-
-    # , :photo,  :sku)
   end
 end

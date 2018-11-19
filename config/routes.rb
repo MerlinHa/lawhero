@@ -1,15 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'dashboards/mydashboard'
   devise_for :users
   root to: 'pages#home'
   get 'pages/onboarding', to: 'pages#onboarding', as: :onboarding
 
-  resources :requests, only: [:index, :show, :edit, :update]  do
-    resources :cases, only: [:new, :create]
-  end
-
   resources :lawyers do
-    resources :requests, only: [:new, :create]
+    resources :cases, only: [:new, :create]
     resources :reviews, only: [:index]
   end
 
@@ -20,6 +17,8 @@ Rails.application.routes.draw do
   resources :orders, only: [:show] do
     resources :payments, only: [:new, :create]
   end
+
+  get "/mydashboard", to: 'dashboards#mydashboard'
 end
 
 

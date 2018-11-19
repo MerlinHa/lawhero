@@ -1,0 +1,17 @@
+.dashboard-tabs {
+  color: $blue;
+  height: 350px;
+}
+
+.separation-bar-nav {
+  border-bottom: solid 1px black;
+}
+
+.nav-tabs-dashboard {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.nav-tabs-dashboard .active {
+  border-bottom: solid 3px $green;
+}
