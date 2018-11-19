@@ -5,59 +5,57 @@
 
 <div class="bloc-flex">
 
+  <div class="item-flex colonne-a align-center">
 
-  <div class="item-flex">
     <ul>
-      <li>
-
-        <div class="line-class">
-          <i class="fas fa-check-circle" style="font-size:30px;" ></i>
-          <h1> 2 300 </h1>
+      <li class="line-flex">
+        <div >
+          <i class="fas fa-check-circle fa-3x" ></i>
         </div>
-        <h3> lawyers </h3>
+        <div class="part-text">
+          <h1>2 300 </h1>
+          <h3> lawyers are trust us </h3>
+        </div>
       </li>
 
-      <li>
-        <i class="fas fa-check-circle" style="font-size:30px;"></i>
-        <h1> 56 000 </h1>
-        <h3> cases </h3>
+      <li class="line-flex">
+        <div >
+          <i class="fas fa-check-circle fa-3x" ></i>
+        </div>
+        <div class="part-text">
+          <h1> 56 000 </h1>
+          <h3> cases followed </h3>
+        </div>
       </li>
 
-      <li>
-        <i class="fas fa-check-circle" style="font-size:30px;"></i>
-        <h1> 12 000 000 </h1>
-        <h3> views </h3>
+      <li class="line-flex">
+        <div >
+          <i class="fas fa-check-circle fa-3x"></i>
+        </div>
+        <div class="part-text">
+          <h1> 12 000 000 </h1>
+          <h3> meetings organised  </h3>
+        </div>
       </li>
     </ul>
 
-  </div>
-
-
-
-
-  <div class="item-flex">
-
-    <%= simple_form_for(@lawyer) do |f| %>
-    <%= f.input :short_desc, label: 'Make a short description of yourself', error: 'At least 20 ' %>
-    raise
-    <%= f.input :long_desc, label: 'Your specialities, your experience, etc' %>
-
-    <%= f.input :phone, placeholder: 'please enter phone number without spaces' %>
-    <%= f.input :address, placeholder: 'please enter your adress' %>
-
-    <%= f.input :price_cents, label: 'Request deposit', placeholder: 'your required prepayment' %>
-    <%#= f.association :languages, collection: Language.all, { label_method: lawyer_properties.id => :content },  prompt: "Select your languages" %>
-    <%= f.association :law_fields , collection: LawField.all, label_method: :content, value_method: :id, promt:"what are your domains?", input_html: {multiple: true} %>
-    <%= f.association :languages , collection: Language.all, label_method: :content, value_method: :id, input_html: {multiple: true} %>
-    <%= f.association :payment_types , collection: PaymentType.all, label_method: :content, value_method: :id, input_html: {multiple: true} %>
-    <%= f.association :communications , collection: Communication.all, label_method: :content, value_method: :id, input_html: {multiple: true} %>
-      <%= f.input :photo, label: 'Your profile picture', placeholder: 'update your photo' %>
-
-
-    <%= f.button :submit %>
-    <% end %>
-
-  </div>
 
 </div>
 
+
+
+
+<div class="item-flex colonne-b">
+
+  <div class="container">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 "></div>
+
+
+    <%= render "shared/form" %>
+  </div>
+</div>
+</div>
+</div>
+
+
+<%= render "shared/onboarding_icons_lines" %>
