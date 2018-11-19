@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2018_11_19_073444) do
     t.datetime "updated_at", null: false
     t.string "title"
     t.string "description"
-    t.jsonb "documents"
+    t.json "documents"
     t.index ["lawyer_id"], name: "index_cases_on_lawyer_id"
     t.index ["user_id"], name: "index_cases_on_user_id"
   end
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2018_11_19_073444) do
   create_table "conversations", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "case_id"
   end
 
   create_table "documents", force: :cascade do |t|
@@ -168,6 +169,7 @@ ActiveRecord::Schema.define(version: 2018_11_19_073444) do
   add_foreign_key "bookings", "users"
   add_foreign_key "cases", "lawyers"
   add_foreign_key "cases", "users"
+  add_foreign_key "conversations", "cases"
   add_foreign_key "documents", "cases"
   add_foreign_key "lawyer_properties", "lawyers"
   add_foreign_key "lawyers", "users"
