@@ -5,6 +5,11 @@ class CasesController < ApplicationController
     @user = current_user
   end
 
+  def show
+    # @case = Case.find(params[:id])
+    @user = current_user
+  end
+
   def new
     @case = Case.new
     @request = Request.find(params[:request_id])
@@ -13,9 +18,9 @@ class CasesController < ApplicationController
   def create
     @case = Case.new(params_cases)
     @request = Request.find(params[:request_id])
-    # @case.request = @request
+    # @request = @case.request
     @case.save
-    redirect_to cases_path
+    redirect_to case_path(@case)
   end
 
   private
