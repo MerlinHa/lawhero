@@ -9,9 +9,9 @@
         <p>
           <%= @user.first_name %> <%= @user.last_name %>
         </p>
-      <a>
-      <%= link_to "Edit your profile", root_path, class: "btn btn-primary" %>
-      </a>
+        <a>
+          <%= link_to "Edit your profile", root_path, class: "btn btn-primary" %>
+        </a>
       </div>
     </div>
     <div class="right-column-dash">
@@ -24,13 +24,45 @@
             <li class="nav-item">
               <a class="nav-link" id="requests-tab" data-toggle="tab" href="#requests" role="tab" aria-controls="requests" aria-selected="false">requests</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" id="currents-tab" data-toggle="tab" href="#currents" role="tab" aria-controls="currents" aria-selected="false">current cases</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="archiveds-tab" data-toggle="tab" href="#archiveds" role="tab" aria-controls="archiveds" aria-selected="false">archived cases</a>
+            </li>
           </ul>
           <div class="tab-content " id="myTabContent">
             <div class="tab-pane fade tab-content-text in active" id="cases" role="tabpanel" aria-labelledby="cases-tab">
-              <p>test</p>
+              <% @cases.each do |c| %>
+              <div class="message">
+                <%= cl_image_tag c.lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
+                <div class="message-name">
+                  <h3><%= c.lawyer.user.first_name %></h3>
+                  <h3><%= c.lawyer.user.last_name %></h3>
+                  <p>10/07/17</p>
+                </div>
+                <div class="message-body">
+                  <p><strong><%= c.title %></strong></p>
+                  <p>
+                    <%= c.description %>
+                  </p>
+                </div>
+                <div class="message-status">
+                  <% if c.status == nil %>
+                  <p class="status pending">Pending</p>
+                  <% elsif c.status == true%>
+                  <p class="status accepted">Accepted</p>
+                  <% else %>
+                  <p class="status declined">Declined</p>
+                  <% end %>
+                  <p class="price">€345</p>
+                </div>
+              </div>
+              <% end %>
             </div>
             <div class="tab-pane fade tab-content-text" id="requests" role="tabpanel" aria-labelledby="requests-tab">
               <% @requests.each do |request| %>
+              <%= link_to case_path(request) do %>
               <div class="message">
                 <%= cl_image_tag request.lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
                 <div class="message-name">
@@ -45,15 +77,82 @@
                   </p>
                 </div>
                 <div class="message-status">
-                  <p class="status pending">Pending</p>
-                  <p class="price">€345</p>
+                  <div class="message-status">
+                    <% if request.status == nil %>
+                    <p class="status pending">Pending</p>
+                    <% elsif request.status == true%>
+                    <p class="status accepted">Accepted</p>
+                    <% else %>
+                    <p class="status declined">Declined</p>
+                    <% end %>
+                    <p class="price">€345</p>
+                  </div>
                 </div>
               </div>
-              <% end %>
+                <% end %>
+                <% end %>
+            </div>
+            <div class="tab-pane fade tab-content-text" id="currents" role="tabpanel" aria-labelledby="currents-tab">
+              <% @currents.each do |current| %>
+              <div class="message">
+                <%= cl_image_tag current.lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
+                <div class="message-name">
+                  <h3><%= current.lawyer.user.first_name %></h3>
+                  <h3><%= current.lawyer.user.last_name %></h3>
+                  <p>10/07/17</p>
+                </div>
+                <div class="message-body">
+                  <p><strong><%= current.title %></strong></p>
+                  <p>
+                    <%= current.description %>
+                  </p>
+                </div>
+                <div class="message-status">
+                  <div class="message-status">
+                    <% if current.status == nil %>
+                    <p class="status pending">Pending</p>
+                    <% elsif current.status == true%>
+                    <p class="status accepted">Accepted</p>
+                    <% else %>
+                    <p class="status declined">Declined</p>
+                    <% end %>
+                    <p class="price">€300</p>
+                  </div>
+                </div>
+                <% end %>
+              </div>
+              <div class="tab-pane fade tab-content-text" id="archiveds" role="tabpanel" aria-labelledby="archiveds-tab">
+                <% @archiveds.each do |archived| %>
+                <div class="message">
+                  <%= cl_image_tag archived.lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
+                  <div class="message-name">
+                    <h3><%= archived.lawyer.user.first_name %></h3>
+                    <h3><%= archived.lawyer.user.last_name %></h3>
+                    <p>10/07/17</p>
+                  </div>
+                  <div class="message-body">
+                    <p><strong><%= archived.title %></strong></p>
+                    <p>
+                      <%= archived.description %>
+                    </p>
+                  </div>
+                  <div class="message-status">
+                    <div class="message-status">
+                      <% if archived.status == nil %>
+                      <p class="status pending">Pending</p>
+                      <% elsif archived.status == true%>
+                      <p class="status accepted">Accepted</p>
+                      <% else %>
+                      <p class="status declined">Declined</p>
+                      <% end %>
+                      <p class="price">€300</p>
+                    </div>
+                  </div>
+                  <% end %>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>

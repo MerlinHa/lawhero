@@ -6,7 +6,7 @@ class CasesController < ApplicationController
   end
 
   def show
-    # @case = Case.find(params[:id])
+    @case = Case.find(params[:id])
     @user = current_user
   end
 
