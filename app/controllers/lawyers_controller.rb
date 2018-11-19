@@ -30,6 +30,6 @@ class LawyersController < ApplicationController
   private
 
   def lawyer_params
-    params.require(:lawyer).permit(:address, :phone, :short_desc, :long_desc, :language_ids => [], :communication_ids => [], :law_field_ids => [], :payment_type_ids => [],:photo :email, :price_cents, :sku)
+    params.require(:lawyer).permit(:address, :phone, :short_desc, :long_desc, :photo, :email, :price_cents, :sku, :language_ids => [], :communication_ids => [], :law_field_ids => [], :payment_type_ids => [])
   end
 end
