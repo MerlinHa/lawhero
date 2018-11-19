@@ -27,4 +27,10 @@ class LawyersController < ApplicationController
     @lawyer = Lawyer.new(params[:lawyer])
     @lawyer.save
   end
+
+  private
+
+  def lawyer_params
+    params.require(:lawyer).permit(:photo, :short_desc, :long_desc, :email, :phone, :address, :price_cents, :sku)
+  end
 end
