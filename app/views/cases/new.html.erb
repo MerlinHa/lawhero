@@ -2,9 +2,10 @@
 
 <div class="container">
   <div class="row">
-    <%= simple_form_for([@lawyer, @case]) do |f| %>
-      <%= f.input :title %>
-      <%= f.input :description %>
+    <%= form_for ([@lawyer, @case]), html: { multipart: true } do |f| %>
+      <%= f.text_field :title %>
+      <%= f.text_field :description %>
+      <%= f.file_field :documents, as: :file, multiple: :true, name: "documents[]" %>
       <%= f.button :submit %>
     <% end %>
   </div>
