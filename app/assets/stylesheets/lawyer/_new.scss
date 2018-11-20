@@ -1,6 +1,6 @@
 .bloc-flex {
   display: flex;
-marging-top: 60px;
+  margin-top: 60px;
   padding-top: 50px;
   padding-bottom: 50px;
   background: rgb(240,240,240);
@@ -37,13 +37,13 @@ justify-content: flex-start;
 }
 
 .colonne-a {
-  width: 65%;
+  width: 60%;
   text-align: center;
   justify-content: flex-start;
 }
 
 .colonne-b {
-  width: 35%;
+  width: 40%;
   background-color: $green;
   border-radius: 15px;
 
