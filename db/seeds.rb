@@ -20,7 +20,7 @@ Language.create([
   {content: "Russian"},
 ])
 
-puts "Creating Communcations"
+puts "Creating Communications"
 Communication.create([
   {content: "Skype"},
   {content: "Whatsapp"},
