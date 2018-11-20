@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :cases, only: [:index, :show, :edit, :update] do
     resources :reviews, only: [:new, :create]
+    resources :messages, only: [:create]
   end
 
   resources :orders, only: [:show] do
