@@ -10,6 +10,7 @@
 .message-body-for-lawyer {
   flex-grow: 1;
   display: flex;
+  transition: width 2s;
 }
 
 .message-sub-body {
