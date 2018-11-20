@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @case = Case.find(params[:case_id])
     @message.case = @case
+    @message.user = current_user
     if @message.save
       respond_to do |format|
         format.js
