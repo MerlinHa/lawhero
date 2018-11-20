@@ -1,13 +1,13 @@
 
-<h1>Find your lawyer:</h1>
-<%= form_tag lawyers_path, method: :get do %>
 
-<%= label_tag :language %>
-<%#= text_field_tag :language, params[:language] %>
-<%= select_tag "language", options_for_select([ "English", "Russian", "Arabic", "German", "Spanish", "French" ], "English") %>
+<div class="container">
+  <%= form_tag lawyers_path, method: :get do %>
+  <%= label_tag :language %>
+  <%#= text_field_tag :language, params[:language] %>
+  <%= select_tag "language", options_for_select([ "English", "Russian", "Arabic", "German", "Spanish", "French" ], "English") %>
 
-<%= label_tag :law_field %>
-<%= select_tag "Law Field", options_for_select([ "Banking & Finance Law",
+  <%= label_tag :law_field %>
+  <%= select_tag "Law Field", options_for_select([ "Banking & Finance Law",
    "Competition Law",
    "Corporate Law",
    "Employment Law",
@@ -20,74 +20,42 @@
    "Tax Law",
    "Transport Law", ], "English") %>
 
-<%#= text_field_tag :law_field, params[:law_field] %>
-<%#= text_field_tag :law_field, params[:law_field] %>
-
-
-
-<%= submit_tag "filter", class: "btn btn-large btn-primary" %>
-<% end %>
-
-
-<div class="lawyers">
-  <% @lawyers.each do |lawyer| %>
-  <div class="mini-lawyer-card">
-    <%= link_to lawyer_path(lawyer) do %>
-    <div class="header">
-      <div class="bold">
-        <%= "#{lawyer.user.first_name} #{lawyer.user.last_name}" %>
+   <%= submit_tag "filter", class: "btn btn-large btn-primary" %>
+   <% end %>
+     <% @lawyers.each do |lawyer| %>
+   <div class="border-box-lawyer">
+     <div class="message-for-lawyer">
+      <%= cl_image_tag lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
+      <div class="message-name-for-lawyer">
+        <h3><%= lawyer.user.first_name%></h3>
+        <h3><%= lawyer.user.last_name%></h3>
+        <p><%= lawyer.user.created_at%></p>
       </div>
-      <div class="address">
-        <%= lawyer.address %>
-      </div>
-    </div>
-    <div class="info">
-      <div class="languages">
-        <div class="bold">Languages: </div>
-        <% lawyer.languages.each do |language| %>
-        <div class="language">
-          <%= language.content %>
-        </div>
-        <% end %>
-      </div>
-      <div class="law-fields">
-        <div class="bold">
-          Law fields:
-        </div>
-        <% lawyer.law_fields.each do |law_field| %>
-        <div class="law-field">
-          <%= law_field.content %>
-        </div>
-        <% end %>
-      </div>
-      <div class="index-avatar">
-        <%= cl_image_tag lawyer.photo, class: 'index-avatar-photo' %>
-      </div>
-      <div class="col-md-4 lawyer-rating">
-       <div class="">
-        <h5>Lawyer.rating</h5>
-        <h5>4.0/5.0 </h5>
-        <p>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star"></span>
-        </p>
-        <p>
-          no. of cases <i class="fa fa-thumbs-up"></i>
-        </p>
-      </div>
+      <div class="message-body-for-lawyer">
+       <div class="message-sub-body">
+         <p><strong>Law-fields : </strong></p>
+         <% lawyer.law_fields.limit(3).uniq.each do |field| %>
+         <p> - <%= field.content %></p>
+         <% end %>
+       </div>
+       <div class="message-sub-body">
+         <p><strong>Languages : </strong></p>
+         <% lawyer.languages.limit(3).uniq.each do |language| %>
+         <p> - <%= language.content %></p>
+         <% end %>
+       </div>
+       <div class="message-sub-body">
+         <p><strong>Fees : </strong></p>
+         <% lawyer.payment_types.limit(3).uniq.each do |type| %>
+         <p> - <%= type.content %></p>
+         <% end %>
+       </div>
+     </div>
+     <div class="message-status-for-lawyer">
+      <p class="initial-fee-for-lawyer">Initial Fee</p>
+      <p class="price"><%= lawyer.price_cents / 100 %> $ </p>
     </div>
   </div>
 </div>
+  <% end %>
 </div>
-<% end %>
-</div>
-<% end %>
-</div>
-
-
-
-
-
