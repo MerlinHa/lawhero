@@ -1,9 +1,12 @@
 class LawyersController < ApplicationController
   def index
     @lawyers = Lawyer.all
+
+
       if params.key?("law_field")
         law_field = params[:law_field]
         language = params[:language]
+
         @lawyers = Lawyer.joins(:lawyer_properties).joins(:law_fields).joins(:languages).where("law_fields.content = ? AND languages.content = ?", law_field, language).uniq
       end
   end
