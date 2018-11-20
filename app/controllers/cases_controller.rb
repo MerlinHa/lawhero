@@ -7,6 +7,7 @@ class CasesController < ApplicationController
 
   def show
     @case = Case.find(params[:id])
+    @message = Message.new
     @user = current_user
   end
 
@@ -22,9 +23,10 @@ class CasesController < ApplicationController
     @lawyer = Lawyer.find(params[:lawyer_id])
     @case.lawyer = @lawyer
     @case.user = current_user
-
-    params[:documents].each do |docu|
-      @case.documents.build(file: docu)
+    if params[:documents]
+      params[:documents].each do |docu|
+        @case.documents.build(file: docu)
+      end
     end
 
     if @case.save

@@ -62,7 +62,10 @@
               </div>
             </div>
             <div class="right-column-dash">
-              <h1>Messages box</h1>
+              <%= simple_form_for([@case, @message]) do |f| %>
+              <%= f.input :content %>
+              <%= f.submit %>
+              <% end %>
             </div>
           </div>
         </div>
