@@ -28,7 +28,7 @@ SimpleForm.setup do |config|
 
   # You can wrap each item in a collection of radio/check boxes with a tag
   config.item_wrapper_tag = :div
-
+  config.item_wrapper_class
   # Defines if the default input wrapper class should be included in radio
   # collection wrappers.
   config.include_default_input_wrapper_class = false
@@ -174,11 +174,11 @@ SimpleForm.setup do |config|
   end
 
   # horizontal input for radio buttons and check boxes
-  config.wrappers :horizontal_collection, item_wrapper_class: 'form-check', tag: 'div', class: 'form-group row', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  config.wrappers :horizontal_collection, item_wrapper_class: 'form-check col-sm-6', tag: 'div', class: 'form-group row', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
     b.use :html5
     b.optional :readonly
-    b.use :label, class: 'col-sm-3 form-control-label'
-    b.wrapper :grid_wrapper, tag: 'div', class: 'col-sm-9' do |ba|
+    b.use :label, class: 'form-control-label'
+    b.wrapper :grid_wrapper, tag: 'div', class: '' do |ba|
       ba.use :input, class: 'form-check-input', error_class: 'is-invalid', valid_class: 'is-valid'
       ba.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback d-block' }
       ba.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
