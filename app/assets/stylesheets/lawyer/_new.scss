@@ -32,14 +32,15 @@ padding: 20px 20px 20px 20px;
 }
 
 .part-text {
-justify-content: flex-start;
+  text-align:left;
 
 }
 
 .colonne-a {
   width: 60%;
+  display:flex;
   text-align: center;
-  justify-content: flex-start;
+  flex-direction: column;
 }
 
 .colonne-b {

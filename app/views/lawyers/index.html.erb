@@ -2,14 +2,15 @@
 <h1>Find your lawyer:</h1>
 <div class="container">
 <%= form_tag lawyers_path, method: :get do %>
+
 <%= label_tag :language %>
-<%#= text_field_tag :language, params[:language] %>
-<%= select_tag "language", options_for_select(Language.all.collect { |u| [u.content,u.id] }, "English") %>
+<%= select_tag "language", options_for_select(Language.all.map { |u| u.content }, "English") %>
+
 <%= label_tag :law_field %>
-<%= select_tag "law_field", options_for_select(LawField.all.collect {|u| [u.content,u.id] } ) %>
-<%= label_tag :payment_types  %>
-<%= select_tag "payment_types", options_for_select(PaymentType.all.collect {|u| [u.content,u.id ] } ) %>
+<%= select_tag "law_field", options_for_select(LawField.all.collect { |u| [u.content, u.id] } ) %>
+
 <%= submit_tag "filter", class: "btn btn-large btn-primary" %>
+
 <% end %>
      <% @lawyers.each do |lawyer| %>
    <div class="border-box-lawyer">
