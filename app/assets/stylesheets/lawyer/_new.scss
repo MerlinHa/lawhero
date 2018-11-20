@@ -1,13 +1,14 @@
 .bloc-flex {
   display: flex;
-  height:100vh;
-  border: 1px solid black;
-  justify-content: space-around;
+  margin-top: 60px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: rgb(240,240,240);
 }
 
 .item-flex {
 display: flex;
-align-items: center;
+padding: 20px 20px 20px 20px;
 }
 
 li {
@@ -16,8 +17,58 @@ li {
 
 ul {
   list-style-type: none;
+  width:100%;
 }
 
-.line-class {
+i {
+  padding-right: 20px;
+}
+
+.line-flex {
   display: flex;
+  align-items: center;
+  margin-left:20%;
+  // font-size: 70px;
+}
+
+.part-text {
+justify-content: flex-start;
+
+}
+
+.colonne-a {
+  width: 60%;
+  text-align: center;
+  justify-content: flex-start;
+}
+
+.colonne-b {
+  width: 40%;
+  background-color: $green;
+  border-radius: 15px;
+
+
+}
+
+.align-center {
+  align-items: center;
+}
+
+#title-box {
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.form-content {
+  color: $blue;
+  border-radius: 15px;
+}
+
+.btn-onboarding {
+  width: 100%;
+  font-size: 40px;
+  font-weight: bold;
+  padding: 10px;
 }
