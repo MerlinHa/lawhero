@@ -4,21 +4,16 @@
 
 <%= label_tag :language %>
 <%#= text_field_tag :language, params[:language] %>
-<%= select_tag "language", options_for_select([ "English", "Russian", "Arabic", "German", "Spanish", "French" ], "English") %>
+<%= select_tag "language", options_for_select(Language.all.collect { |u| [u.content,u.id] }, "English") %>
 
 <%= label_tag :law_field %>
-<%= select_tag "law_field", options_for_select([ "Banking & Finance Law",
-   "Competition Law",
-   "Corporate Law",
-   "Employment Law",
-   "Environmental Law",
-   "Family Law",
-   "Immigration Law",
-   "Insolvency & Restructuring Law",
-   "Mergers & Acquistions Law",
-   "Real Estate Law",
-   "Tax Law",
-   "Transport Law", ], "English") %>
+<%= select_tag "law_field", options_for_select(LawField.all.collect {|u| [u.content,u.id] } ) %>
+
+<%= label_tag :payment_types  %>
+
+<%= select_tag "payment_types", options_for_select(PaymentType.all.collect {|u| [u.content,u.id ] } ) %>
+
+
 
 <%#= text_field_tag :law_field, params[:law_field] %>
 <%#= text_field_tag :law_field, params[:law_field] %>
