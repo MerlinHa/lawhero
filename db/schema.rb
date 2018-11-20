@@ -35,7 +35,10 @@ ActiveRecord::Schema.define(version: 2018_11_19_073444) do
     t.datetime "updated_at", null: false
     t.string "title"
     t.string "description"
+<<<<<<< HEAD
     t.json "documents"
+=======
+>>>>>>> 86ae9fea60d8fbfe48f96c86ac67b7d185434324
     t.index ["lawyer_id"], name: "index_cases_on_lawyer_id"
     t.index ["user_id"], name: "index_cases_on_user_id"
   end

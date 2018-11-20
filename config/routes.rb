@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get 'dashboards/mydashboard'
   devise_for :users
+  resources :users, only: [:new, :create]
   root to: 'pages#home'
   get 'pages/onboarding', to: 'pages#onboarding', as: :onboarding
 

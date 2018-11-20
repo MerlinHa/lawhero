@@ -1,0 +1,38 @@
+ <h1 id="title-box"> Gain 30% in your day to day management</h1>
+
+ <div class="form-content">
+
+  <%= simple_form_for(@lawyer) do |f| %>
+
+  <div class="row">
+    <div class="col-xs-12 ">
+     <%= f.association :law_fields, as: :check_boxes, label_method: :content, value_method: :id, prompt:"what are your domains?", input_html: { multiple: true }, wrapper: :horizontal_collection %>
+   </div>
+ </div>
+
+ <div class="row">
+  <div class="col-xs-6">
+    <%= f.input :phone, input_html: {class: "rounding"},placeholder: 'please enter phone number without spaces' %>
+  </div>
+  <div class="col-xs-6">
+    <%= f.input :address, input_html: {class: "rounding"}, placeholder: 'please enter your adress' %>
+  </div>
+</div>
+
+<%= f.input :short_desc,input_html: {class: "rounding"}, label: 'Make a short description of yourself', error: 'At least 20 ' %>
+
+<%= f.input :long_desc,input_html: {class: "rounding"}, label: 'Your specialities, your experience, etc' %>
+
+
+
+<%= f.input :price_cents,input_html: {class: "rounding"}, label: 'Request deposit', placeholder: 'your required prepayment' %>
+<%#= f.association :languages, collection: Language.all, { label_method: lawyer_properties.id => :content },  prompt: "Select your languages" %>
+
+<%= f.association :languages, as: :check_boxes, input_html: {class: "rounding"}, label_method: :content, value_method: :id, input_html: {multiple: true}, wrapper: :horizontal_collection  %>
+<%= f.association :payment_types, as: :check_boxes, input_html: {class: "rounding"},label_method: :content, value_method: :id, input_html: {multiple: true},  wrapper: :horizontal_collection  %>
+<%= f.association :communications ,as: :check_boxes, input_html: {class: "rounding"},label_method: :content, value_method: :id, input_html: {multiple: true}, wrapper: :horizontal_collection  %>
+<%= f.input :photo, input_html: {class: "rounding"}, label: 'Your profile picture', placeholder: 'update your photo' %>
+
+
+<%= f.submit "Create your Profile", class: "btn btn-warning btn-onboarding" %>
+<% end %>

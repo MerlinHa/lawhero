@@ -1,5 +1,6 @@
 class PaymentsController < ApplicationController
   before_action :set_order
+  protect_from_forgery with: :null_session
 
   def new
   end
