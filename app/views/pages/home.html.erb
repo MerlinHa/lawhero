@@ -1,7 +1,16 @@
 <div class="banner-home" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://res.cloudinary.com/merlinha/image/upload/v1542264452/law%20seeds/home-banner-background.jpg');">
   <div class="banner-content">
     <h1>Find & book the right lawyer online</h1>
-    <%= form_tag lawyers_path, method: :get, class: "lawyer-search-form" do |f| %>
+<!-- <div class="btn-group">
+  <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Large button <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li>test</li>
+    <li>test 2</li>
+  </ul>
+</div> -->
+<%= form_tag lawyers_path, method: :get, class: "lawyer-search-form" do |f| %>
       <%= text_field_tag :field, params[:field], class: "form-control", placeholder: "Law Field" %>
       <%= text_field_tag :location, params[:location], class: "form-control", placeholder: "City" %>
       <%= submit_tag "Search", class: "btn btn-primary" %>
