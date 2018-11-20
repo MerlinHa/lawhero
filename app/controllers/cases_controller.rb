@@ -23,8 +23,10 @@ class CasesController < ApplicationController
     @case.lawyer = @lawyer
     @case.user = current_user
 
-    params[:documents].each do |docu|
-      @case.documents.build(file: docu)
+    if params[:documents].present?
+      params[:documents].each do |docu|
+        @case.documents.build(file: docu)
+      end
     end
 
     if @case.save
