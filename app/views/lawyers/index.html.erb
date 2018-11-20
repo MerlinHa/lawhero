@@ -1,6 +1,5 @@
-<div class="page-title">
+
 <h1>Find your lawyer:</h1>
-</div>
 <%= form_tag lawyers_path, method: :get do %>
 
 <%= label_tag :language %>
@@ -8,7 +7,7 @@
 <%= select_tag "language", options_for_select([ "English", "Russian", "Arabic", "German", "Spanish", "French" ], "English") %>
 
 <%= label_tag :law_field %>
-<%= select_tag "law_field", options_for_select([ "Banking & Finance Law",
+<%= select_tag "Law Field", options_for_select([ "Banking & Finance Law",
    "Competition Law",
    "Corporate Law",
    "Employment Law",
@@ -23,6 +22,8 @@
 
 <%#= text_field_tag :law_field, params[:law_field] %>
 <%#= text_field_tag :law_field, params[:law_field] %>
+
+
 
 <%= submit_tag "filter", class: "btn btn-large btn-primary" %>
 <% end %>
