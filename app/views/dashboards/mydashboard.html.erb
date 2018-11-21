@@ -6,9 +6,9 @@
         <p>
           <%= @user.first_name %> <%= @user.last_name %>
         </p>
-        <a>
-          <%= link_to "Edit your profile", root_path, class: "btn btn-primary" %>
-        </a>
+        <p>
+          <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-primary" %>
+        </p>
       </div>
     </div>
     <div class="right-column-dash">
@@ -31,6 +31,7 @@
           <div class="tab-content " id="myTabContent">
             <div class="tab-pane fade tab-content-text in active" id="cases" role="tabpanel" aria-labelledby="cases-tab">
               <% @cases.each do |c| %>
+                    <%= link_to case_path(c) do %>
               <div class="message">
                 <%= cl_image_tag c.lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
                 <div class="message-name">
@@ -55,6 +56,7 @@
                   <p class="price">€345</p>
                 </div>
               </div>
+              <% end %>
               <% end %>
             </div>
             <div class="tab-pane fade tab-content-text" id="requests" role="tabpanel" aria-labelledby="requests-tab">
