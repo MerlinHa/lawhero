@@ -7,10 +7,11 @@ class LawyersController < ApplicationController
         law_field = LawField.find(law_field_id).content
 
         language = params[:language]
+        payment_type = params[:payment_type]
 
-        @lawyers = Lawyer.joins(:lawyer_properties).joins(:law_fields).joins(:languages).where("law_fields.content = ? AND languages.content = ?", law_field, language).uniq
+        @lawyers = Lawyer.joins(:lawyer_properties).joins(:law_fields).joins(:languages).joins(:payment_types).where("law_fields.content = ? AND languages.content = ? AND payment_types.content = ?", law_field , language, payment_type).uniq
 
-      # @lawyers = Lawyer.joins(:lawyer_properties).joins(:law_fields).joins(:languages).where(law_field, language).uniq
+      #@lawyers = Lawyer.joins(:lawyer_properties).joins(:law_fields).joins(:languages).where(law_field, language).uniq
       end
   end
 
