@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2018_11_20_083927) do
   create_table "conversations", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "case_id"
   end
 
   create_table "documents", force: :cascade do |t|
@@ -101,6 +102,7 @@ ActiveRecord::Schema.define(version: 2018_11_20_083927) do
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "case_id"
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
@@ -168,9 +170,11 @@ ActiveRecord::Schema.define(version: 2018_11_20_083927) do
   add_foreign_key "bookings", "users"
   add_foreign_key "cases", "lawyers"
   add_foreign_key "cases", "users"
+  add_foreign_key "conversations", "cases"
   add_foreign_key "documents", "cases"
   add_foreign_key "lawyer_properties", "lawyers"
   add_foreign_key "lawyers", "users"
+  add_foreign_key "messages", "cases"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "orders", "users"

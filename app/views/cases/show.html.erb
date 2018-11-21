@@ -64,9 +64,25 @@
                 </a>
               </div>
             </div>
+             </div>
             <div class="right-column-dash">
-              <h1>Messages box</h1>
+              <%= simple_form_for([@case, @message]) do |f| %>
+                <%= f.input :content %>
+                <%= f.submit %>
+              <% end %>
+                  <p>Case Messages:</p>
+                  <% @case.messages.each do |message| %>
+                    <div class="case-message">
+                      <div class="date-message">
+                        <%= message.created_at.strftime("%m-%e-%y %H:%M") %>
+                      </div>
+                      <div class="message-content"><%= message.content %></div>
+                    </div>
+                   <% end %>
             </div>
+           </div>
+        </div>
+        <div class="tab-pane fade tab-content-text " id="documents" role="tabpanel" aria-labelledby="documents-tab">
           </div>
         </div>
         <div class="tab-pane fade tab-content-text " id="documents" role="tabpanel" aria-labelledby="documents-tab">
