@@ -38,6 +38,13 @@ li {
   color: $blue;
 }
 
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 .h1-headline-blue{
   color: $blue !important;
 }

@@ -27,7 +27,16 @@
   border-radius: 10px;
   margin: 10px 0px;
   text-decoration: none;
+  a {
+    text-decoration: none;
+  }
 }
+
+a:-webkit-any-link {
+  text-decoration: none !important;
+}
+
+
 .message-name-for-lawyer {
   padding-left: 10px;
   min-width: 100px;
@@ -73,3 +82,13 @@
   top: 10px;
   left: 10px;
 }
+
+.photo-lawyer {
+  position: relative;
+}
+
+.fa-at {
+  color: $green;
+  font-size: 30px;
+}
+

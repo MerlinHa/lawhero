@@ -1,5 +1,6 @@
 <div class="container">
   <!-- <div class="row"> -->
+    <h1 style="color: #1F487E;">Case title: <%= @case.title %></h1>
     <div class="dashboard-tabs">
       <div class="fake-container">
         <div class="fake-column-1"></div>
@@ -66,8 +67,8 @@
             </div>
             <div class="right-column-dash-messages">
               <%= simple_form_for([@case, @message]) do |f| %>
-              <div class="input-message">
-                <%= f.input :content %>
+                <div class="flex-message-input">
+                <%= f.input :content, as: :text, input_html: {class: "input-message"} %>
                 <div class="btn btn-primary">
                   <%= f.submit 'send' %>
                 </div>
