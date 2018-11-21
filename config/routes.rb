@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
 
   get "/mydashboard", to: 'dashboards#mydashboard'
+  get "/all", to:'lawyers#all'
 end
 
 

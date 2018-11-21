@@ -1,4 +1,7 @@
 
+<%= link_to "All lawyers", all_path, class:"btn btn-primary" %>
+
+
 <div class="container">
   <%= form_tag lawyers_path, method: :get do %>
 
@@ -6,7 +9,7 @@
 
 
     <p> <%= label_tag :law_field %></p>
-    <p> <%= select_tag "law_field", options_for_select(LawField.all.collect { |u| [u.content, u.id] } ) %></p>
+    <p> <%= select_tag "law_field", options_for_select(LawField.all.map { |u| u.content } ) %></p>
 
     <p> <%= label_tag :language %></p>
     <p> <%= select_tag "language", options_for_select(Language.all.map { |u| u.content }, "English") %></p>
