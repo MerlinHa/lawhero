@@ -1,8 +1,44 @@
-.case-message {
-  display: flex;
-  align-items: center;
-  margin-top: 5px;
-  .message-content {
-    margin-left: 20px;
-  }
+.right-column-dash-messages {
+  // display: flex;
+  // flex-direction: column;
+  flex-grow: 1;
+  min-height: 50vh;
+  min-width: 500px;
+  border: 1px solid $gray;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  position: relative;
+
 }
+
+.input-message {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  display: flex;
+  width: 95%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-message-output {
+  // display: flex;
+  margin: 10px 0px;
+}
+
+.message-box-inside-messages {
+  height: 35px;
+  padding-left: 10px;
+}
+
+.message-box-inside-messages p {
+  color: black;
+}
+
+.timestamp-message p {
+  font-size: 10px;
+  color: $green;
+}
+
+
