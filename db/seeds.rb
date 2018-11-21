@@ -186,6 +186,7 @@ lawyer_g = Lawyer.create!(
     price_cents: 30000,
     remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542261759/law%20seeds/user_b.jpg",
     digital_lawyer: true
+)
 
 user_h = User.create!(
   first_name: "Hector",
@@ -212,6 +213,7 @@ lawyer_h = Lawyer.create!(
     price_cents: 30000,
     remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542261759/law%20seeds/user_b.jpg",
     digital_lawyer: true
+)
 
 user_i = User.create!(
   first_name: "Raymond",
