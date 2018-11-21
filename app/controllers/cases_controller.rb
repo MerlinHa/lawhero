@@ -3,12 +3,12 @@ class CasesController < ApplicationController
   def index
     @cases = current_user.cases
     @user = current_user
-    @message = Message.new
   end
 
   def show
     @case = Case.find(params[:id])
     @user = current_user
+    @message = Message.new
   end
 
 
