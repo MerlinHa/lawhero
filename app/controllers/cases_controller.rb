@@ -8,6 +8,7 @@ class CasesController < ApplicationController
   def show
     @case = Case.find(params[:id])
     @user = current_user
+    @message = Message.new
   end
 
 
