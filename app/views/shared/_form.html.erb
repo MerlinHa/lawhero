@@ -4,34 +4,81 @@
 
   <%= simple_form_for(@lawyer) do |f| %>
 
-  <div class="row">
-    <div class="col-xs-12 ">
-     <%= f.association :law_fields, as: :check_boxes, label_method: :content, value_method: :id, prompt:"what are your domains?", input_html: { multiple: true }, wrapper: :horizontal_collection %>
-   </div>
- </div>
+
+
+      <div class="title">
+        <label class="form-control-label" >Your expertises</label>
+
+      </div>
+     <%= f.association :law_fields, as: :check_boxes, label_method: :content, value_method: :id, prompt:"what are your domains?", input_html: { multiple: true }, wrapper: :horizontal_collection, label:false %>
+
+
+<div class="title">
+        <label class="form-control-label" >Your main contact details</label>
+
+      </div>
 
  <div class="row">
   <div class="col-xs-6">
-    <%= f.input :phone, input_html: {class: "rounding"},placeholder: 'please enter phone number without spaces' %>
+    <%= f.input :phone, input_html: {class: "rounding"},placeholder: 'Your phone here', label:false %>
   </div>
   <div class="col-xs-6">
-    <%= f.input :address, input_html: {class: "rounding"}, placeholder: 'please enter your adress' %>
+    <%= f.input :address, input_html: {class: "rounding"}, placeholder: 'Your city here', label:false %>
   </div>
 </div>
 
-<%= f.input :short_desc,input_html: {class: "rounding"}, label: 'Make a short description of yourself', error: 'At least 20 ' %>
+  <div class="title">
+        <label class="form-control-label" >Your description</label>
 
-<%= f.input :long_desc,input_html: {class: "rounding"}, label: 'Your specialities, your experience, etc' %>
+      </div>
+<%= f.input :short_desc,input_html: {class: "rounding"}, placeholder: 'Your short description', error: 'At least 20 ', label:false %>
+
+<div class="row">
+    <div class="col-xs-12 ">
+<%= f.input :long_desc, as: :text, input_html: {class: "rounding"}, placeholder: 'Your specialities, your experience, etc', label:false %>
+ </div>
+</div>
 
 
 
-<%= f.input :price_cents,input_html: {class: "rounding"}, label: 'Request deposit', placeholder: 'your required prepayment' %>
+      <div class="title">
+        <label class="form-control-label" >Your request for prepayment in $</label>
+
+      </div>
+<%= f.input :price_cents,   input_html: {class: "rounding"}, placeholder: 'Your prepayment in $', label:false %>
 <%#= f.association :languages, collection: Language.all, { label_method: lawyer_properties.id => :content },  prompt: "Select your languages" %>
 
-<%= f.association :languages, as: :check_boxes, input_html: {class: "rounding"}, label_method: :content, value_method: :id, input_html: {multiple: true}, wrapper: :horizontal_collection  %>
-<%= f.association :payment_types, as: :check_boxes, input_html: {class: "rounding"},label_method: :content, value_method: :id, input_html: {multiple: true},  wrapper: :horizontal_collection  %>
-<%= f.association :communications ,as: :check_boxes, input_html: {class: "rounding"},label_method: :content, value_method: :id, input_html: {multiple: true}, wrapper: :horizontal_collection  %>
-<%= f.input :photo, input_html: {class: "rounding"}, label: 'Your profile picture', placeholder: 'update your photo' %>
+
+      <div class="title">
+        <label class="form-control-label" >Law Fields</label>
+
+      </div>
+<%= f.association :languages, as: :check_boxes, input_html: {class: "rounding"}, label_method: :content, value_method: :id, input_html: {multiple: true}, wrapper: :horizontal_collection, label:false  %>
+
+
+
+
+      <div class="title">
+        <label class="form-control-label" >What type of payments? </label>
+
+      </div>
+<%= f.association :payment_types, as: :check_boxes, input_html: {class: "rounding"},label_method: :content, value_method: :id, input_html: {multiple: true},  wrapper: :horizontal_collection, label:false   %>
+
+
+
+      <div class="title">
+        <label class="form-control-label" >What channels of communications? </label>
+
+      </div>
+<%= f.association :communications ,as: :check_boxes, input_html: {class: "rounding"},label_method: :content, value_method: :id, input_html: {multiple: true}, wrapper: :horizontal_collection, label:false  %>
+
+
+
+      <div class="title">
+        <label class="form-control-label" > Your profile picture </label>
+
+      </div>
+<%= f.input :photo, input_html: {class: "rounding"}, label: 'Your profile picture', placeholder: 'update your photo', label:false %>
 
 
 <%= f.submit "Create your Profile", class: "btn btn-warning btn-onboarding" %>
