@@ -77,9 +77,10 @@ lawyer_a = Lawyer.create!(
     Finally, Dereck is proud to contribute his time as a volunteer with several noteworthy organizations, including the Honens International Piano Competition.",
     email: "dereck@jonesdivorcelaw.com",
     phone: "0343543235325",
-    address: "210, 333 24th Avenue SW, Calgary, AB T2S 3E6",
+    city: "berlin",
     price_cents: 10000,
-    remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542251451/law%20seeds/user_a.jpg"
+    remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542251451/law%20seeds/user_a.jpg",
+    digital_lawyer: false
   )
 
 user_b = User.create!(
@@ -103,9 +104,10 @@ lawyer_b = Lawyer.create!(
     Aside from the practice of law, Lindsay is a devoted mother who enjoys traveling, skiing, golfing and hiking.",
     email: "lindsay@jonesdivorcelaw.com",
     phone: "0343543235325",
-    address: "210, 333 24th Avenue SW, Calgary, AB T2S 3E6",
+    city: "Paris",
     price_cents: 30000,
-    remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542261759/law%20seeds/user_b.jpg"
+    remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542261759/law%20seeds/user_b.jpg",
+    digital_lawyer: true
   )
 
 user_c = User.create!(
@@ -124,9 +126,10 @@ lawyer_c = Lawyer.create!(
   long_desc: "Edward D. Barnes is Founder & President of Barnes & Diehl, P.C., the largest Firm in Virginia devoted to Family Law. In 2008, he received the Virginia State Bar Family Law Section, Lifetime Achievement Award. He is a Fellow of the American Academy of Matrimonial Lawyers (Chicago). He is listed in Best Lawyers in America, and has been Virginia Legal Elite list published by Virginia Business Magazine. Richmond Business Magazine named him Top Family Lawyer in the City of Richmond and the Region in 2001.",
   email: "ebarnes@barnesfamilylaw.com",
   phone: "0343543235325",
-  address: "7401 Beaufont Springs Drive, Suite 200, Richmond, VA 23225",
+  city: "Los Angeles",
   price_cents: 25000,
-  remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542261885/law%20seeds/user_c.jpg"
+  remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542261885/law%20seeds/user_c.jpg",
+  digital_lawyer: true
 )
 
 user_d = User.create!(
