@@ -162,8 +162,8 @@ user_f = User.create!(
 )
 
 
-puts "Creating 10 bookings.."
-10.times do
+puts "Creating 15 bookings.."
+15.times do
   Booking.create!({
     user: User.all.sample,
     lawyer: Lawyer.all.sample,
@@ -173,7 +173,7 @@ puts "Creating 10 bookings.."
    })
 end
 
-puts "Creating 10 reviews.."
+puts "Creating 15 reviews.."
 
 10.times do
 Review.create!({
@@ -185,7 +185,7 @@ Review.create!({
 end
 
 puts "Creating lawyer properties"
-10.times do
+15.times do
 LawyerProperty.create!({lawyer: Lawyer.all.sample, property: Language.all.sample})
 LawyerProperty.create!({lawyer: Lawyer.all.sample, property: Communication.all.sample})
 LawyerProperty.create!({lawyer: Lawyer.all.sample, property: PaymentType.all.sample})

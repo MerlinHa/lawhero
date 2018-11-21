@@ -12,5 +12,4 @@ class Lawyer < ApplicationRecord
   monetize :price_cents
 
 accepts_nested_attributes_for :languages, :communications, :law_fields, :payment_types
-
 end
