@@ -11,8 +11,8 @@
   </ul>
 </div> -->
 <%= form_tag lawyers_path, method: :get, class: "lawyer-search-form" do |f| %>
-      <%= text_field_tag :field, params[:field], class: "form-control", placeholder: "Law Field" %>
-      <%= text_field_tag :location, params[:location], class: "form-control", placeholder: "City" %>
+      <%= text_field_tag :law_field, params[:law_field], class: "form-control", placeholder: "Law Field" %>
+      <%= text_field_tag :city, params[:city], class: "form-control", placeholder: "City" %>
       <%= submit_tag "Search", class: "btn btn-primary" %>
     <% end %>
   </div>

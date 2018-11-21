@@ -1,18 +1,27 @@
 
+<%= link_to "All lawyers", all_path, class:"btn btn-primary" %>
+
+
 <div class="container">
   <%= form_tag lawyers_path, method: :get do %>
 
   <div style="display: flex; justify-content: space-around; margin: 20px 0px;">
 
-    <p> <%= label_tag :language %></p>
-    <p> <%= select_tag "language", options_for_select(Language.all.map { |u| u.content }, "English") %></p>
 
     <p> <%= label_tag :law_field %></p>
-    <p> <%= select_tag "law_field", options_for_select(LawField.all.collect { |u| [u.content, u.id] } ) %></p>
+    <p> <%= select_tag "law_field", options_for_select(LawField.all.map { |u| u.content } ) %></p>
+
+    <p> <%= label_tag :language %></p>
+    <p> <%= select_tag "language", options_for_select(Language.all.map { |u| u.content }, "English") %></p>
 
     <p> <%= label_tag :payment_type %></p>
     <p> <%= select_tag "payment_type", options_for_select(PaymentType.all.map { |u| u.content }, "Hourly" ) %></p>
 
+     <p> <%= label_tag :city %></p>
+    <p> <%= select_tag "city", options_for_select(Lawyer.all.map { |u| u.city }.uniq) %></p>
+
+  <p> <%= label_tag :digital_lawyer %></p>
+    <p> <%= select_tag "digital_lawyer", options_for_select(["True", "False"]) %></p>
 
     <%= submit_tag "filter", class: "btn btn-large btn-primary" %>
   </div>

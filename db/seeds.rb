@@ -77,7 +77,7 @@ lawyer_a = Lawyer.create!(
     Finally, Dereck is proud to contribute his time as a volunteer with several noteworthy organizations, including the Honens International Piano Competition.",
     email: "dereck@jonesdivorcelaw.com",
     phone: "0343543235325",
-    city: "berlin",
+    city: "Berlin",
     price_cents: 10000,
     remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542251451/law%20seeds/user_a.jpg",
     digital_lawyer: false
@@ -214,6 +214,7 @@ lawyer_h = Lawyer.create!(
     remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542261759/law%20seeds/user_b.jpg",
     digital_lawyer: true
 )
+
 user_i = User.create!(
   first_name: "Raymond",
   last_name: "Barnes",
@@ -259,7 +260,7 @@ lawyer_j = Lawyer.create!(
     Finally, Dereck is proud to contribute his time as a volunteer with several noteworthy organizations, including the Honens International Piano Competition.",
     email: "gisèle@jonesdivorcelaw.com",
     phone: "0343543235325",
-    city: "berlin",
+    city: "Berlin",
     price_cents: 10000,
     remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542251451/law%20seeds/user_a.jpg",
     digital_lawyer: false
