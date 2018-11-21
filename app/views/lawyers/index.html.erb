@@ -1,20 +1,22 @@
 
-<h1>Find your lawyer:</h1>
 <div class="container">
 <%= form_tag lawyers_path, method: :get do %>
-<%= label_tag :language %>
+<div style="display: flex; justify-content: space-around; margin: 20px 0px;">
+<p> <%= label_tag :language %> </p>
 <%#= text_field_tag :language, params[:language] %>
-<%= select_tag "language", options_for_select(Language.all.collect { |u| [u.content,u.id] }, "English") %>
-<%= label_tag :law_field %>
-<%= select_tag "law_field", options_for_select(LawField.all.collect {|u| [u.content,u.id] } ) %>
-<%= label_tag :payment_types  %>
-<%= select_tag "payment_types", options_for_select(PaymentType.all.collect {|u| [u.content,u.id ] } ) %>
+<p> <%= select_tag "language", options_for_select(Language.all.collect { |u| [u.content,u.id] }, "English") %></p>
+<p> <%= label_tag :law_field %> </p>
+<p> <%= select_tag "law_field", options_for_select(LawField.all.collect {|u| [u.content,u.id] } ) %></p>
+<p> <%= label_tag :payment_types  %> </p>
+<p> <%= select_tag "payment_types", options_for_select(PaymentType.all.collect {|u| [u.content,u.id ] } ) %></p>
 <%= submit_tag "filter", class: "btn btn-large btn-primary" %>
+</div>
 <% end %>
      <% @lawyers.each do |lawyer| %>
    <div class="border-box-lawyer">
      <div class="message-for-lawyer">
       <%= cl_image_tag lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
+      <div class="pin-nomad"><i class="fas fa-at"></i></div>
       <div class="message-name-for-lawyer">
         <h3><%= lawyer.user.first_name%></h3>
         <h3><%= lawyer.user.last_name%></h3>
