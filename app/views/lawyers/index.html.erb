@@ -15,7 +15,7 @@
     <p> <%= select_tag "payment_type", options_for_select(PaymentType.all.map { |u| u.content }, "Hourly" ) %></p>
 
      <p> <%= label_tag :city %></p>
-    <p> <%= select_tag "city", options_for_select(["Paris", "Berlin", "Los Angeles"], "Paris" ) %></p>
+    <p> <%= select_tag "city", options_for_select(Lawyer.all.map { |u| u.city }.uniq) %></p>
 
   <p> <%= label_tag :digital_lawyer %></p>
     <p> <%= select_tag "digital_lawyer", options_for_select(["True", "False"]) %></p>
