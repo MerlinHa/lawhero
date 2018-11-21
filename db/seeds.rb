@@ -39,15 +39,15 @@ PaymentType.create([
 
 puts "Creating Lawfields"
 LawField.create([
-  {content: "Banking & Finance Law"},
+  {content: "Banking Law"},
   {content: "Competition Law"},
   {content: "Corporate Law"},
   {content: "Employment Law"},
   {content: "Environmental Law"},
   {content: "Family Law"},
   {content: "Immigration Law"},
-  {content: "Insolvency & Restructuring Law"},
-  {content: "Mergers & Acquistions Law"},
+  {content: "Restructuring Law"},
+  {content: "M & A Law"},
   {content: "Real Estate Law"},
   {content: "Tax Law"},
   {content: "Transport Law"},
