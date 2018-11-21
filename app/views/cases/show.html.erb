@@ -30,6 +30,9 @@
                 <p>
                   <%= @case.user.first_name %> <%= @case.user.last_name %>
                 </p>
+                <a>
+          <%= link_to "Edit your profile", edit_user_path(@case.user), class: "btn btn-primary" %>
+        </a>
               </div>
             </div>
             <div class="main-column-dash">
