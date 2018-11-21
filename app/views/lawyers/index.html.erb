@@ -1,53 +1,55 @@
 
 <div class="container">
-<%= form_tag lawyers_path, method: :get do %>
-<div style="display: flex; justify-content: space-around; margin: 20px 0px;">
-<p> <%= label_tag :language %> </p>
-<%#= text_field_tag :language, params[:language] %>
-<p> <%= select_tag "language", options_for_select(Language.all.collect { |u| [u.content,u.id] }, "English") %></p>
-<p> <%= label_tag :law_field %> </p>
-<p> <%= select_tag "law_field", options_for_select(LawField.all.collect {|u| [u.content,u.id] } ) %></p>
-<p> <%= label_tag :payment_types  %> </p>
-<p> <%= select_tag "payment_types", options_for_select(PaymentType.all.collect {|u| [u.content,u.id ] } ) %></p>
-<%= submit_tag "filter", class: "btn btn-large btn-primary" %>
-</div>
-<% end %>
-     <% @lawyers.each do |lawyer| %>
-   <div class="border-box-lawyer">
-     <div class="message-for-lawyer">
-      <%= cl_image_tag lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
-      <div class="pin-nomad"><i class="fas fa-at"></i></div>
-      <div class="message-name-for-lawyer">
-        <h3><%= lawyer.user.first_name%></h3>
-        <h3><%= lawyer.user.last_name%></h3>
-        <p><%= lawyer.user.created_at%></p>
-      </div>
-      <div class="message-body-for-lawyer">
-       <div class="message-sub-body">
-         <p><strong>Law-fields : </strong></p>
-         <% lawyer.law_fields.limit(3).uniq.each do |field| %>
-         <p> - <%= field.content %></p>
-         <% end %>
-       </div>
-       <div class="message-sub-body">
-         <p><strong>Languages : </strong></p>
-         <% lawyer.languages.limit(3).uniq.each do |language| %>
-         <p> - <%= language.content %></p>
-         <% end %>
-       </div>
-       <div class="message-sub-body">
-         <p><strong>Fees : </strong></p>
-         <% lawyer.payment_types.limit(3).uniq.each do |type| %>
-         <p> - <%= type.content %></p>
-         <% end %>
-       </div>
-     </div>
-     <div class="message-status-for-lawyer">
-      <p class="initial-fee-for-lawyer">Initial Fee</p>
-      <p class="price"><%= lawyer.price_cents / 100 %> $ </p>
+  <%= form_tag lawyers_path, method: :get do %>
+  <div style="display: flex; justify-content: space-around; margin: 20px 0px;">
+    <p> <%= label_tag :language %> </p>
+    <%#= text_field_tag :language, params[:language] %>
+    <p> <%= select_tag "language", options_for_select(Language.all.collect { |u| [u.content,u.id] }, "English") %></p>
+    <p> <%= label_tag :law_field %> </p>
+    <p> <%= select_tag "law_field", options_for_select(LawField.all.collect {|u| [u.content,u.id] } ) %></p>
+    <p> <%= label_tag :payment_types  %> </p>
+    <p> <%= select_tag "payment_types", options_for_select(PaymentType.all.collect {|u| [u.content,u.id ] } ) %></p>
+    <%= submit_tag "filter", class: "btn btn-large btn-primary" %>
+  </div>
+  <% end %>
+  <% @lawyers.each do |lawyer| %>
+  <%= link_to lawyer_path(lawyer) do %>
+  <div class="border-box-lawyer">
+   <div class="message-for-lawyer">
+    <%= cl_image_tag lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
+    <div class="pin-nomad"><i class="fas fa-at"></i></div>
+    <div class="message-name-for-lawyer">
+      <h3><%= lawyer.user.first_name%></h3>
+      <h3><%= lawyer.user.last_name%></h3>
+      <p><%= lawyer.user.created_at%></p>
     </div>
+    <div class="message-body-for-lawyer">
+     <div class="message-sub-body">
+       <p><strong>Law-fields : </strong></p>
+       <% lawyer.law_fields.limit(3).uniq.each do |field| %>
+       <p> - <%= field.content %></p>
+       <% end %>
+     </div>
+     <div class="message-sub-body">
+       <p><strong>Languages : </strong></p>
+       <% lawyer.languages.limit(3).uniq.each do |language| %>
+       <p> - <%= language.content %></p>
+       <% end %>
+     </div>
+     <div class="message-sub-body">
+       <p><strong>Fees : </strong></p>
+       <% lawyer.payment_types.limit(3).uniq.each do |type| %>
+       <p> - <%= type.content %></p>
+       <% end %>
+     </div>
+   </div>
+   <div class="message-status-for-lawyer">
+    <p class="initial-fee-for-lawyer">Initial Fee</p>
+    <p class="price"><%= lawyer.price_cents / 100 %> $ </p>
   </div>
 </div>
-  <% end %>
+</div>
+<% end %>
+<% end %>
 </div>
 </div>
