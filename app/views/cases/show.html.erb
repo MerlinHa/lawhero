@@ -31,8 +31,8 @@
                   <%= @case.user.first_name %> <%= @case.user.last_name %>
                 </p>
                 <a>
-          <%= link_to "Edit your profile", edit_user_path(@case.user), class: "btn btn-primary" %>
-        </a>
+                  <%= link_to "Edit your profile", edit_user_path(@case.user), class: "btn btn-primary" %>
+                </a>
               </div>
             </div>
             <div class="main-column-dash">
@@ -64,25 +64,26 @@
                 </a>
               </div>
             </div>
-             </div>
-            <div class="right-column-dash">
+            <div class="right-column-dash-messages">
               <%= simple_form_for([@case, @message]) do |f| %>
+              <div class="input-message">
                 <%= f.input :content %>
-                <%= f.submit %>
+                <div class="btn btn-primary">
+                  <%= f.submit 'send' %>
+                </div>
+              </div>
               <% end %>
-                  <p>Case Messages:</p>
-                  <% @case.messages.each do |message| %>
-                    <div class="case-message">
-                      <div class="date-message">
-                        <%= message.created_at.strftime("%m-%e-%y %H:%M") %>
-                      </div>
-                      <div class="message-content"><%= message.content %></div>
-                    </div>
-                   <% end %>
+              <% @case.messages.each do |message| %>
+              <div class="flex-message-output">
+                <div class="message-box-inside-messages">
+                  <p> <%= message.content %></p>
+                </div>
+                <div class="timestamp-message">
+                  <p> <%= message.created_at.strftime("%m-%e-%y %H:%M") %></p>
+                </div>
+              </div>
+              <% end %>
             </div>
-           </div>
-        </div>
-        <div class="tab-pane fade tab-content-text " id="documents" role="tabpanel" aria-labelledby="documents-tab">
           </div>
         </div>
         <div class="tab-pane fade tab-content-text " id="documents" role="tabpanel" aria-labelledby="documents-tab">
@@ -123,5 +124,5 @@
         </div>
       </div>
     </div>
-  <!-- </div> -->
-</div>
+    <!-- </div> -->
+  </div>

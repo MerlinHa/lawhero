@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_20_083927) do
+ActiveRecord::Schema.define(version: 2018_11_21_073404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -101,6 +101,8 @@ ActiveRecord::Schema.define(version: 2018_11_20_083927) do
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "case_id"
+    t.index ["case_id"], name: "index_messages_on_case_id"
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
@@ -171,6 +173,7 @@ ActiveRecord::Schema.define(version: 2018_11_20_083927) do
   add_foreign_key "documents", "cases"
   add_foreign_key "lawyer_properties", "lawyers"
   add_foreign_key "lawyers", "users"
+  add_foreign_key "messages", "cases"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "orders", "users"
