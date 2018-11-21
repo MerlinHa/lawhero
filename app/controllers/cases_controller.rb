@@ -18,6 +18,21 @@ class CasesController < ApplicationController
 
   end
 
+  def edit
+    @case = Case.find(params[:id])
+  end
+
+  def update
+    @user = current_user
+    @case = Case.find(params[:id])
+    @case.update(case_params)
+    if @case.save
+      redirect_to case_path(@case)
+    else
+      render
+    end
+  end
+
   def create
     @case = Case.new(case_params)
     @lawyer = Lawyer.find(params[:lawyer_id])
