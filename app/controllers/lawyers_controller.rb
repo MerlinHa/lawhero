@@ -5,48 +5,12 @@ class LawyersController < ApplicationController
   end
 
   def index
-    @lawyers = Lawyer.all
-      if params.key?("law_field")
-
-        # law_field_id = params[:law_field]
-        # law_field = LawField.find(law_field_id).content
-
-        if params[:law_field]
-           law_field = params[:law_field]
-        else
-           law_field = "Family Law"
-        end
-
-
-        if params[:language]
-          language = params[:language]
-        else
-          language = "English"
-        end
-
-        if params[:payment_type]
-          payment_type = params[:payment_type]
-        else
-          payment_type = "Hourly"
-        end
-
-        if params[:digital_lawyer]
-          digital_lawyer = params[:digital_lawyer]
-        else
-          digital_lawyer = true
-        end
-
-        if params[:city]
-           city = params[:city]
-        else
-          city = "Paris"
-        end
-
-
-        @lawyers = Lawyer.joins(:lawyer_properties).joins(:law_fields).joins(:languages).joins(:payment_types).where("law_fields.content = ? AND languages.content = ? AND payment_types.content = ? AND city = ? AND digital_lawyer = ?", law_field, language, payment_type, city,digital_lawyer).uniq
-
-      #@lawyers = Lawyer.joins(:lawyer_properties).joins(:law_fields).joins(:languages).where(law_field, language).uniq
-      end
+    @queries = params[:query] ? params[:query] : {}
+    if params[:query]
+      @lawyers = FilterLawyers.new(Lawyer.includes(:lawyer_properties), search_params).search
+    else
+      @lawyers = Lawyer.all
+    end
   end
 
   def show
@@ -88,5 +52,9 @@ class LawyersController < ApplicationController
 
   def lawyer_params
     params.require(:lawyer).permit(:address, :phone, :short_desc, :long_desc, :sku, :photo, :price_cents, :language_ids => [], :communication_ids => [], :law_field_ids => [], :payment_type_ids => [])
+  end
+
+  def search_params
+    params.require(:query).permit(:law_field, :language, :payment_type, :city, :digital_lawyer)
   end
 end
