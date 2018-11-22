@@ -1,0 +1,29 @@
+<% doc_nums = ["1-", "2-", "3-"] %>
+<% doc_names = ["Financial Statements", "Employee Agreement", "Case Agreement"] %>
+
+
+<div class="col-xs-6 col-sm-6">
+
+    <div class="row">
+      <div class="mini-doc-card">
+        <% doc_nums.each_with_index do |num, index| %>
+          <div class="item text-center">
+          <div>
+            <i class="far fa-file-pdf fa-3x"></i>
+          </div>
+
+            <div class="doc-card-category">
+              <%= num %>
+            </div>
+            <div class="doc-card-description">
+              <p><%= doc_names[index] %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+  </div>
+</div>
+
+
+
