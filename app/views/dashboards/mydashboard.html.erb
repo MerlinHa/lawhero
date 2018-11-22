@@ -50,12 +50,12 @@
                   </p>
                 </div>
                 <div class="message-status">
-                  <% if c.status == nil %>
-                  <p class="status pending">Pending</p>
-                  <% elsif c.status == true%>
+                  <% if c.status == "Accepted" %>
                   <p class="status accepted">Accepted</p>
-                  <% else %>
+                  <% elsif c.status == "Declined" %>
                   <p class="status declined">Declined</p>
+                      <% else %>
+                  <p class="status pending">Pending</p>
                   <% end %>
                   <p class="price">€345</p>
                   <%= link_to "Add Price", edit_case_path(c), class: "btn btn-primary" %>
