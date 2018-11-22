@@ -1,0 +1,16 @@
+.mini-doc-card {
+  background-color: light-grey;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+  margin-top: 5px;
+  .item {
+    margin-top: 5px;
+    background-color: white;
+    width: 120px;
+    height: 120px;
+    border: 1px solid #CECDCA;
+    border-radius: 10px;
+  }
+}
