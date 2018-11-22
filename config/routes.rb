@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
     member do
       patch "/accept", to: 'cases#accept'
-      patch "/refuse", to: 'cases#refuse'
+      patch "/decline", to: 'cases#decline'
     end
   end
 
