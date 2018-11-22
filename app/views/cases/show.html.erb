@@ -31,23 +31,30 @@
                 <p>
                   <%= @case.user.first_name %> <%= @case.user.last_name %>
                 </p>
-                <p><%= @case.status %></p>
-                <p>
-                  <%= link_to "Edit your profile", edit_user_path(@case.user), class: "btn-law" %>
-                </p>
-                  <p>
-                  <%= link_to "My dashboard", mydashboard_path, class: "btn-law" %>
-                </p>
+
+                <div style="display: flex; flex-direction: column;">
+                  <%= link_to "Edit your profile", edit_user_path(@case.user), class: "law-btn" %>
+                  <%= link_to "My dashboard", mydashboard_path, class: "law-btn" %>
+                  </div>
+
               </div>
             </div>
             <div class="main-column-dash">
-
+              <% if @case.status == nil %>
+              <p>Case status : <strong>Pending</strong></p>
+              <p> Waiting for lawyer approval</p>
+              <% elsif @case.status == true%>
+              <p>Case status : <strong>Accepted</strong></p>
+              <% else %>
+              <p>Case status : <strong>Declined</strong></p>
+              <% end %>
             </div>
 
             <div class="steps-financial-column-dash text-center">
-              <p><%= link_to "Update Case", edit_case_path(@case), class: "btn-law" %></p>
-              <p><%= link_to "Accept", accept_case_path(@case), method: :patch, class: "btn-law" %></p>
-             <p> <%= link_to "Decline", decline_case_path(@case), method: :patch, class: "btn-law" %></p>
+
+              <%= link_to "Update Case", edit_case_path(@case), class: "law-btn" %>
+              <%= link_to "Accept", accept_case_path(@case), method: :patch, class: "law-btn" %>
+              <%= link_to "Decline", refuse_case_path(@case), method: :patch, class: "law-btn" %>
             </div>
 
           </div>

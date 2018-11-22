@@ -1,5 +1,5 @@
 .law-btn {
-    display: inline-block;
+    // display: inline-block;
     margin-bottom: 0;
     font-weight: normal;
     text-align: center;
@@ -9,6 +9,7 @@
     background-image: none;
     white-space: nowrap;
     padding: 8px 16px;
+    margin: 10px 0px;
     font-size: 16px;
     line-height: 1.42857;
     -webkit-user-select: none;
@@ -17,6 +18,7 @@
     user-select: none;
     background: $green;;
     color: white;
+    min-width: 127px;
     border-radius: 4px;
     box-shadow: 1px 1px 1px rgba(200, 200, 200, 0.9);
     &:hover {
