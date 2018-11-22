@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2018_11_22_014714) do
     t.string "description"
     t.integer "financial_cost", default: 1000
     t.integer "overall_length", default: 180
-    t.float "odds_success", default: 0.5
+    t.integer "odds_success", default: 50
     t.index ["lawyer_id"], name: "index_cases_on_lawyer_id"
     t.index ["user_id"], name: "index_cases_on_user_id"
   end

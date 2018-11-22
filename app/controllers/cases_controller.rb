@@ -44,11 +44,10 @@ class CasesController < ApplicationController
   def update
     @user = current_user
     @case = Case.find(params[:id])
-    @case.update(case_params)
-    if @case.save
+    if @case.update(case_params)
       redirect_to case_path(@case)
     else
-      render
+      render :edit
     end
   end
 
@@ -70,6 +69,6 @@ class CasesController < ApplicationController
   private
 
   def case_params
-    params.require(:case).permit(:user_id, :lawyer_id, :status, :title, :description)
+    params.require(:case).permit(:user_id, :lawyer_id, :status, :title, :description, :financial_cost, :odds_success, :overall_length)
   end
 end

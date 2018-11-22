@@ -1,32 +1,56 @@
 <div class="container container-new-payment">
   <div class="col-sm-6 col-sm-offset-3">
-    <h1 class="h1-headline-blue">Update your case </h1>
+    <h1 class="h1-headline-blue">Update the following case </h1>
 
-      <div class="row">
+    <div class="row">
 
-        <div class="form-new-case">
+      <div class="form-new-case">
 
-          <%= form_for (@case), html: { multipart: true } do |f| %>
-          <div class="form-group col-md-12">
-
-            <label for="case-title">Add a title to your request </label>
-              <%= f.text_field :title, class:"form-control", label:false, placeholder: "Title of your request" %>
-          </div>
-
-          <div class="form-group col-md-12">
-            <label for="case-description"> Add a description to your description</label>
-              <%= f.text_area :description, class:"form-control", id:"big-fat-input-field", placeholder: "Explain what is your problem, the context. Attach important documents below" %>
-          </div>
-
-            <div class="form-group col-md-12">
-              <%= f.file_field :documents, as: :file, multiple: :true, name: "documents[]" %>
-           </div>
-
-            <div class="form-group col-md-12">
-              <%= f.button :submit, class:"btn btn-primary" %>
-            </div>
-          <% end %>
+        <%= form_for (@case), html: { multipart: true } do |f| %>
+        <div class="form-group col-md-12">
+          <label for="case-title">Change the title of the case</label>
+          <%= f.text_field :title, class:"form-control", label:false, placeholder: "Title of your request" %>
         </div>
+
+        <div class="form-group col-md-12">
+          <label for="case-description"> Update the overall status of the case (actions, cost, length, odds) </label>
+          <%= f.text_area :description, class:"form-control", id:"big-fat-input-field", placeholder: "What are actions to be achieved, why costs or length have been updated?" %>
+        </div>
+
+
+      <div class="title">
+        <label class="form-control-label" > What are your assements?  </label>
+
       </div>
+
+        <div class="row">
+          <div class="col-xs-4">
+           <label for="case-description"> Case's cost in $ </label>
+           <%= f.number_field :financial_cost, input_html: {class: "rounding"}, as: :currency, class:"form-control"%>
+         </div>
+         <div class="col-xs-4">
+           <label for="case-description"> Case's length in mths</label>
+           <%= f.number_field :overall_length, input_html: {class: "rounding"}, class:"form-control" %>
+         </div>
+        <div class="col-xs-4">
+           <label for="case-description"> Case's chances</label>
+           <%= f.number_field :odds_success, input_html: {class: "rounding"}, class:"form-control" %>
+         </div>
+       </div>
+
+
+
+     </div>
+     <div class="form-group col-md-12">
+      <%= f.file_field :documents, as: :file, multiple: :true, name: "documents[]" %>
+    </div>
+
+
+    <div class="form-group col-md-12">
+      <%= f.button :submit, class:"btn btn-primary", label: "Save the case" %>
+    </div>
+    <% end %>
   </div>
+</div>
+</div>
 </div>
