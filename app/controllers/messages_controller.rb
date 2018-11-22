@@ -1,6 +1,4 @@
-
 class MessagesController < ApplicationController
-
   def create
     @message = Message.new(message_params)
     @case = Case.find(params[:case_id])

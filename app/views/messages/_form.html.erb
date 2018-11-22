@@ -1,0 +1,6 @@
+<%= simple_form_for([form_case, message], remote: true) do |f| %>
+  <div class="flex-message-input">
+    <%= f.input :content, as: :text, placeholder: "Add your message", label: false, input_html: {class: "input-message form-control-msg"} %>
+    <%= f.submit 'send', class: "law-btn-lg" %>
+  </div>
+<% end %>

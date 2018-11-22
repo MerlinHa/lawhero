@@ -13,6 +13,8 @@
       <p > Obviously, It will be deducted from your final bill! </p>
     </div>
 
+    <h2 style="color: #1F487E;">The price is <%= @order.amount_cents/100 %> $ </h2>
+
     <div class="row">
       <form action="/orders/<%= @order.id %>/payments" method="post" id="payment-form">
         <div class="form-row stripe-payment">

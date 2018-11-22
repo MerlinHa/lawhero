@@ -1,0 +1,13 @@
+<div class="message">
+  <img class="avatar-medium" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+  <div class="message-name">
+    <h3><%= message.user.first_name %></h3>
+    <p><%= message.created_at.strftime("%m-%e-%y %H:%M") %></p>
+  </div>
+  <div class="message-body">
+
+    <p>
+      <%= message.content %>
+    </p>
+  </div>
+</div>
