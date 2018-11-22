@@ -45,6 +45,21 @@ class CasesController < ApplicationController
       end
     end
 
+    def edit
+      @case = Case.find(params[:id])
+    end
+
+    def update
+      @user = current_user
+      @case = Case.find(params[:id])
+      @case.update(case_params)
+      if @case.save
+        redirect_to case_path(@case)
+      else
+        render
+      end
+    end
+
     if @case.save
       order = Order.new(lawyer_sku: @lawyer.sku, amount: @lawyer.price, state: 'pending')
       order.case = @case

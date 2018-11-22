@@ -5,7 +5,8 @@
       <div class="row">
 
         <div class="form-new-case">
-          <%= form_for ([@lawyer, @case]), html: { multipart: true } do |f| %>
+
+          <%= form_for (@case), html: { multipart: true } do |f| %>
           <div class="form-group col-md-12">
 
             <label for="case-title">Add a title to your request </label>

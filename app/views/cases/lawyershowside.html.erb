@@ -1,6 +1,5 @@
 <div class="container">
   <!-- <div class="row"> -->
-    <h1 style="color: #1F487E;">Case title: <%= @case.title %></h1>
     <div class="dashboard-tabs">
       <div class="fake-container">
         <div class="fake-column-1"></div>
@@ -38,12 +37,10 @@
             </div>
             <div class="main-column-dash">
             </div>
-
-            <div class="steps-financial-column-dash text-center">
-              <p><%= link_to "Change status", edit_case_path(@case), class: "btn btn-primary" %></p>
-              <%= link_to "Update case", edit_case_path(@case), class: "btn btn-danger" %>
+            <div class="steps-financial-column-dash">
+              <%= link_to "Change status", edit_case_path(@case), class: "btn btn-primary" %>
+              <%= link_to "Update case", edit_case_path(@case), class: "btn btn-primary" %>
             </div>
-
           </div>
         </div>
         <div class="tab-pane fade tab-content-text " id="messages" role="tabpanel" aria-labelledby="messages-tab">
@@ -61,8 +58,8 @@
             </div>
             <div class="right-column-dash-messages">
               <%= simple_form_for([@case, @message]) do |f| %>
-                <div class="flex-message-input">
-                <%= f.input :content, as: :text, input_html: {class: "input-message"} %>
+              <div class="input-message">
+                <%= f.input :content %>
                 <div class="btn btn-primary">
                   <%= f.submit 'send' %>
                 </div>
