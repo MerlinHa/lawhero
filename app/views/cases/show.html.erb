@@ -41,103 +41,85 @@
             </div>
             <div class="main-column-dash">
 
-              <div class="row">
-                <div>
-                  Case's overall cost - last estimate:
+              <p>Case's overall cost - last estimate:</p>
+              <p><strong><%= @case.financial_cost %> $</strong>  </p>
+              <p>Case's overall length - last estimate:</p>
+              <p><strong> <%= @case.overall_length %> days</strong> </p>
+              <p>Case's odds - last estimate:</p>
+              <p><strong> <%= @case.odds_success %> % </strong></p>
+
+            </div>
+
+
+              <div class="steps-financial-column-dash text-center">
+
+                <%= link_to "Update Case", edit_case_path(@case), class: "law-btn" %>
+                <%= link_to "Accept", accept_case_path(@case), method: :patch, class: "law-btn" %>
+                <%= link_to "Decline", decline_case_path(@case), method: :patch, class: "law-btn" %>
+              </div>
+
+            </div>
+          </div>
+          <div class="tab-pane fade tab-content-text " id="messages" role="tabpanel" aria-labelledby="messages-tab">
+            <div class="two-columns-dash">
+              <div class="left-column-dash">
+                <div class="text-center">
+                  <%= cl_image_tag @case.user.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo", style:"margin-bottom: 10px;" %> <br>
+                  <p>
+                    <%= @case.user.first_name %> <%= @case.user.last_name %>
+                  </p>
+                  <a>
+                    <%= link_to "Edit your profile", root_path, class: "btn btn-primary" %>
+                  </a>
                 </div>
-                <div>
-                  <%= @case.financial_cost %>
+              </div>
+              <div class="right-column-dash-messages">
+                <div class="messages">
+                  <% @case.messages.order(created_at: :desc).each do |message| %>
+                  <%= render "messages/message", message: message %>
+                  <% end %>
+                </div>
+                <%= render "messages/form", form_case: @case, message: @message %>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade tab-content-text " id="documents" role="tabpanel" aria-labelledby="documents-tab">
+            <div class="two-columns-dash">
+              <div class="left-column-dash">
+                <div class="text-center">
+                  <%= cl_image_tag @case.user.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo", style:"margin-bottom: 10px;" %> <br>
+                  <p>
+                    <%= @case.user.first_name %> <%= @case.user.last_name %>
+                  </p>
+                  <a>
+                    <%= link_to "Edit your profile", root_path, class: "btn btn-primary" %>
+                  </a>
                 </div>
               </div>
-            </div>
-
-            <div class="row">
-              <div>
-                Case's overall length - last estimate:
-              </div>
-              <div>
-                <%= @case.overall_length %>
+              <div class="right-column-dash">
+                <h1>Documents box</h1>
               </div>
             </div>
           </div>
-
-          <div class="row">
-            <div>
-              Case's odds - last estimate:
+          <div class="tab-pane fade tab-content-text " id="time-line" role="tabpanel" aria-labelledby="time-line-tab">
+            <div class="two-columns-dash">
+              <div class="left-column-dash">
+                <div class="text-center">
+                  <%= cl_image_tag @case.user.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo", style:"margin-bottom: 10px;" %> <br>
+                  <p>
+                    <%= @case.user.first_name %> <%= @case.user.last_name %>
+                  </p>
+                  <a>
+                    <%= link_to "Edit your profile", root_path, class: "btn btn-primary" %>
+                  </a>
+                </div>
+              </div>
+              <div class="right-column-dash">
+                <h1>Time-line</h1>
+              </div>
             </div>
-            <div> <%= @case.odds_success %></div>
           </div>
-        </div>
-
-        <div class="steps-financial-column-dash text-center">
-
-          <%= link_to "Update Case", edit_case_path(@case), class: "law-btn" %>
-          <%= link_to "Accept", accept_case_path(@case), method: :patch, class: "law-btn" %>
-          <%= link_to "Decline", decline_case_path(@case), method: :patch, class: "law-btn" %>
-        </div>
-
-      </div>
-    </div>
-    <div class="tab-pane fade tab-content-text " id="messages" role="tabpanel" aria-labelledby="messages-tab">
-      <div class="two-columns-dash">
-        <div class="left-column-dash">
-          <div class="text-center">
-            <%= cl_image_tag @case.user.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo", style:"margin-bottom: 10px;" %> <br>
-            <p>
-              <%= @case.user.first_name %> <%= @case.user.last_name %>
-            </p>
-            <a>
-              <%= link_to "Edit your profile", root_path, class: "btn btn-primary" %>
-            </a>
-          </div>
-        </div>
-        <div class="right-column-dash-messages">
-          <div class="messages">
-            <% @case.messages.order(created_at: :desc).each do |message| %>
-            <%= render "messages/message", message: message %>
-            <% end %>
-          </div>
-          <%= render "messages/form", form_case: @case, message: @message %>
         </div>
       </div>
+      <!-- </div> -->
     </div>
-    <div class="tab-pane fade tab-content-text " id="documents" role="tabpanel" aria-labelledby="documents-tab">
-      <div class="two-columns-dash">
-        <div class="left-column-dash">
-          <div class="text-center">
-            <%= cl_image_tag @case.user.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo", style:"margin-bottom: 10px;" %> <br>
-            <p>
-              <%= @case.user.first_name %> <%= @case.user.last_name %>
-            </p>
-            <a>
-              <%= link_to "Edit your profile", root_path, class: "btn btn-primary" %>
-            </a>
-          </div>
-        </div>
-        <div class="right-column-dash">
-          <h1>Documents box</h1>
-        </div>
-      </div>
-    </div>
-    <div class="tab-pane fade tab-content-text " id="time-line" role="tabpanel" aria-labelledby="time-line-tab">
-      <div class="two-columns-dash">
-        <div class="left-column-dash">
-          <div class="text-center">
-            <%= cl_image_tag @case.user.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo", style:"margin-bottom: 10px;" %> <br>
-            <p>
-              <%= @case.user.first_name %> <%= @case.user.last_name %>
-            </p>
-            <a>
-              <%= link_to "Edit your profile", root_path, class: "btn btn-primary" %>
-            </a>
-          </div>
-        </div>
-        <div class="right-column-dash">
-          <h1>Time-line</h1>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- </div> -->
-</div>
