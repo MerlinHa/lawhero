@@ -1,0 +1,18 @@
+
+function refreshForm(newForm) {
+  const form = document.getElementById("new_message");
+  form.innerHTML = newForm
+}
+
+function addMessage(newMessage) {
+  const messages = document.querySelector(".messages");
+  messages.insertAdjacentHTML("afterbegin", newMessage);
+  messages.firstChild.scrollIntoView();
+}
+
+<% if @message.errors.any? %>
+  refreshForm("<%= j render 'messages/form', form_case: @case, message: @message %>")
+<% else %>
+  refreshForm("<%= j render 'messages/form', form_case: @case, message: Message.new %>")
+  addMessage("<%= j render 'messages/message', form_case: @case, message: @message %>")
+<% end %>

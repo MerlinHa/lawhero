@@ -60,24 +60,12 @@
               </div>
             </div>
             <div class="right-column-dash-messages">
-              <%= simple_form_for([@case, @message]) do |f| %>
-                <div class="flex-message-input">
-                <%= f.input :content, as: :text, input_html: {class: "input-message"} %>
-                <div class="btn btn-primary">
-                  <%= f.submit 'send' %>
-                </div>
+              <div class="messages">
+                <% @case.messages.order(created_at: :desc).each do |message| %>
+                    <%= render "messages/message", message: message %>
+                <% end %>
               </div>
-              <% end %>
-              <% @case.messages.each do |message| %>
-              <div class="flex-message-output">
-                <div class="message-box-inside-messages">
-                  <p> <%= message.content %></p>
-                </div>
-                <div class="timestamp-message">
-                  <p> <%= message.created_at.strftime("%m-%e-%y %H:%M") %></p>
-                </div>
-              </div>
-              <% end %>
+              <%= render "messages/form", form_case: @case, message: @message %>
             </div>
           </div>
         </div>

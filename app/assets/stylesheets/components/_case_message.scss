@@ -13,32 +13,36 @@
 }
 
 .input-message {
-  position: absolute;
-  left: 10px;
-  bottom: 10px;
-  display: flex;
-  width: 95%;
-  justify-content: space-between;
-  align-items: center;
+  width: 100%;
 }
 
-.flex-message-output {
-  // display: flex;
-  margin: 10px 0px;
+.flex-message-input {
+  height: 60px;
+  width: 100%;
 }
 
-.message-box-inside-messages {
-  height: 35px;
-  padding-left: 10px;
-}
+// .message-box-inside-messages {
+//   height: 35px;
+//   padding-left: 10px;
+// }
 
-.message-box-inside-messages p {
+// .message-box-inside-messages p {
+//   color: black;
+// }
+
+// .timestamp-message p {
+//   font-size: 10px;
+//   color: $green;
+// }
+
+
+.form-control-msg {
+  margin-bottom: 0px !important;
   color: black;
 }
 
-.timestamp-message p {
-  font-size: 10px;
-  color: $green;
+
+.messages {
+  height: 40vh;
+  overflow: scroll;
 }
-
-
