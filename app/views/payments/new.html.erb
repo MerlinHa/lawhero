@@ -7,19 +7,19 @@
     </div>
 
     <div class="row prepayment">
-      <p style="font-weight:bold;"> Why I need to pay? </p>
+      <p style="font-weight:bold;"> Why you should prepay now? </p>
 
       <p >In order to prove the seriousness of your demand. </p>
       <p > Obviously, It will be deducted from your final bill! </p>
     </div>
 
-    <h2 style="color: #1F487E;">The price is <%= @order.amount_cents/100 %> $ </h2>
+    <h4 style="color: #1F487E;">Prepayment for your lawyer is <%= @order.amount_cents/100 %> $ </h2>
 
     <div class="row">
       <form action="/orders/<%= @order.id %>/payments" method="post" id="payment-form">
         <div class="form-row stripe-payment">
           <label for="card-element">
-            Credit or debit card
+            Your card details :
           </label>
             <div id="card-element">
               <!-- A Stripe Element will be inserted here. -->
@@ -32,5 +32,11 @@
 
       </form>
     </div>
+
+    <div class="row", style="margin-top:30px;">
+<%= link_to "Pay later", mydashboard_path, class: "law-btn" %>
+    </div>
+
+
   </div>
 </div>
