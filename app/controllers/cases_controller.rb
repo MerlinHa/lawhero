@@ -59,7 +59,7 @@ class CasesController < ApplicationController
     redirect_to case_path(@case)
   end
 
-  def refuse
+  def decline
     @case = Case.find(params[:id])
     @case.status = "Declined"
     @case.save!

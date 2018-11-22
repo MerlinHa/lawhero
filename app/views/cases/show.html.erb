@@ -31,10 +31,12 @@
                 <p>
                   <%= @case.user.first_name %> <%= @case.user.last_name %>
                 </p>
+
                 <div style="display: flex; flex-direction: column;">
                   <%= link_to "Edit your profile", edit_user_path(@case.user), class: "law-btn" %>
                   <%= link_to "My dashboard", mydashboard_path, class: "law-btn" %>
                   </div>
+
               </div>
             </div>
             <div class="main-column-dash">
@@ -49,6 +51,7 @@
             </div>
 
             <div class="steps-financial-column-dash text-center">
+
               <%= link_to "Update Case", edit_case_path(@case), class: "law-btn" %>
               <%= link_to "Accept", accept_case_path(@case), method: :patch, class: "law-btn" %>
               <%= link_to "Decline", refuse_case_path(@case), method: :patch, class: "law-btn" %>

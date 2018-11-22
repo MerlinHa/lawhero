@@ -1,6 +1,6 @@
 <div class="container">
 
-<h1 style="color: #1F487E;">All my cases :</h1>
+  <h1 style="color: #1F487E;">All my cases :</h1>
 
   <div class="two-columns-dash">
     <div class="left-column-dash">
@@ -12,30 +12,29 @@
         <p>
           <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-primary" %>
         </p>
-          <%= link_to "Back home", lawyers_path, class: "btn btn-primary" %>
+        <%= link_to "Back home", lawyers_path, class: "btn btn-primary" %>
       </div>
     </div>
     <div class="right-column-dash">
       <div class="row">
         <div class="dashboard-tabs">
           <ul class="nav nav-tabs-dashboard" id="myTab" role="tablist" style="padding-left: 20px;">
-            <li class="nav-item active">
-              <a class="nav-link" id="cases-tab" data-toggle="tab" href="#cases" role="tab" aria-controls="cases" aria-selected="true">cases</a>
+            <li class="nav-item in active">
+              <a class="nav-link" id="cases-tab" data-toggle="tab" href="#cases" role="tab" aria-controls="cases" aria-selected="true">pending cases</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="requests-tab" data-toggle="tab" href="#requests" role="tab" aria-controls="requests" aria-selected="false">requests</a>
+              <a class="nav-link" id="accepted-tab" data-toggle="tab" href="#accepted" role="tab" aria-controls="accepted" aria-selected="false">accepted cases</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="currents-tab" data-toggle="tab" href="#currents" role="tab" aria-controls="currents" aria-selected="false">current cases</a>
+              <a class="nav-link" id="declined-tab" data-toggle="tab" href="#declined" role="tab" aria-controls="declined" aria-selected="false">declined cases</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" id="archiveds-tab" data-toggle="tab" href="#archiveds" role="tab" aria-controls="archiveds" aria-selected="false">archived cases</a>
-            </li>
+
           </ul>
-          <div class="tab-content " id="myTabContent">
+          <div class="tab-content" id="myTabContent">
+
             <div class="tab-pane fade tab-content-text in active" id="cases" role="tabpanel" aria-labelledby="cases-tab">
-              <% @cases.each do |c| %>
-                    <%= link_to case_path(c) do %>
+              <% @pending_cases.each do |c| %>
+              <%= link_to case_path(c) do %>
               <div class="message">
                 <%= cl_image_tag c.lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
                 <div class="message-name">
@@ -54,109 +53,72 @@
                   <p class="status accepted">Accepted</p>
                   <% elsif c.status == "Declined" %>
                   <p class="status declined">Declined</p>
-                      <% else %>
+                  <% else %>
                   <p class="status pending">Pending</p>
                   <% end %>
                   <p class="price">€345</p>
-                  <%= link_to "Add Price", edit_case_path(c), class: "btn btn-primary" %>
+                  <%= link_to "Update Case", edit_case_path(c), class: "btn-law" %>
+                </div>
+                <div>
+                 <p><%= link_to "Accept", accept_case_path(c), method: :patch, class: "btn-law" %></p>
+                 <p> <%= link_to "Decline", decline_case_path(c), method: :patch, class: "btn-law" %></p>
                 </div>
               </div>
               <% end %>
               <% end %>
             </div>
-            <div class="tab-pane fade tab-content-text" id="requests" role="tabpanel" aria-labelledby="requests-tab">
-              <% @requests.each do |request| %>
-              <%= link_to case_path(request) do %>
+              <div class="tab-pane fade tab-content-text" id="accepted" role="tabpanel" aria-labelledby="accepted-tab">
+              <% @accepted_cases.each do |c| %>
+              <%= link_to case_path(c) do %>
               <div class="message">
-                <%= cl_image_tag request.lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
+                <%= cl_image_tag c.lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
                 <div class="message-name">
-                  <h3><%= request.lawyer.user.first_name %></h3>
-                  <h3><%= request.lawyer.user.last_name %></h3>
+                  <h3><%= c.lawyer.user.first_name %></h3>
+                  <h3><%= c.lawyer.user.last_name %></h3>
                   <p>10/07/17</p>
                 </div>
                 <div class="message-body">
-                  <p><strong><%= request.title %></strong></p>
+                  <p><strong><%= c.title %></strong></p>
                   <p>
-                    <%= request.description %>
+                    <%= c.description %>
                   </p>
                 </div>
                 <div class="message-status">
-                  <div class="message-status">
-                    <% if request.status == nil %>
-                    <p class="status pending">Pending</p>
-                    <% elsif request.status == true%>
-                    <p class="status accepted">Accepted</p>
-                    <% else %>
-                    <p class="status declined">Declined</p>
-                    <% end %>
-                    <p class="price">€345</p>
-                  </div>
+                  <%= c.status %>
+                  <p class="price">€345</p>
                 </div>
               </div>
-                <% end %>
-                <% end %>
+              <% end %>
+              <% end %>
             </div>
-            <div class="tab-pane fade tab-content-text" id="currents" role="tabpanel" aria-labelledby="currents-tab">
-              <% @currents.each do |current| %>
+
+             <div class="tab-pane fade tab-content-text" id="declined" role="tabpanel" aria-labelledby="declined-tab">
+              <% @declined_cases.each do |c| %>
+              <%= link_to case_path(c) do %>
               <div class="message">
-                <%= cl_image_tag current.lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
+                <%= cl_image_tag c.lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
                 <div class="message-name">
-                  <h3><%= current.lawyer.user.first_name %></h3>
-                  <h3><%= current.lawyer.user.last_name %></h3>
+                  <h3><%= c.lawyer.user.first_name %></h3>
+                  <h3><%= c.lawyer.user.last_name %></h3>
                   <p>10/07/17</p>
                 </div>
                 <div class="message-body">
-                  <p><strong><%= current.title %></strong></p>
+                  <p><strong><%= c.title %></strong></p>
                   <p>
-                    <%= current.description %>
+                    <%= c.description %>
                   </p>
                 </div>
                 <div class="message-status">
-                  <div class="message-status">
-                    <% if current.status == nil %>
-                    <p class="status pending">Pending</p>
-                    <% elsif current.status == true%>
-                    <p class="status accepted">Accepted</p>
-                    <% else %>
-                    <p class="status declined">Declined</p>
-                    <% end %>
-                    <p class="price">€300</p>
-                  </div>
-                </div>
-                <% end %>
-              </div>
-              <div class="tab-pane fade tab-content-text" id="archiveds" role="tabpanel" aria-labelledby="archiveds-tab">
-                <% @archiveds.each do |archived| %>
-                <div class="message">
-                  <%= cl_image_tag archived.lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
-                  <div class="message-name">
-                    <h3><%= archived.lawyer.user.first_name %></h3>
-                    <h3><%= archived.lawyer.user.last_name %></h3>
-                    <p>10/07/17</p>
-                  </div>
-                  <div class="message-body">
-                    <p><strong><%= archived.title %></strong></p>
-                    <p>
-                      <%= archived.description %>
-                    </p>
-                  </div>
-                  <div class="message-status">
-                    <div class="message-status">
-                      <% if archived.status == nil %>
-                      <p class="status pending">Pending</p>
-                      <% elsif archived.status == true%>
-                      <p class="status accepted">Accepted</p>
-                      <% else %>
-                      <p class="status declined">Declined</p>
-                      <% end %>
-                      <p class="price">€300</p>
-                    </div>
-                  </div>
-                  <% end %>
+                  <%= c.status %>
+                  <p class="price">€345</p>
                 </div>
               </div>
+              <% end %>
+              <% end %>
             </div>
+
           </div>
         </div>
       </div>
     </div>
+  </div>
