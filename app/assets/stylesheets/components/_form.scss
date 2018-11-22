@@ -14,13 +14,19 @@
   height: 200px;
 }
 
-
-
-.form-control {
-  margin-bottom: 40px;
-}
-
 .title {
   border-bottom: 1px solid white;
   margin-bottom: 10px;
+}
+
+
+.select-tags select {
+  background: none;
+  border: none;
+  font-size: 16px;
+  background-color: #00B2A6;
+  border-radius: 0px;
+  height: 70px;
+  color: white;
+  margin-right: 5px;
 }
