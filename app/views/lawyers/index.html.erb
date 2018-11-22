@@ -1,8 +1,10 @@
 
-<%= link_to "All lawyers", all_path, class:"btn btn-primary" %>
 
 
 <div class="container">
+<div class="text-center" style="margin: 30px;">
+<%= link_to "All lawyers", all_path, class:"btn btn-primary" %>
+</div>
   <%= form_tag lawyers_path, method: :get do %>
 
   <div style="display: flex; justify-content: space-around; margin: 20px 0px;">
