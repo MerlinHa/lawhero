@@ -31,17 +31,23 @@
                 <p>
                   <%= @case.user.first_name %> <%= @case.user.last_name %>
                 </p>
+                <p><%= @case.status %></p>
                 <a>
                   <%= link_to "Edit your profile", edit_user_path(@case.user), class: "btn btn-primary" %>
+                </a>
+                  <a>
+                  <%= link_to "My dashboard", mydashboard_path, class: "btn btn-primary" %>
                 </a>
               </div>
             </div>
             <div class="main-column-dash">
+
             </div>
 
             <div class="steps-financial-column-dash text-center">
-              <p><%= link_to "Change status", edit_case_path(@case), class: "btn btn-primary" %></p>
-              <%= link_to "Update case", edit_case_path(@case), class: "btn btn-danger" %>
+              <p><%= link_to "Update Case", edit_case_path(@case), class: "btn btn-primary" %></p>
+              <p><%= link_to "Accept", accept_case_path(@case), method: :patch, class: "btn btn-success" %></p>
+              <%= link_to "Decline", refuse_case_path(@case), method: :patch, class: "btn btn-danger" %>
             </div>
 
           </div>
