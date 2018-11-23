@@ -139,8 +139,8 @@ lawyer_c = Lawyer.create!(
 )
 
 user_d = User.create!(
-  first_name: "Jules",
-  last_name: "Jamet",
+  first_name: "Michel",
+  last_name: "Martin",
   lawyer: false,
   email: "d@d.d",
   password: "helloworld",
