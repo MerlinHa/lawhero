@@ -62,38 +62,7 @@
         </div>
       <% end %>
     <% end %>
-
-
-    </div>
-    <div class="message-name-for-lawyer">
-      <h3><%= lawyer.user.first_name%></h3>
-      <h3><%= lawyer.user.last_name%></h3>
-      <p><%= lawyer.user.created_at%></p>
-      <p><%= lawyer.city %></p>
-    </div>
-    <div class="message-body-for-lawyer">
-     <div class="message-sub-body">
-       <p><strong>Law-fields : </strong></p>
-       <% lawyer.law_fields.uniq.each do |field| %>
-       <p> - <%= field.content %></p>
-       <% end %>
-     </div>
-     <div class="message-sub-body">
-       <p><strong>Languages : </strong></p>
-       <% lawyer.languages.uniq.each do |language| %>
-       <p> - <%= language.content %></p>
-       <% end %>
-     </div>
-     <div class="message-sub-body">
-       <p><strong>Fees : </strong></p>
-       <% lawyer.payment_types.uniq.each do |type| %>
-       <p> - <%= type.content %></p>
-       <% end %>
-     </div>
-   </div>
-   <div class="message-status-for-lawyer">
-    <p class="initial-fee-for-lawyer">Price per hour </p>
-    <p class="price"><%= lawyer.price_cents / 100 %> $ </p>
+  </div>
 
   </div>
 </div>
