@@ -15,7 +15,12 @@
     </div>
   </div>
   <div class="row">
+
     <div class="lawyer-tabs">
+
+
+
+
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item active">
           <a class="nav-link" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
@@ -33,13 +38,28 @@
           <a class="nav-link" id="references-tab" data-toggle="tab" href="#references" role="tab" aria-controls="references" aria-selected="false">References</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="communication-tab" data-toggle="tab" href="#communication" role="tab" aria-controls="communication" aria-selected="false">Communication</a>
+          <a class="nav-link" id="communications-tab" data-toggle="tab" href="#communications" role="tab" aria-controls="communications" aria-selected="false">Communications</a>
         </li>
       </ul>
+
+
+
+
+
+
       <div class="tab-content " id="myTabContent">
+
+
+
+
         <div class="tab-pane fade tab-content-text in active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
           <%= @lawyer.long_desc %>
         </div>
+
+
+
+
+
         <div class="tab-pane fade tab-content-text" id="specialties" role="tabpanel" aria-labelledby="specialties-tab">
           <ul>
             <% @lawyer.law_fields.each do |field| %>
@@ -47,56 +67,85 @@
             <% end %>
           </ul>
         </div>
+
+
+
         <div class="tab-pane fade tab-content-text" id="fees" role="tabpanel" aria-labelledby="fees-tab">
           <ul>
             <% @lawyer.payment_types.each do |payment| %>
             <li><%= payment.content %></li>
             <% end %>
           </ul>
-
         </div>
-        <div class="tab-pane fade tab-content-text" id="ratings" role="tabpanel" aria-labelledby="ratings-tab">...</div>
-        <div class="tab-pane fade tab-content-text" id="references" role="tabpanel" aria-labelledby="references-tab">...</div>
-        <div class="tab-pane fade tab-content-text" id="communication" role="tabpanel" aria-labelledby="communication-tab">
+
+
+
+
+        <div class="tab-pane fade tab-content-text" id="ratings" role="tabpanel" aria-labelledby="ratings-tab">
+          <%= render "shared/reviews_list" %>
+        </div>
+
+
+
+
+
+        <div class="tab-pane fade tab-content-text" id="references" role="tabpanel" aria-labelledby="references-tab">
+          <%= render "shared/references_list" %>
+        </div>
+
+
+
+        <div class="tab-pane fade tab-content-text" id="communications" role="tabpanel" aria-labelledby="communications-tab">
           <p> Communication channels:</p>
-        <ul>
+          <ul>
             <% @lawyer.communications.each do |com| %>
             <li><%= com.content %></li>
             <% end %>
           </ul>
-           <p> Languages:</p>
+
+
+          <p> Languages:</p>
           <ul>
             <% @lawyer.languages.each do |language| %>
             <li><%= language.content %></li>
             <% end %>
           </ul>
         </div>
+
+
+
+
       </div>
     </div>
   </div>
+
+
+
+
+
 
   <div class="row">
     <div class="lawyer-reviews">
       <h2 class="text-center">Reviews</h2>
       <% @lawyer.reviews.each do |review| %>
-        <div class="review-card">
-          <div class="review-card-details col-xs-12 col-sm-2">
-            <p><%= review.stars %></p>
-            <div class="star-amount">
-              <% review.stars.times do %>
-                <span class="fas fa-star colored-star"></span>
-                <% end %>
-                <% (5-review.stars).times do %>
-                <span class="fas fa-star "></span>
-              <% end %>
-            </div>
-            <p class="text-center"><%= review.case.user.first_name + ' ' + review.case.user.last_name %></p>
+      <div class="review-card">
+        <div class="review-card-details col-xs-12 col-sm-2">
+          <p><%= review.stars %></p>
+          <div class="star-amount">
+            <% review.stars.times do %>
+            <span class="fas fa-star colored-star"></span>
+            <% end %>
+            <% (5-review.stars).times do %>
+            <span class="fas fa-star "></span>
+            <% end %>
           </div>
-          <div class="review-card-content col-xs-12 col-sm-10">
-            <p><strong><%= review.title %></p></strong>
-            <p><%= review.content %></p>
-          </div>
+          <p class="text-center"><%= review.case.user.first_name + ' ' + review.case.user.last_name %></p>
         </div>
+        <div class="review-card-content col-xs-12 col-sm-10">
+          <p><strong><%= review.title %></p></strong>
+          <p><%= review.content %></p>
+        </div>
+      </div>
       <% end %>
     </div>
   </div>
