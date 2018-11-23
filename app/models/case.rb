@@ -6,6 +6,8 @@ class Case < ApplicationRecord
   has_many :documents
   accepts_nested_attributes_for :documents
   has_many :messages
+  has_many :reviews, dependent: :destroy
+
 
   def add_order
     order = Order.new(case_id: self.id, lawyer_sku: self.lawyer.sku, amount: self.lawyer.price, user: self.user, state: 'pending')
