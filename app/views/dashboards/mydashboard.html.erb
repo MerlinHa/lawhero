@@ -1,7 +1,6 @@
+
 <div class="container">
-
   <h1 style="color: #1F487E;">All my cases :</h1>
-
   <div class="two-columns-dash">
     <div class="left-column-dash">
       <div class="text-center">
@@ -11,9 +10,8 @@
         </p>
         <div style="display: flex; flex-direction: column;">
           <%= link_to "Edit your profile", edit_user_path(@user), class: "law-btn" %>
-        <%= link_to "Search Lawyers", lawyers_path, class: "law-btn" %>
-
-      </div>
+          <%= link_to "Search Lawyers", lawyers_path, class: "law-btn" %>
+        </div>
       </div>
     </div>
     <div class="right-column-dash">
@@ -29,188 +27,176 @@
             <li class="nav-item">
               <a class="nav-link" id="declined-tab" data-toggle="tab" href="#declined" role="tab" aria-controls="declined" aria-selected="false">declined cases</a>
             </li>
-
           </ul>
-          <% if @user.lawyer == true %>
-          <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade tab-content-text in active" id="cases" role="tabpanel" aria-labelledby="cases-tab">
-              <% @pending_cases.each do |c| %>
-              <div class="message">
-                <%= cl_image_tag c.lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
-                <div class="message-name">
-                  <h3><%= c.lawyer.user.first_name %></h3>
-                  <h3><%= c.lawyer.user.last_name %></h3>
-                  <p>10/07/17</p>
+          <% if @user.lawyer == true  %>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade tab-content-text in active" id="cases" role="tabpanel" aria-labelledby="cases-tab">
+                <% @pending_cases_lawyer.each do |c| %>
+                  <div class="message">
+                    <%= cl_image_tag c.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
+                    <div class="message-name">
+                      <h3><%= c.user.first_name %></h3>
+                      <h3><%= c.user.last_name %></h3>
+                      <p>10/07/17</p>
+                    </div>
+                    <div class="message-body">
+                      <p><strong><%= c.title %></strong></p>
+                      <p>
+                        <%= c.description %>
+                      </p>
+                    </div>
+                    <div class="message-status">
+                      <% if c.status == "Accepted" %>
+                        <p class="status accepted">Accepted</p>
+                      <% elsif c.status == "Declined" %>
+                        <p class="status declined">Declined</p>
+                      <% else %>
+                        <p class="status pending">Pending</p>
+                      <% end %>
 
-                </div>
-                <div class="message-body">
-                  <p><strong><%= c.title %></strong></p>
-                  <p>
-                    <%= c.description %>
-                  </p>
-                </div>
-                <div class="message-status">
-                  <% if c.status == "Accepted" %>
-                  <p class="status accepted">Accepted</p>
-                  <% elsif c.status == "Declined" %>
-                  <p class="status declined">Declined</p>
-                  <% else %>
-                  <p class="status pending">Pending</p>
-                  <% end %>
-                  <p class="price">€345</p>
-                </div>
-                <div class="lawyer-side-options">
-                  <%= link_to "Accept", accept_case_path(c), method: :patch, class: "law-btn" %>
-                  <%= link_to "Decline", decline_case_path(c), method: :patch, class: "law-btn" %>
-                </div>
+                    </div>
+                     <div class="lawyer-side-options">
+                      <%= link_to "Accept", accept_case_path(c), method: :patch, class: "law-btn" %>
+                      <%= link_to "Decline", decline_case_path(c), method: :patch, class: "law-btn" %>
+                    </div>
+                  </div>
+                <% end %>
               </div>
-              <% end %>
-            </div>
               <div class="tab-pane fade tab-content-text" id="accepted" role="tabpanel" aria-labelledby="accepted-tab">
-              <% @accepted_cases.each do |c| %>
+                <% @accepted_cases_lawyer.each do |c| %>
+                  <div class="message">
+                    <%= cl_image_tag c.lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
+                    <div class="message-name">
+                      <h3><%= c.lawyer.user.first_name %></h3>
+                      <h3><%= c.lawyer.user.last_name %></h3>
+                      <p>10/07/17</p>
+                    </div>
+                    <div class="message-body">
+                      <p><strong><%= c.title %></strong></p>
+                      <p>
+                        <%= c.description %>
+                      </p>
+                    </div>
+                    <div class="message-status">
+                      <%= c.status %>
 
-              <div class="message">
-                <%= cl_image_tag c.lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
-                <div class="message-name">
-                  <h3><%= c.lawyer.user.first_name %></h3>
-                  <h3><%= c.lawyer.user.last_name %></h3>
-                  <p>10/07/17</p>
-                </div>
-                <div class="message-body">
-                  <p><strong><%= c.title %></strong></p>
-                  <p>
-                    <%= c.description %>
-                  </p>
-                </div>
-                <div class="message-status">
-                  <%= c.status %>
-                  <p class="price"><%= c.financial_cost / 100 %> $ </p>
-                </div>
-                <div class="lawyer-side-options">
-                  <%= link_to "Update Case", edit_case_path(c), class: "law-btn" %>
-                  <%= link_to "Show Case", case_path(c), class: "law-btn" %>
-                </div>
+                    </div>
+                       <div class="lawyer-side-options">
+                      <%= link_to "Update Case", edit_case_path(c), class: "law-btn" %>
+                      <%= link_to "Show Case", case_path(c), class: "law-btn" %>
+                    </div>
+                  </div>
+                <% end %>
               </div>
+              <div class="tab-pane fade tab-content-text" id="declined" role="tabpanel" aria-labelledby="declined-tab">
+                <% @declined_cases_lawyer.each do |c| %>
+                  <%= link_to case_path(c) do %>
+                    <div class="message">
+                      <%= cl_image_tag c.lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
+                      <div class="message-name">
+                        <h3><%= c.lawyer.user.first_name %></h3>
+                        <h3><%= c.lawyer.user.last_name %></h3>
+                        <p>10/07/17</p>
+                      </div>
+                      <div class="message-body">
+                        <p><strong><%= c.title %></strong></p>
+                        <p>
+                          <%= c.description %>
+                        </p>
+                      </div>
+                      <div class="message-status">
+                        <%= c.status %>
 
-              <% end %>
-            </div>
-
-             <div class="tab-pane fade tab-content-text" id="declined" role="tabpanel" aria-labelledby="declined-tab">
-              <% @declined_cases.each do |c| %>
-              <%= link_to case_path(c) do %>
-              <div class="message">
-                <%= cl_image_tag c.lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
-                <div class="message-name">
-                  <h3><%= c.lawyer.user.first_name %></h3>
-                  <h3><%= c.lawyer.user.last_name %></h3>
-                  <p>10/07/17</p>
-                </div>
-                <div class="message-body">
-                  <p><strong><%= c.title %></strong></p>
-                  <p>
-                    <%= c.description %>
-                  </p>
-                </div>
-                <div class="message-status">
-                  <%= c.status %>
-                  <p class="price">€345</p>
-                </div>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
               </div>
-              <% end %>
-              <% end %>
             </div>
-          </div>
           <% else %>
-          <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade tab-content-text in active" id="cases" role="tabpanel" aria-labelledby="cases-tab">
-              <% @pending_cases.each do |c| %>
-              <div class="message">
-                <%= cl_image_tag c.lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
-                <div class="message-name">
-                  <h3><%= c.lawyer.user.first_name %></h3>
-                  <h3><%= c.lawyer.user.last_name %></h3>
-                  <p>10/07/17</p>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade tab-content-text in active" id="cases" role="tabpanel" aria-labelledby="cases-tab">
+                <% @pending_cases.each do |c| %>
+                  <div class="message">
+                    <%= cl_image_tag c.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
+                    <div class="message-name">
+                      <h3><%= c.user.first_name %></h3>
+                      <h3><%= c.user.last_name %></h3>
+                      <p>10/07/17</p>
+                    </div>
+                    <div class="message-body">
+                      <p><strong><%= c.title %></strong></p>
+                      <p>
+                        <%= c.description %>
+                      </p>
+                    </div>
+                    <div class="message-status">
+                      <% if c.status == "Accepted" %>
+                        <p class="status accepted">Accepted</p>
+                      <% elsif c.status == "Declined" %>
+                        <p class="status declined">Declined</p>
+                      <% else %>
+                        <p class="status pending">Pending</p>
+                      <% end %>
 
-                </div>
-                <div class="message-body">
-                  <p><strong><%= c.title %></strong></p>
-                  <p>
-                    <%= c.description %>
-                  </p>
-                </div>
-                <div class="message-status">
-                  <% if c.status == "Accepted" %>
-                  <p class="status accepted">Accepted</p>
-                  <% elsif c.status == "Declined" %>
-                  <p class="status declined">Declined</p>
-                  <% else %>
-                  <p class="status pending">Pending</p>
-                  <% end %>
-                  <p class="price">€345</p>
-                </div>
-                <div class="lawyer-side-options">
-                  <%= link_to "Accept", accept_case_path(c), method: :patch, class: "law-btn" %>
-                  <%= link_to "Decline", decline_case_path(c), method: :patch, class: "law-btn" %>
-                </div>
+                    </div>
+                  </div>
+                <% end %>
               </div>
-              <% end %>
-            </div>
               <div class="tab-pane fade tab-content-text" id="accepted" role="tabpanel" aria-labelledby="accepted-tab">
-              <% @accepted_cases.each do |c| %>
+                <% @accepted_cases.each do |c| %>
+                  <div class="message">
+                    <%= cl_image_tag c.lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
+                    <div class="message-name">
+                      <h3><%= c.lawyer.user.first_name %></h3>
+                      <h3><%= c.lawyer.user.last_name %></h3>
+                      <p>10/07/17</p>
+                    </div>
+                    <div class="message-body">
+                      <p><strong><%= c.title %></strong></p>
+                      <p>
+                        <%= c.description %>
+                      </p>
+                    </div>
+                    <div class="message-status">
+                      <%= c.status %>
 
-              <div class="message">
-                <%= cl_image_tag c.lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
-                <div class="message-name">
-                  <h3><%= c.lawyer.user.first_name %></h3>
-                  <h3><%= c.lawyer.user.last_name %></h3>
-                  <p>10/07/17</p>
-                </div>
-                <div class="message-body">
-                  <p><strong><%= c.title %></strong></p>
-                  <p>
-                    <%= c.description %>
-                  </p>
-                </div>
-                <div class="message-status">
-                  <%= c.status %>
-                  <p class="price"><%= c.financial_cost / 100 %> $ </p>
-                </div>
-                <div class="lawyer-side-options">
-                  <%= link_to "Update Case", edit_case_path(c), class: "law-btn" %>
-                  <%= link_to "Show Case", case_path(c), class: "law-btn" %>
-                </div>
+                    </div>
+                    <div class="lawyer-side-options">
+
+                      <%= link_to "Show Case", case_path(c), class: "law-btn" %>
+                    </div>
+                  </div>
+                <% end %>
               </div>
+              <div class="tab-pane fade tab-content-text" id="declined" role="tabpanel" aria-labelledby="declined-tab">
+                <% @declined_cases.each do |c| %>
+                  <%= link_to case_path(c) do %>
+                    <div class="message">
+                      <%= cl_image_tag c.lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
+                      <div class="message-name">
+                        <h3><%= c.lawyer.user.first_name %></h3>
+                        <h3><%= c.lawyer.user.last_name %></h3>
+                        <p>10/07/17</p>
+                      </div>
+                      <div class="message-body">
+                        <p><strong><%= c.title %></strong></p>
+                        <p>
+                          <%= c.description %>
+                        </p>
+                      </div>
+                      <div class="message-status">
+                        <%= c.status %>
 
-              <% end %>
-            </div>
-
-             <div class="tab-pane fade tab-content-text" id="declined" role="tabpanel" aria-labelledby="declined-tab">
-              <% @declined_cases.each do |c| %>
-              <%= link_to case_path(c) do %>
-              <div class="message">
-                <%= cl_image_tag c.lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
-                <div class="message-name">
-                  <h3><%= c.lawyer.user.first_name %></h3>
-                  <h3><%= c.lawyer.user.last_name %></h3>
-                  <p>10/07/17</p>
-                </div>
-                <div class="message-body">
-                  <p><strong><%= c.title %></strong></p>
-                  <p>
-                    <%= c.description %>
-                  </p>
-                </div>
-                <div class="message-status">
-                  <%= c.status %>
-                  <p class="price">€345</p>
-                </div>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
               </div>
-              <% end %>
-              <% end %>
             </div>
-          </div>
           <% end %>
         </div>
       </div>
     </div>
   </div>
+</div>

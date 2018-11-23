@@ -20,7 +20,7 @@ class CasesController < ApplicationController
       order.case = @case
       order.user = current_user
       order.save
-      redirect_to new_order_payment_path(order)
+      redirect_to mydashboard_path
     else
       render :new
     end
@@ -55,14 +55,14 @@ class CasesController < ApplicationController
     @case = Case.find(params[:id])
     @case.status = "Accepted"
     @case.save!
-    redirect_to case_path(@case)
+    redirect_to mydashboard_path
   end
 
   def decline
     @case = Case.find(params[:id])
     @case.status = "Declined"
     @case.save!
-    redirect_to case_path(@case)
+    redirect_to mydashboard_path
   end
 
 

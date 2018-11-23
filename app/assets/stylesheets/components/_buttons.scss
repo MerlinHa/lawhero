@@ -21,8 +21,11 @@
     min-width: 127px;
     border-radius: 4px;
     box-shadow: 1px 1px 1px rgba(200, 200, 200, 0.9);
+    border: solid $green 3px;
     &:hover {
-      background: $blue;
+      background: transparent;
+      color: $green;
+      border: solid $green 3px;
     }
 }
 
@@ -49,7 +52,9 @@
     color: white;
     border-radius: 4px;
     box-shadow: 1px 1px 1px rgba(200, 200, 200, 0.9);
-    &:hover {
-      background: $blue;
+     &:hover {
+      background: transparent;
+      color: $green;
+      border: solid $green 3px;
     }
 }
