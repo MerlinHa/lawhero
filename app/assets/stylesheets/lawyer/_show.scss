@@ -94,6 +94,13 @@
 
   li a {
     border-radius: 0;
+
+  }
+
+  li.active {
+        border-top: solid $green 3px ;
+
+
   }
 
 
@@ -104,20 +111,22 @@
 
    li a:active {
     background-color: transparent;
+
+    // border-top: solid 3px $green;
   }
 
   li.active a {
     background-color: transparent;
     border: none;
     color: $blue;
-    border-top: solid 3px $green;
+    // border-top: solid 3px $green;
   }
 
   li.active a:hover {
     background-color: transparent;
     border: none;
     color: $blue;
-    border-top: solid 3px $green;
+    // border-top: solid 3px $green;
   }
 
   li:hover a{

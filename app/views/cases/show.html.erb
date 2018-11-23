@@ -1,22 +1,26 @@
 <div class="container">
   <!-- <div class="row"> -->
-    <h1 style="color: #1F487E;">Case title: <%= @case.title %></h1>
+    <h1 style="color: #1F487E; display:flex; justify-content: flex-end;">
+      <span>
+        <%= @case.title.upcase %>
+      </span>
+    </h1>
     <div class="dashboard-tabs">
       <div class="fake-container">
         <div class="fake-column-1"></div>
         <div class="fake-column-2">
           <ul class="nav nav-tabs-dashboard" id="myTab" role="tablist" style="padding-left: 20px;">
             <li class="nav-item active">
-              <a class="nav-link" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">overview</a>
+              <a class="nav-link" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true"><b>OVERVIEW</b></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">messages</a>
+              <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false"><b> MESSSAGES</b></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="documents-tab" data-toggle="tab" href="#documents" role="tab" aria-controls="documents" aria-selected="false">documents</a>
+              <a class="nav-link" id="documents-tab" data-toggle="tab" href="#documents" role="tab" aria-controls="documents" aria-selected="false"><b>DOCUMENTS</b></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="time-line-tab" data-toggle="tab" href="#time-line" role="tab" aria-controls="time-line" aria-selected="false">story line</a>
+              <a class="nav-link" id="time-line-tab" data-toggle="tab" href="#time-line" role="tab" aria-controls="time-line" aria-selected="false"><b> STORY-LINE</b></a>
             </li>
           </ul>
         </div>
@@ -25,7 +29,7 @@
       <div class="tab-content " id="myTabContent">
         <div class="tab-pane fade tab-content-text in active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
           <div class="four-columns-dash">
-            <div class="info-column-dash">
+            <div class="left-column-dash">
               <div class="text-center">
                 <%= cl_image_tag @case.user.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo", style:"margin-bottom: 10px;" %> <br>
                 <p>
@@ -39,14 +43,26 @@
 
               </div>
             </div>
-            <div class="main-column-dash">
+            <div class="right-column-dash">
+              <div class="overview-card-container">
 
-              <p>Case's overall cost - last estimate:</p>
-              <p><strong><%= @case.financial_cost %> $</strong>  </p>
-              <p>Case's overall length - last estimate:</p>
-              <p><strong> <%= @case.overall_length %> days</strong> </p>
-              <p>Case's odds - last estimate:</p>
-              <p><strong> <%= @case.odds_success %> % </strong></p>
+                <div class="overview-card">
+                  <p>Case's overall cost - last estimate:</p>
+                  <p><strong><%= @case.financial_cost %> $</strong>  </p>
+
+                </div>
+                <div class="overview-card">
+                  <p>Case's overall length - last estimate:</p>
+                  <p><strong> <%= @case.overall_length %> days</strong> </p>
+
+                </div>
+                <div class="overview-card">
+                  <p>Case's odds - last estimate:</p>
+                  <p><strong> <%= @case.odds_success %> % </strong></p>
+
+                </div>
+              </div>
+
 
             </div>
 
@@ -75,12 +91,15 @@
                 </div>
               </div>
             </div>
-            <div class="right-column-dash-messages">
+
+            <div style="width: 100%;">
+            <div class="right-column-dash">
               <div class="messages">
                 <% @case.messages.order(created_at: :desc).each do |message| %>
                 <%= render "messages/message", message: message %>
                 <% end %>
               </div>
+            </div>
               <%= render "messages/form", form_case: @case, message: @message %>
             </div>
           </div>
@@ -100,7 +119,6 @@
               </div>
             </div>
             <div class="right-column-dash">
-              <h3>Please find all documents related to your case:</h3>
               <%= render "shared/documents" %>
             </div>
           </div>
@@ -120,7 +138,6 @@
               </div>
             </div>
             <div class="right-column-dash">
-              <h1>Time-line</h1>
             </div>
           </div>
         </div>
