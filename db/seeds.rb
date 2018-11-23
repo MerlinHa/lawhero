@@ -1,4 +1,4 @@
-Booking.destroy_all
+
 Lawyer.destroy_all
 User.destroy_all
 LawyerProperty.destroy_all
@@ -25,9 +25,15 @@ Communication.create([
   {content: "Skype"},
   {content: "Whatsapp"},
   {content: "Telegram"},
-  {content: "Phone"},
   {content: "Email"},
   {content: "Chat"},
+  {content: "Dropbox"},
+  {content: "Google Drive"},
+  {content: "Meeting only"},
+  {content: "Mail only"},
+  {content: "Phone only"},
+  {content: "LawHero Messages"},
+  {content: "LawHero Documents"},
 ])
 
 puts "Creating payment types"
@@ -266,27 +272,6 @@ lawyer_j = Lawyer.create!(
     digital_lawyer: false
   )
 
-puts "Creating 15 bookings.."
-15.times do
-  Booking.create!({
-    user: User.all.sample,
-    lawyer: Lawyer.all.sample,
-    price: 30,
-    status: "pending",
-    case_id: 1
-   })
-end
-
-puts "Creating 15 reviews.."
-
-15.times do
-Review.create!({
-  booking: Booking.all.sample,
-  title: "Location, atmosphere, facilities, speed, service, security Everything is over five stars.",
-  content: "The location of Connections at Trafalgar Square is right next to the National Gallery. And it is located in the West End, home of the musical. Connections at Trafalgar Square was perfectly systematic. Club membership includes a desk and meeting room in the hotel's lounge, where all facilities are available and drinks and food are available. In addition to working in the luxurious hotel lounge, the hotel restaurant and bar are available at a reduced cost. Everything was perfect and the most important Internet speed was over 200MB download. Location, atmosphere, facilities, speed, service, security Everything is over five stars.",
-  stars: rand(1..5)
-})
-end
 
 puts "Creating lawyer properties"
 20.times do
@@ -296,4 +281,99 @@ LawyerProperty.create!({lawyer: Lawyer.all.sample, property: PaymentType.all.sam
 LawyerProperty.create!({lawyer: Lawyer.all.sample, property: LawField.all.sample})
 end
 
+
+
+# adding Jules specific seeds
+
+user_aa = User.create!(
+  first_name: "Jules",
+  last_name: "Jamet",
+  lawyer: true,
+  email: "jules@j.j",
+  password: "helloworld",
+  phone: "01235455693",
+  remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542881156/hmhwmfzjj3181fgrvqvn.png"
+)
+
+lawyer_aa = Lawyer.create!(
+  user: user_aa,
+  short_desc: "Severance, Unpaid Wages/Overtime, Discrimination, Retaliation. We handle all employment law matters",
+  long_desc: "I am dedicated to providing exceptional service to individuals and businesses throughout Paris and its area.  My  employment law practice encompasses all areas of employment law including discrimination, harassment, hostile work environment, retaliation, wrongful termination, wage and hour, overtime...",
+    email: "lindsay@jonesdivorcelaw.com",
+    phone: "0343543235325",
+    city: "Paris",
+    price_cents: 30000,
+    remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542881156/hmhwmfzjj3181fgrvqvn.png",
+    digital_lawyer: true
+  )
+
+
+LawyerProperty.create!({lawyer: Lawyer.last, property: Language.find_by(content: "French") })
+LawyerProperty.create!({lawyer: Lawyer.last, property: Language.find_by(content: "English") })
+# LawyerProperty.create!({lawyer: Lawyer.last, property_id: 3 })
+
+LawyerProperty.create!({lawyer: Lawyer.last, property: Communication.find_by(content: "Skype")})
+LawyerProperty.create!({lawyer: Lawyer.last, property: Communication.find_by(content: "Whatsapp")})
+LawyerProperty.create!({lawyer: Lawyer.last, property: Communication.find_by(content: "LawHero Messages")})
+LawyerProperty.create!({lawyer: Lawyer.last, property: Communication.find_by(content: "LawHero Documents")})
+LawyerProperty.create!({lawyer: Lawyer.last, property: Communication.find_by(content: "Google Drive")})
+LawyerProperty.create!({lawyer: Lawyer.last, property: Communication.find_by(content: "Dropbox")})
+
+LawyerProperty.create!({lawyer: Lawyer.last, property: PaymentType.find_by(content: "Hourly")})
+LawyerProperty.create!({lawyer: Lawyer.last, property: PaymentType.find_by(content: "Fixed")})
+LawyerProperty.create!({lawyer: Lawyer.last, property: PaymentType.find_by(content: "Success-based")})
+
+LawyerProperty.create!({lawyer: Lawyer.last, property: LawField.find_by(content: "Employment Law")})
+
+
+
+
+
+
+
+
+# adding booking, review for Jules...
+
+puts "create Jules's case.."
+
+  Case.create!({
+    user: user_aa,
+    lawyer: lawyer_aa,
+    financial_cost: 30,
+    overall_length: 10,
+    odds_success:70,
+    status: "Accepted",
+    title: "Case 1",
+    description: "good case",
+   })
+
+
+
+puts "create Jules's review.."
+
+Review.create!({
+  case: Case.last,
+  title: "good review.",
+  content: "good good",
+  stars: 5
+})
+
+
+
+
+
+
+
+
+puts "Creating 15 reviews.."
+
+# 20.times do
+
+# Review.create!({
+#   case: Case.all.sample,
+#   title: "Location, atmosphere, facilities, speed, service, security Everything is over five stars.",
+#   content: "The location of Connections at Trafalgar Square is right next to the National Gallery. And it is located in the West End, home of the musical. Connections at Trafalgar Square was perfectly systematic. Club membership includes a desk and meeting room in the hotel's lounge, where all facilities are available and drinks and food are available. In addition to working in the luxurious hotel lounge, the hotel restaurant and bar are available at a reduced cost. Everything was perfect and the most important Internet speed was over 200MB download. Location, atmosphere, facilities, speed, service, security Everything is over five stars.",
+#   stars: rand(1..5)
+# })
+# end
 
