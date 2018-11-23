@@ -20,7 +20,7 @@ class CasesController < ApplicationController
       order.case = @case
       order.user = current_user
       order.save
-      redirect_to new_order_payment_path(@case)
+      redirect_to new_order_payment_path(order)
     else
       render :new
     end
