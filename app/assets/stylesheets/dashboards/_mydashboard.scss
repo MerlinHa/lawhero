@@ -10,10 +10,28 @@
 .nav-tabs-dashboard {
   display: flex;
   justify-content: flex-start;
+
+  li a:hover {
+    background-color: transparent;
+    border-bottom: solid 3px $green;
+  }
+
+   li a:active {
+    background-color: transparent;
+  }
+
+  li.active a {
+    background-color: transparent;
+    border-bottom: solid 3px $green;
+  }
+
+  li:hover a{
+    border-color: solid $green 3px ;
+  }
 }
 
 .nav-tabs-dashboard .active {
-  border-bottom: solid 3px $green;
+  // border-bottom: solid 3px $green;
 }
 
 .nav-item {

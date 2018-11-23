@@ -50,76 +50,81 @@
 
             </div>
 
+            <!-- lawyer options -->
+            <% if @case.user.lawyer == true %>
+            <div class="steps-financial-column-dash text-center">
 
-              <div class="steps-financial-column-dash text-center">
-
-                <%= link_to "Update Case", edit_case_path(@case), class: "law-btn" %>
-                <%= link_to "Accept", accept_case_path(@case), method: :patch, class: "law-btn" %>
-                <%= link_to "Decline", decline_case_path(@case), method: :patch, class: "law-btn" %>
-              </div>
-
+              <%= link_to "Update Case", edit_case_path(@case), class: "law-btn" %>
+              <%= link_to "Accept", accept_case_path(@case), method: :patch, class: "law-btn" %>
+              <%= link_to "Decline", decline_case_path(@case), method: :patch, class: "law-btn" %>
             </div>
+            <% end %>
           </div>
-          <div class="tab-pane fade tab-content-text " id="messages" role="tabpanel" aria-labelledby="messages-tab">
-            <div class="two-columns-dash">
-              <div class="left-column-dash">
-                <div class="text-center">
-                  <%= cl_image_tag @case.user.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo", style:"margin-bottom: 10px;" %> <br>
-                  <p>
-                    <%= @case.user.first_name %> <%= @case.user.last_name %>
-                  </p>
-                  <a>
-                    <%= link_to "Edit your profile", root_path, class: "btn btn-primary" %>
-                  </a>
+        </div>
+        <div class="tab-pane fade tab-content-text " id="messages" role="tabpanel" aria-labelledby="messages-tab">
+          <div class="two-columns-dash">
+            <div class="left-column-dash">
+              <div class="text-center">
+                <%= cl_image_tag @case.user.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo", style:"margin-bottom: 10px;" %> <br>
+                <p>
+                  <%= @case.user.first_name %> <%= @case.user.last_name %>
+                </p>
+                <div style="display: flex; flex-direction: column;">
+                  <%= link_to "Edit your profile", edit_user_path(@case.user), class: "law-btn" %>
+                  <%= link_to "My dashboard", mydashboard_path, class: "law-btn" %>
                 </div>
-              </div>
-              <div class="right-column-dash-messages">
-                <div class="messages">
-                  <% @case.messages.order(created_at: :desc).each do |message| %>
-                  <%= render "messages/message", message: message %>
-                  <% end %>
-                </div>
-                <%= render "messages/form", form_case: @case, message: @message %>
               </div>
             </div>
-          </div>
-          <div class="tab-pane fade tab-content-text " id="documents" role="tabpanel" aria-labelledby="documents-tab">
-            <div class="two-columns-dash">
-              <div class="left-column-dash">
-                <div class="text-center">
-                  <%= cl_image_tag @case.user.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo", style:"margin-bottom: 10px;" %> <br>
-                  <p>
-                    <%= @case.user.first_name %> <%= @case.user.last_name %>
-                  </p>
-                  <a>
-                    <%= link_to "Edit your profile", root_path, class: "btn btn-primary" %>
-                  </a>
-                </div>
+            <div class="right-column-dash-messages">
+              <div class="messages">
+                <% @case.messages.order(created_at: :desc).each do |message| %>
+                <%= render "messages/message", message: message %>
+                <% end %>
               </div>
-              <div class="right-column-dash">
-                <h3>Please find all documents related to your case:</h3>
-                <%= render "shared/documents" %>
+              <%= render "messages/form", form_case: @case, message: @message %>
             </div>
           </div>
-          <div class="tab-pane fade tab-content-text " id="time-line" role="tabpanel" aria-labelledby="time-line-tab">
-            <div class="two-columns-dash">
-              <div class="left-column-dash">
-                <div class="text-center">
-                  <%= cl_image_tag @case.user.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo", style:"margin-bottom: 10px;" %> <br>
-                  <p>
-                    <%= @case.user.first_name %> <%= @case.user.last_name %>
-                  </p>
-                  <a>
-                    <%= link_to "Edit your profile", root_path, class: "btn btn-primary" %>
-                  </a>
+        </div>
+        <div class="tab-pane fade tab-content-text " id="documents" role="tabpanel" aria-labelledby="documents-tab">
+          <div class="two-columns-dash">
+            <div class="left-column-dash">
+              <div class="text-center">
+                <%= cl_image_tag @case.user.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo", style:"margin-bottom: 10px;" %> <br>
+                <p>
+                  <%= @case.user.first_name %> <%= @case.user.last_name %>
+                </p>
+                <div style="display: flex; flex-direction: column;">
+                  <%= link_to "Edit your profile", edit_user_path(@case.user), class: "law-btn" %>
+                  <%= link_to "My dashboard", mydashboard_path, class: "law-btn" %>
                 </div>
               </div>
-              <div class="right-column-dash">
-                <h1>Time-line</h1>
+            </div>
+            <div class="right-column-dash">
+              <h3>Please find all documents related to your case:</h3>
+              <%= render "shared/documents" %>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade tab-content-text " id="time-line" role="tabpanel" aria-labelledby="time-line-tab">
+          <div class="two-columns-dash">
+            <div class="left-column-dash">
+              <div class="text-center">
+                <%= cl_image_tag @case.user.photo, :width=> 300, :height=>300, :crop=>"fill", class: "show-photo", style:"margin-bottom: 10px;" %> <br>
+                <p>
+                  <%= @case.user.first_name %> <%= @case.user.last_name %>
+                </p>
+                <div style="display: flex; flex-direction: column;">
+                  <%= link_to "Edit your profile", edit_user_path(@case.user), class: "law-btn" %>
+                  <%= link_to "My dashboard", mydashboard_path, class: "law-btn" %>
+                </div>
               </div>
+            </div>
+            <div class="right-column-dash">
+              <h1>Time-line</h1>
             </div>
           </div>
         </div>
       </div>
-      <!-- </div> -->
     </div>
+    <!-- </div> -->
+  </div>

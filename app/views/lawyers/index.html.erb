@@ -1,7 +1,7 @@
 
 <div class="container">
 
-  <%= form_tag lawyers_path, method: :get do %>
+  <%= form_tag lawyers_path, method: :get, id: 'filter-form' do %>
   <div class="select-tags" style="display: flex; margin-top: 50px; justify-content: center;">
 
     <%= select_tag "query[law_field]", options_from_collection_for_select(LawField.all, :id, :content, @queries[:law_field]), prompt: "Select lawfield" %>

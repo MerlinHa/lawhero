@@ -1,6 +1,33 @@
 .lawyer-search-form {
   margin-top: 30px;
   display:flex;
-  input {margin: 0px 10px; border-radius: 5px; color: $blue}
-  .btn-primary {font-weight: bold; color: white}
+
+  input {
+    margin: 0px 10px;
+    border-radius: 5px;
+    // color: $blue;
+    color: black;
+    height: 50px;
+    font-weight:bold;
+  }
+
+  .btn-primary {
+    font-weight: bold;
+    color: white;
+  }
+
+  .form-control {
+    color: black;
+    height: 50px;
+    font-weight:bold;
+    font-size: 20px;
+  }
+
+  ::-webkit-input-placeholder {
+        color: black;
+    height: 50px;
+    font-weight:bold;
+    font-size: 20px;
+
+  }
 }
