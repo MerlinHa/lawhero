@@ -324,7 +324,7 @@ LawyerProperty.create!({lawyer: Lawyer.last, property: PaymentType.find_by(conte
 LawyerProperty.create!({lawyer: Lawyer.last, property: PaymentType.find_by(content: "Success-based")})
 
 LawyerProperty.create!({lawyer: Lawyer.last, property: LawField.find_by(content: "Employment Law")})
-
+LawyerProperty.create!({lawyer: Lawyer.last, property: LawField.find_by(content: "Family Law")})
 
 
 
@@ -353,14 +353,24 @@ puts "create Jules's review.."
 
 Review.create!({
   case: Case.last,
-  title: "good review.",
-  content: "good good",
+  title: "very good lawyer",
+  content: "Jules was very patient and explains me in details all the steps",
   stars: 5
 })
 
+Review.create!({
+  case: Case.last,
+  title: "highly recommended",
+  content: "Jules saved my life!!",
+  stars: 4
+})
 
-
-
+Review.create!({
+  case: Case.last,
+  title: "thank you Jules!!!",
+  content: "I was desperate and Jules changed my life",
+  stars: 4
+})
 
 
 
