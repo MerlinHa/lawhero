@@ -18,6 +18,7 @@
 .tab-content {
   font-family: "Open Sans", "sans-serif";
   font-size: 16px;
+  margin-top: 20px;
 }
 
 .tab-content-text {
@@ -29,27 +30,15 @@
   color: $blue !important
 }
 
-.lawyer-tabs {
-  color: $blue;
-  margin-top: 40px;
-}
-
 .container-lawhero-padding {
   padding: 0 100px !important;
 }
 
-.active {
-  a {
-    // color: $green;
-    border-color: $green !important;
-  }
-  a:hover {
-    cursor: pointer !important;
-  }
-}
 
 .review-card {
-  p {color: $blue}
+  p {
+    color: $blue
+  }
   display: flex;
   margin: 40px 0 !important;
   background-color: rgba(31, 72, 126, .1);
@@ -84,7 +73,65 @@
   align-items:center;
 }
 
+
+// tabs
+
+
 .nav-tabs {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  border-bottom: solid 3px #00B2A6;
+
+  // li.active {
+  //   a {
+  //     // color: $green;
+  //     border-top: solid 3px #00B2A6;
+  //   }
+  //   a:hover {
+  //     cursor: pointer !important;
+  //   }
+  // }
+
+  li a {
+    border-radius: 0;
+  }
+
+
+  li a:hover {
+    background-color: transparent;
+    border-top: solid 3px $green;
+  }
+
+   li a:active {
+    background-color: transparent;
+  }
+
+  li.active a {
+    background-color: transparent;
+    border: none;
+    color: $blue;
+    border-top: solid 3px $green;
+  }
+
+  li.active a:hover {
+    background-color: transparent;
+    border: none;
+    color: $blue;
+    border-top: solid 3px $green;
+  }
+
+  li:hover a{
+    background-color: transparent;
+    border: none;
+    color: $blue;
+    border-top: solid $green 3px ;
+  }
 }
+
+.lawyer-tabs {
+  color: $blue;
+  min-height: 400px;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+

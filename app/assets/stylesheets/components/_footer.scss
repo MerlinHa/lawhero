@@ -1,5 +1,6 @@
 .footer {
-
+  bottom: 0px;
+  width: 100%;
 }
 
 .footer-content {
@@ -13,9 +14,6 @@
   background: $green;
   display: flex;
   align-items: center;
-  // justify-content: space-between;
-  justify-content: space-between;
-
   color: rgba(0,0,0,0.3);
 }
 

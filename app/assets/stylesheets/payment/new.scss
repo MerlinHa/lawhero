@@ -11,6 +11,12 @@
   }
 }
 
+.border-box-payment {
+  border: 1px solid $gray;
+  border-radius: 10px;
+  padding: 30px;
+}
+
 /**
  * The CSS shown here will not be introduced in the Quickstart guide, but shows
  * how you can use CSS to style your Element's container.

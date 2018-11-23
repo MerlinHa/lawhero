@@ -1,42 +1,44 @@
 <div class="container container-new-payment">
   <div class="col-sm-6 col-sm-offset-3">
-    <div class="row">
-      <h1 class="h1-headline-blue">Book your lawyer now<%= @order.lawyer_sku %></h1>
-      <script src="https://js.stripe.com/v3/"></script>
-      <p > It is just a prepayment. </p>
-    </div>
+    <div class="border-box-payment">
+      <div class="row">
+        <h1 class="h1-headline-blue">Book your lawyer now<%= @order.lawyer_sku %></h1>
+        <script src="https://js.stripe.com/v3/"></script>
+        <p > It is just a prepayment. </p>
+      </div>
 
-    <div class="row prepayment">
-      <p style="font-weight:bold;"> Why you should prepay now? </p>
+      <div class="row prepayment">
+        <p style="font-weight:bold;"> Why you should prepay now? </p>
 
-      <p >In order to prove the seriousness of your demand. </p>
-      <p > Obviously, It will be deducted from your final bill! </p>
-    </div>
+        <p >In order to prove the seriousness of your demand. </p>
+        <p > Obviously, It will be deducted from your final bill! </p>
+      </div>
 
-    <h4 style="color: #1F487E;">Prepayment for your lawyer is <%= @order.amount_cents/100 %> $ </h2>
+      <h3 style="color: #1F487E;" class="text-center">Prepayment for your lawyer is <%= @order.amount_cents/100 %> $ </h3>
 
-    <div class="row">
-      <form action="/orders/<%= @order.id %>/payments" method="post" id="payment-form">
-        <div class="form-row stripe-payment">
-          <label for="card-element">
-            Your card details :
-          </label>
+      <div class="row">
+        <form action="/orders/<%= @order.id %>/payments" method="post" id="payment-form">
+          <div class="form-row stripe-payment">
+            <label for="card-element">
+              Your card details :
+            </label>
             <div id="card-element">
               <!-- A Stripe Element will be inserted here. -->
             </div>
             <!-- Used to display form errors. -->
             <div id="card-errors" role="alert"></div>
-        </div>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center">
+            <button class="law-btn">Submit Payment</button>
+            <%= link_to "Pay later", mydashboard_path, class: "law-btn" %>
+          </div>
+        </form>
+      </div>
 
-        <button class="btn btn-primary btn-payment">Submit Payment</button>
+      <div class="row", style="margin-top:30px;">
+      </div>
 
-      </form>
+
     </div>
-
-    <div class="row", style="margin-top:30px;">
-<%= link_to "Pay later", mydashboard_path, class: "law-btn" %>
-    </div>
-
-
   </div>
 </div>
