@@ -139,8 +139,8 @@ lawyer_c = Lawyer.create!(
 )
 
 user_d = User.create!(
-  first_name: "Jules",
-  last_name: "Jamet",
+  first_name: "Michel",
+  last_name: "Martin",
   lawyer: false,
   email: "d@d.d",
   password: "helloworld",
@@ -285,6 +285,8 @@ end
 
 # adding Jules specific seeds
 
+puts "Creating Jules"
+
 user_aa = User.create!(
   first_name: "Jules",
   last_name: "Jamet",
@@ -302,7 +304,7 @@ lawyer_aa = Lawyer.create!(
     email: "lindsay@jonesdivorcelaw.com",
     phone: "0343543235325",
     city: "Paris",
-    price_cents: 30000,
+    price_cents: 25000,
     remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542881156/hmhwmfzjj3181fgrvqvn.png",
     digital_lawyer: true
   )
@@ -343,13 +345,13 @@ puts "create Jules's case.."
     overall_length: 10,
     odds_success:70,
     status: "Accepted",
-    title: "Case 1",
-    description: "good case",
+    title: "Harrassment",
+    description: "Need help to defend my interests and negotiate a package to leave my company",
    })
 
 
 
-puts "create Jules's review.."
+puts "create Jules's reviews.."
 
 Review.create!({
   case: Case.last,
@@ -375,7 +377,7 @@ Review.create!({
 
 
 
-puts "Creating 15 reviews.."
+
 
 # 20.times do
 
@@ -387,3 +389,88 @@ puts "Creating 15 reviews.."
 # })
 # end
 
+puts "Creating Merlin"
+
+user_bb = User.create!(
+  first_name: "Merlin",
+  last_name: "Ha",
+  lawyer: true,
+  email: "merlin@m.m",
+  password: "helloworld",
+  phone: "01235235693",
+  remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542958107/Merlin.jpg"
+)
+
+lawyer_bb = Lawyer.create!(
+  user: user_bb,
+  short_desc: "Severance, Unpaid Wages/Overtime, Discrimination, Retaliation. We handle all employment law matters",
+  long_desc: "I am dedicated to providing exceptional service to individuals and businesses throughout Paris and its area.  My  employment law practice encompasses all areas of employment law including discrimination, harassment, hostile work environment, retaliation, wrongful termination, wage and hour, overtime...",
+    email: "lindsay@jonesdivorcelaw.com",
+    phone: "0343543235325",
+    city: "Paris",
+    price_cents: 50000,
+    remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542958107/Merlin.jpg",
+    digital_lawyer: false
+  )
+
+
+LawyerProperty.create!({lawyer: Lawyer.last, property: Language.find_by(content: "German") })
+LawyerProperty.create!({lawyer: Lawyer.last, property: Language.find_by(content: "English") })
+# LawyerProperty.create!({lawyer: Lawyer.last, property_id: 3 })
+
+LawyerProperty.create!({lawyer: Lawyer.last, property: Communication.find_by(content: "Meeting only")})
+LawyerProperty.create!({lawyer: Lawyer.last, property: Communication.find_by(content: "Mail only")})
+LawyerProperty.create!({lawyer: Lawyer.last, property: Communication.find_by(content: "Phone only")})
+
+LawyerProperty.create!({lawyer: Lawyer.last, property: PaymentType.find_by(content: "Hourly")})
+LawyerProperty.create!({lawyer: Lawyer.last, property: PaymentType.find_by(content: "Fixed")})
+
+
+LawyerProperty.create!({lawyer: Lawyer.last, property: LawField.find_by(content: "Employment Law")})
+LawyerProperty.create!({lawyer: Lawyer.last, property: LawField.find_by(content: "Tax Law")})
+
+
+
+
+
+
+
+# adding booking, review for Jules...
+
+puts "create Jules's case.."
+
+  Case.create!({
+    user: user_bb,
+    lawyer: lawyer_bb,
+    financial_cost: 30,
+    overall_length: 10,
+    odds_success:70,
+    status: "Accepted",
+    title: "Harrassment",
+    description: "Need help to defend my interests and negotiate a package to leave my company",
+   })
+
+
+
+puts "create Jules's reviews.."
+
+Review.create!({
+  case: Case.last,
+  title: "very good lawyer",
+  content: "Merlin was very patient and explains me in details all the steps",
+  stars: 5
+})
+
+Review.create!({
+  case: Case.last,
+  title: "highly recommended",
+  content: "Merlin saved my life!!",
+  stars: 4
+})
+
+Review.create!({
+  case: Case.last,
+  title: "thank you Jules!!!",
+  content: "I was desperate and Merlin changed my life",
+  stars: 4
+})

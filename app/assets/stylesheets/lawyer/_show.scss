@@ -79,7 +79,7 @@
 
 .nav-tabs {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   border-bottom: solid 3px #00B2A6;
 
   // li.active {
@@ -161,3 +161,7 @@
   margin-bottom: 50px;
 }
 
+.tab-content-center {
+  margin-left:auto;
+  margin-right:auto;
+}
