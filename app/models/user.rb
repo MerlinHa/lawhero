@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :lawyers
   has_many :orders
   has_many :cases
+
+  def lawyer?
+    lawyers.any?
+  end
 end

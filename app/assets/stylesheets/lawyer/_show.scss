@@ -111,9 +111,26 @@
 
    li a:active {
     background-color: transparent;
+    border: none;
 
     // border-top: solid 3px $green;
   }
+
+   li a:focus  {
+    background-color: transparent;
+    border: none;
+
+    // border-top: solid 3px $green;
+  }
+
+
+   li:focus {
+    background-color: transparent;
+    border: none;
+
+    // border-top: solid 3px $green;
+  }
+
 
   li.active a {
     background-color: transparent;
