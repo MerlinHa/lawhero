@@ -401,7 +401,7 @@ user_h = User.create!(
   email: "hector@patator.com",
   password: "helloworld",
   phone: "01235455693",
-  remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1542261759/law%20seeds/user_b.jpg"
+  remote_photo_url: "https://res.cloudinary.com/merlinha/image/upload/v1543022672/sage-kirk-485982-unsplash.jpg"
   )
 
 lawyer_h = Lawyer.create!(
