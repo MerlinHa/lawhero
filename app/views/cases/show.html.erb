@@ -1,10 +1,6 @@
 <div class="container">
   <!-- <div class="row"> -->
-    <h1 style="color: #1F487E; display:flex; justify-content: flex-end;">
-      <span>
-        <%= @case.title.upcase %>
-      </span>
-    </h1>
+
     <div class="dashboard-tabs">
       <div class="fake-container">
         <div class="fake-column-1"></div>
@@ -14,7 +10,7 @@
               <a class="nav-link" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true"><b>OVERVIEW</b></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false"><b> MESSSAGES</b></a>
+              <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false"><b> MESSAGES</b></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" id="documents-tab" data-toggle="tab" href="#documents" role="tab" aria-controls="documents" aria-selected="false"><b>DOCUMENTS</b></a>
@@ -23,8 +19,11 @@
               <a class="nav-link" id="time-line-tab" data-toggle="tab" href="#time-line" role="tab" aria-controls="time-line" aria-selected="false"><b> STORY-LINE</b></a>
             </li>
           </ul>
+          <h1 style="color: #1F487E; display:flex; justify-content: flex-end;">
+              <%= @case.title.upcase %>
+          </h1>
         </div>
-        <div class="fake-column-3"></div>
+        <!-- <div class="fake-column-3"></div> -->
       </div>
       <div class="tab-content " id="myTabContent">
         <div class="tab-pane fade tab-content-text in active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
@@ -92,7 +91,7 @@
               </div>
             </div>
 
-            <div style="width: 100%;">
+          <div style="width: 100%;">
             <div class="right-column-dash">
               <div class="messages">
                 <% @case.messages.order(created_at: :desc).each do |message| %>
@@ -101,6 +100,7 @@
               </div>
             </div>
               <%= render "messages/form", form_case: @case, message: @message %>
+              <div class="clearfix"></div>
             </div>
           </div>
         </div>

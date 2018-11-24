@@ -17,14 +17,14 @@
   }
 
   .form-control {
-    color: black;
+    color: $blue;
     height: 50px;
     font-weight:bold;
     font-size: 20px;
   }
 
   ::-webkit-input-placeholder {
-        color: black;
+    color: $blue;
     height: 50px;
     font-weight:bold;
     font-size: 20px;
