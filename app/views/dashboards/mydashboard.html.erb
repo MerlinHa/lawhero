@@ -148,7 +148,6 @@
                   <% @accepted_cases.each do |c| %>
                     <div class="message">
                       <%= cl_image_tag c.lawyer.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
-                      <%= cl_image_tag c.lawyer.user.photo, :width=> 150, :height=>150, :crop=>"fill", class: "avatar-large"%>
                       <div class="message-name">
                         <h3><%= c.lawyer.user.first_name %></h3>
                         <h3><%= c.lawyer.user.last_name %></h3>
