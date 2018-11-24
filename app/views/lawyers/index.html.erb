@@ -11,9 +11,9 @@
 
     <%= select_tag "query[city]", options_for_select(Lawyer.cities, @queries[:city]) , prompt: "Select a city" %>
 
-    <%= select_tag "query[digital_lawyer]", options_for_select(["True", "False"], @queries[:digital_lawyer]), prompt: "Do you need a digital lawyer" %>
+    <%= select_tag "query[digital_lawyer]", options_for_select(["True", "False"], @queries[:digital_lawyer]), prompt: "Digital lawyer" %>
 
-    <%= submit_tag "filter", class: "law-btn no-padding", style: "margin: 0px;" %>
+    <%= submit_tag "filter", class: "law-btn law-btn-fat no-padding", style: "margin: 0px;" %>
   </div>
   <% end %>
 <%#= link_to "All lawyers", all_path, class:"btn btn-primary" %>
@@ -23,7 +23,7 @@
           <div class="border-box-lawyer">
             <div class="message-for-lawyer">
               <div class="photo-lawyer">
-              <%= cl_image_tag lawyer.user.photo, :width=> 100, :height=>100, :crop=>"fill", class: "avatar-large"%>
+              <%= cl_image_tag lawyer.user.photo, :width=> 150, :height=>150, :crop=>"fill", class: "avatar-large"%>
               <% if lawyer.digital_lawyer == true %>
               <i class="fas fa-at pin-nomad"></i>
               <% end %>
